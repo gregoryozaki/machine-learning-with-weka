@@ -22,7 +22,7 @@ O processo está organizado nas seguintes etapas:
 
 **Artefato gerado:**
 
-* [especificações do dataset](/especificacoes_dataset.md), [engenharia de atributos](/engenharia_atributos.md)
+* [especificações do dataset](/especificacoes_dataset.md), [engenharia de atributos](/engenharia_atributos.md).
 
 **Justificativa:**
 
@@ -43,7 +43,7 @@ A literatura sobre geração sintética com LLM indica que a geração tende a s
 
 **Artefato gerado:**
 
-* seção de regras semânticas neste documento.
+* [regras semanticas](/regras_semanticas.md).
 
 **Justificativa:**
 
