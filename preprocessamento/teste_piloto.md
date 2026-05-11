@@ -91,7 +91,7 @@ Verificar se o dataset está corretamente estruturado e pode ser utilizado no We
 | Verificação          | Descrição                                                                         |
 | -------------------- | --------------------------------------------------------------------------------- |
 | Carregamento no Weka | Verificar se o arquivo `.arff` abre corretamente                                  |
-| Número de instâncias | Confirmar a quantidade total de registros                                         |
+| Número de instancias | Confirmar a quantidade total de registros                                         |
 | Número de atributos  | Confirmar se existem 30 atributos                                                 |
 | Classe-alvo          | Verificar se `environmental_waste_risk_level` foi reconhecida como nominal        |
 | Tipos dos atributos  | Verificar se os atributos numéricos e categóricos foram reconhecidos corretamente |
