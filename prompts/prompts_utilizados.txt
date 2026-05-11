@@ -1,0 +1,565 @@
+Prompts Utilizados para Geração do Dataset Sintético
+
+Prompt 01 — Geração de Amostra Inicial
+
+Objetivo: gerar uma amostra pequena para testar estrutura, atributos, faixas, categorias e coerência semântica.
+
+
+"Você deve gerar uma amostra sintética em formato CSV para um dataset de classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
+Cada linha representa um rack de datacenter em uma hora de operação.
+A classe-alvo é: 'environmental_waste_risk_level'
+
+Valores possíveis da classe:
+baixo, moderado, alto
+Gere exatamente 30 registros:
+- 10 registros com classe baixo
+- 10 registros com classe moderado
+- 10 registros com classe alto
+
+Use exatamente as colunas abaixo, nesta ordem:
+active_power_w,
+energy_consumption_kwh,
+water_usage_effectiveness,
+carbon_intensity_gco2_kwh,
+inlet_temperature_c,
+exhaust_temperature_c,
+delta_t_c,
+fan_speed_rpm,
+cooling_method,
+cpu_utilization_percent,
+memory_utilization_percent,
+gpu_power_w,
+gpu_utilization_percent,
+gpu_temperature_c,
+gpu_core_frequency_mhz,
+num_gpus,
+ai_workload_type,
+batch_size,
+num_epochs,
+model_parameter_size_million,
+training_samples,
+job_duration_hours,
+job_status,
+rack_power_density_kw,
+gpu_sharing_mode,
+power_cap_w,
+manufacturer_sku_id,
+rack_label_color,
+rack_inventory_zone,
+environmental_waste_risk_level
+
+Faixas e categorias permitidas:
+
+active_power_w: 500 a 12000
+energy_consumption_kwh: 0.5 a 12.0
+water_usage_effectiveness: 0.1 a 5.0
+carbon_intensity_gco2_kwh: 20 a 900
+inlet_temperature_c: 15 a 35
+exhaust_temperature_c: 25 a 75
+delta_t_c: 2 a 45
+fan_speed_rpm: 1000 a 22000
+cooling_method: air, liquid, immersion, hybrid
+cpu_utilization_percent: 0 a 100
+memory_utilization_percent: 0 a 100
+gpu_power_w: 50 a 700
+gpu_utilization_percent: 0 a 100
+gpu_temperature_c: 30 a 95
+gpu_core_frequency_mhz: 300 a 2500
+num_gpus: 1, 2, 4, 8, 16
+ai_workload_type: training, inference, fine_tuning, idle
+batch_size: 1 a 4096
+num_epochs: 1 a 300
+model_parameter_size_million: 1 a 70000
+training_samples: 1000 a 100000000
+job_duration_hours: 0.05 a 240
+job_status: success, failed, aborted, running
+rack_power_density_kw: 5 a 120
+gpu_sharing_mode: full_gpu, temporal_sharing, mig, none
+power_cap_w: 100 a 12000
+manufacturer_sku_id: sku_a, sku_b, sku_c, sku_d, sku_e
+rack_label_color: blue, green, yellow, red, white
+rack_inventory_zone: zone_a, zone_b, zone_c, zone_d
+environmental_waste_risk_level: baixo, moderado, alto
+
+Regras semânticas obrigatórias:
+1. energy_consumption_kwh deve ser aproximadamente compatível com active_power_w em uma janela de 1 hora.
+   Exemplo: 5000 W deve gerar aproximadamente 5.0 kWh.
+
+2. delta_t_c deve ser aproximadamente compatível com:
+   exhaust_temperature_c - inlet_temperature_c.
+
+3. exhaust_temperature_c deve ser maior ou igual a inlet_temperature_c na maioria dos registros.
+
+4. Alta utilização de GPU tende a estar associada a maior gpu_power_w, active_power_w e energy_consumption_kwh.
+
+5. Baixa utilização de GPU com alta gpu_power_w ou active_power_w pode indicar desperdício.
+
+6. Workloads training e fine_tuning tendem a ter maior duração, maior uso de GPU e maior consumo do que inference e idle.
+
+7. Workload idle deve ter baixa utilização de CPU/GPU, exceto quando a classe for alto por desperdício.
+
+8. Maior num_gpus tende a estar associado a maior rack_power_density_kw, active_power_w e energy_consumption_kwh.
+
+9. gpu_sharing_mode = full_gpu com baixa gpu_utilization_percent pode indicar desperdício maior.
+
+10. gpu_sharing_mode = mig ou temporal_sharing tende a ser mais plausível para workloads pequenos ou de inferência.
+
+11. cooling_method = air deve ser usado com cautela em racks com alta densidade de potência.
+
+12. power_cap_w deve ser coerente com a potência operacional esperada do rack e das GPUs.
+
+13. manufacturer_sku_id, rack_label_color e rack_inventory_zone devem variar aleatoriamente e não devem ter relação com a classe.
+
+14. A classe ambiental deve ser definida por combinação de fatores, não por um único atributo isolado.
+
+Condições gerais para as classes:
+Classe baixo:
+- consumo proporcional à carga computacional;
+- uso coerente de GPU;
+- temperaturas controladas;
+- job_status geralmente success;
+- refrigeração proporcional;
+- menor impacto ambiental relativo.
+
+Classe moderado:
+- sinais parciais de ineficiência;
+- consumo um pouco acima do esperado;
+- utilização intermediária;
+- fan speed elevado, mas ainda justificável;
+- impacto ambiental intermediário.
+
+Classe alto:
+- consumo desproporcional à carga útil;
+- baixa utilização de GPU/CPU com alta potência;
+- idle com alto consumo;
+- job_status failed ou aborted com longa duração;
+- fan speed alto com baixa carga;
+- alto WUE ou alta intensidade de carbono;
+- full_gpu com baixa utilização;
+- alta densidade de potência com cooling_method = air e temperaturas elevadas.
+
+Nesta amostra inicial, não insira valores faltantes, ruído artificial ou outliers extremos. O objetivo é validar primeiro a estrutura normal do dataset.
+Regras de formatação:
+- Responda somente com CSV.
+- Inclua o cabeçalho.
+- Use ponto decimal, não vírgula decimal.
+- Não use separador de milhar.
+- Não escreva explicações."
+
+
+Prompt 02 — Revisão da Amostra Inicial
+
+Objetivo: verificar se a amostra inicial está estrutural e semanticamente correta antes da geração completa.
+
+
+"Analise a amostra CSV fornecida abaixo e verifique se ela está adequada para o dataset sintético sobre classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
+Verifique:
+1. Se todas as colunas esperadas estão presentes.
+2. Se a ordem das colunas está correta.
+3. Se os valores numéricos respeitam as faixas definidas.
+4. Se os valores categóricos usam apenas categorias válidas.
+5. Se energy_consumption_kwh está aproximadamente compatível com active_power_w para uma janela de 1 hora.
+6. Se delta_t_c está aproximadamente compatível com exhaust_temperature_c - inlet_temperature_c.
+7. Se as classes baixo, moderado e alto estão coerentes com as combinações dos atributos.
+8. Se os atributos irrelevantes manufacturer_sku_id, rack_label_color e rack_inventory_zone parecem distribuídos de forma aleatória.
+9. Se existem linhas quebradas, valores faltantes indevidos ou inconsistências de formatação.
+10. Se há risco de a classe estar óbvia demais por causa de um único atributo.
+
+Responda em formato de relatório curto, com:
+- Problemas encontrados;
+- Linhas suspeitas, se houver;
+- Ajustes recomendados no prompt;
+- Veredito: aprovado ou precisa ajustar.
+
+Amostra CSV:
+[COLE A AMOSTRA AQUI]"
+
+
+Prompt 03 — Geração Completa do Dataset Base por Classe
+
+Objetivo: gerar os lotes principais do dataset, ainda sem valores faltantes, ruído ou outliers planejados.
+
+Use este prompt três vezes:
+* uma para `baixo`;
+* uma para `moderado`;
+* uma para `alto`.
+
+Sugestão: gerar 200 registros por classe, totalizando 600 registros.
+
+
+"Você deve gerar um lote sintético em formato CSV para um dataset de classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
+Cada linha representa um rack de datacenter em uma hora de operação.
+A classe-alvo é: 'environmental_waste_risk_level'
+
+Gere exatamente [N] registros para a classe [CLASSE].
+
+Substitua:
+[N] pelo número de registros desejado.
+[CLASSE] por uma das classes: baixo, moderado ou alto.
+
+Use exatamente as colunas abaixo, nesta ordem:
+
+active_power_w,
+energy_consumption_kwh,
+water_usage_effectiveness,
+carbon_intensity_gco2_kwh,
+inlet_temperature_c,
+exhaust_temperature_c,
+delta_t_c,
+fan_speed_rpm,
+cooling_method,
+cpu_utilization_percent,
+memory_utilization_percent,
+gpu_power_w,
+gpu_utilization_percent,
+gpu_temperature_c,
+gpu_core_frequency_mhz,
+num_gpus,
+ai_workload_type,
+batch_size,
+num_epochs,
+model_parameter_size_million,
+training_samples,
+job_duration_hours,
+job_status,
+rack_power_density_kw,
+gpu_sharing_mode,
+power_cap_w,
+manufacturer_sku_id,
+rack_label_color,
+rack_inventory_zone,
+environmental_waste_risk_level
+
+Faixas e categorias permitidas:
+
+active_power_w: 500 a 12000
+energy_consumption_kwh: 0.5 a 12.0
+water_usage_effectiveness: 0.1 a 5.0
+carbon_intensity_gco2_kwh: 20 a 900
+inlet_temperature_c: 15 a 35
+exhaust_temperature_c: 25 a 75
+delta_t_c: 2 a 45
+fan_speed_rpm: 1000 a 22000
+cooling_method: air, liquid, immersion, hybrid
+cpu_utilization_percent: 0 a 100
+memory_utilization_percent: 0 a 100
+gpu_power_w: 50 a 700
+gpu_utilization_percent: 0 a 100
+gpu_temperature_c: 30 a 95
+gpu_core_frequency_mhz: 300 a 2500
+num_gpus: 1, 2, 4, 8, 16
+ai_workload_type: training, inference, fine_tuning, idle
+batch_size: 1 a 4096
+num_epochs: 1 a 300
+model_parameter_size_million: 1 a 70000
+training_samples: 1000 a 100000000
+job_duration_hours: 0.05 a 240
+job_status: success, failed, aborted, running
+rack_power_density_kw: 5 a 120
+gpu_sharing_mode: full_gpu, temporal_sharing, mig, none
+power_cap_w: 100 a 12000
+manufacturer_sku_id: sku_a, sku_b, sku_c, sku_d, sku_e
+rack_label_color: blue, green, yellow, red, white
+rack_inventory_zone: zone_a, zone_b, zone_c, zone_d
+environmental_waste_risk_level: baixo, moderado, alto
+
+Regras semânticas obrigatórias:
+
+1. energy_consumption_kwh deve ser aproximadamente compatível com active_power_w em uma janela de 1 hora.
+2. delta_t_c deve ser aproximadamente compatível com exhaust_temperature_c - inlet_temperature_c.
+3. exhaust_temperature_c deve ser maior ou igual a inlet_temperature_c na maioria dos registros.
+4. Alta utilização de GPU tende a maior gpu_power_w, active_power_w e energy_consumption_kwh.
+5. Baixa utilização de GPU com alta gpu_power_w ou active_power_w pode indicar desperdício.
+6. Workloads training e fine_tuning tendem a ter maior duração, maior uso de GPU e maior consumo do que inference e idle.
+7. Workload idle deve ter baixa utilização de CPU/GPU, exceto em casos de desperdício alto.
+8. Maior num_gpus tende a aumentar rack_power_density_kw, active_power_w e energy_consumption_kwh.
+9. gpu_core_frequency_mhz mais alta tende a aumentar desempenho e consumo.
+10. power_cap_w deve ser coerente com o consumo e a configuração do rack.
+11. gpu_sharing_mode = full_gpu com baixa utilização pode indicar desperdício.
+12. gpu_sharing_mode = mig ou temporal_sharing é mais plausível para workloads leves ou de inferência.
+13. cooling_method = air deve ser usado com cautela em alta densidade de potência.
+14. fan_speed_rpm alto com baixa utilização de CPU/GPU pode indicar refrigeração excessiva.
+15. water_usage_effectiveness alto combinado com consumo alto aumenta o risco ambiental.
+16. carbon_intensity_gco2_kwh alto combinado com consumo alto aumenta o risco ambiental.
+17. manufacturer_sku_id, rack_label_color e rack_inventory_zone devem variar aleatoriamente e não devem seguir padrão por classe.
+18. A classe deve ser determinada por combinação de fatores, não por um único atributo isolado.
+
+Condições por classe:
+
+Se [CLASSE] = baixo:
+- gere registros com consumo proporcional à carga computacional;
+- uso coerente de GPU;
+- temperaturas controladas;
+- job_status majoritariamente success;
+- power_cap_w compatível com a carga;
+- refrigeração proporcional;
+- baixo ou moderado impacto ambiental relativo.
+
+Se [CLASSE] = moderado:
+- gere registros com sinais parciais de ineficiência;
+- utilização intermediária de GPU/CPU;
+- consumo médio ou alto, mas não extremo;
+- fan_speed_rpm elevado em alguns casos;
+- power_cap_w um pouco acima da necessidade em alguns registros;
+- impacto ambiental intermediário.
+
+Se [CLASSE] = alto:
+- gere registros com consumo desproporcional à carga útil;
+- baixa utilização de GPU/CPU com alta potência em parte dos registros;
+- idle com alto consumo em parte dos registros;
+- job_status failed ou aborted com duração alta em parte dos registros;
+- fan_speed_rpm alto com baixa carga em parte dos registros;
+- alto WUE ou alta intensidade de carbono em parte dos registros;
+- gpu_sharing_mode = full_gpu com baixa utilização em parte dos registros;
+- alta densidade de potência com refrigeração inadequada em parte dos registros.
+
+Nesta etapa:
+- não insira valores faltantes;
+- não use "?";
+- não gere outliers extremos;
+- não aplique ruído artificial proposital;
+- o dataset base deve estar estruturalmente limpo.
+
+Regras de formatação:
+- Responda somente com CSV.
+- Inclua o cabeçalho.
+- Use ponto decimal, não vírgula decimal.
+- Não use separador de milhar.
+- Não escreva explicações."
+
+
+Prompt 04 — Consolidação dos Lotes
+
+Objetivo: juntar os lotes gerados por classe em um único CSV, mantendo cabeçalho único.
+
+"Você receberá três lotes CSV de um dataset sintético.
+Sua tarefa é consolidar os lotes em um único CSV.
+Regras:
+
+1. Mantenha apenas um cabeçalho no início.
+2. Não altere nomes de colunas.
+3. Não altere a ordem das colunas.
+4. Não crie colunas novas.
+5. Não remova colunas.
+6. Não altere os valores das linhas.
+7. Não escreva explicações.
+8. Retorne somente o CSV consolidado.
+
+Lote 1:
+
+[COLE O LOTE DA CLASSE BAIXO AQUI]
+
+Lote 2:
+
+[COLE O LOTE DA CLASSE MODERADO AQUI]
+
+Lote 3:
+
+[COLE O LOTE DA CLASSE ALTO AQUI]"
+
+
+Prompt 05 — Inserção Controlada de Valores Faltantes, Ruído e Outliers
+
+Objetivo: aplicar a estratégia de anomalias e inconsistências ao dataset base já consolidado.
+
+"Você receberá um dataset sintético em CSV sobre racks de datacenters voltados a cargas de IA.
+Sua tarefa é aplicar, de forma controlada, valores faltantes, ruído e outliers, preservando a estrutura do dataset.
+
+Não altere os nomes das colunas.
+Não remova colunas.
+Não crie novas colunas.
+Não altere a ordem das colunas.
+Não altere a classe de forma arbitrária.
+Não destrua a coerência semântica geral dos registros.
+
+Use "?" para representar valores faltantes, pois esse formato é compatível com ARFF/Weka.
+
+Aplique as seguintes proporções aproximadas:
+
+1. Valores faltantes:
+- entre 3% e 7% do dataset;
+- aplicar apenas em alguns atributos selecionados.
+
+Atributos candidatos para valores faltantes:
+gpu_temperature_c
+fan_speed_rpm
+water_usage_effectiveness
+carbon_intensity_gco2_kwh
+job_status
+
+2. Ruído:
+- aplicar em aproximadamente 5% a 10% dos registros;
+- o ruído deve ser leve e plausível;
+- não deve gerar valores fora das faixas aceitáveis, salvo quando o registro também for outlier planejado.
+
+Atributos candidatos para ruído:
+active_power_w
+energy_consumption_kwh
+gpu_power_w
+cpu_utilization_percent
+memory_utilization_percent
+gpu_utilization_percent
+inlet_temperature_c
+exhaust_temperature_c
+gpu_temperature_c
+delta_t_c
+fan_speed_rpm
+gpu_core_frequency_mhz
+
+Tipos de ruído:
+- pequenas variações numéricas em potência e energia;
+- pequenas oscilações em percentuais de utilização;
+- pequenas variações térmicas;
+- pequenas oscilações em fan speed e frequência da GPU.
+
+3. Outliers:
+- aplicar em aproximadamente 3% a 5% dos registros;
+- os outliers devem ser interpretáveis no contexto de datacenters de IA;
+- não devem ser valores aleatórios absurdos;
+- podem ser outliers absolutos ou relacionais.
+
+Tipos de outliers planejados:
+- alta potência com baixa utilização de CPU/GPU;
+- temperatura alta mesmo com fan_speed_rpm elevado;
+- job_status = failed ou aborted com job_duration_hours alto;
+- alto consumo combinado com alta carbon_intensity_gco2_kwh;
+- alto consumo combinado com alto water_usage_effectiveness;
+- fan_speed_rpm alto com baixa carga computacional;
+- gpu_sharing_mode = full_gpu com baixa gpu_utilization_percent;
+- rack_power_density_kw alto com cooling_method = air e temperaturas elevadas.
+
+Regras que devem continuar sendo respeitadas:
+- atributos percentuais devem ficar entre 0 e 100;
+- valores categóricos devem continuar dentro das categorias válidas;
+- delta_t_c deve continuar aproximadamente coerente com exhaust_temperature_c - inlet_temperature_c, exceto em poucos casos de ruído planejado;
+- manufacturer_sku_id, rack_label_color e rack_inventory_zone devem continuar aleatórios e sem relação com a classe;
+- environmental_waste_risk_level deve continuar sendo apenas baixo, moderado ou alto.
+
+Formato de saída:
+- Retorne o dataset completo em CSV.
+- Inclua o cabeçalho.
+- Use ponto decimal, não vírgula decimal.
+- Use "?" para valores faltantes.
+- Não escreva explicações.
+- Não use markdown.
+- Não resuma o dataset.
+
+Dataset base:
+
+[COLE O DATASET BASE CONSOLIDADO AQUI]"
+
+Prompt 06 — Validação Estrutural e Semântica do Dataset Final
+
+Objetivo: auditar o dataset depois da inserção de valores faltantes, ruído e outliers.
+
+"Analise o dataset CSV fornecido abaixo e verifique se ele atende aos requisitos definidos para o dataset sintético de classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
+Verifique:
+
+1. Se há pelo menos 500 instâncias.
+2. Se todas as 30 colunas esperadas estão presentes.
+3. Se a ordem das colunas está correta.
+4. Se a classe environmental_waste_risk_level contém apenas baixo, moderado e alto.
+5. Se existem registros das três classes.
+6. Se os atributos categóricos usam apenas categorias válidas.
+7. Se os valores numéricos estão majoritariamente dentro das faixas plausíveis.
+8. Se há valores faltantes representados por "?".
+9. Se a proporção de valores faltantes parece estar aproximadamente entre 3% e 7%.
+10. Se há ruído leve em parte dos registros.
+11. Se há outliers interpretáveis.
+12. Se os outliers não parecem aleatórios ou absurdos.
+13. Se os atributos irrelevantes manufacturer_sku_id, rack_label_color e rack_inventory_zone parecem aleatórios e sem relação clara com a classe.
+14. Se há linhas quebradas, colunas deslocadas, vírgulas indevidas ou problemas de formatação.
+15. Se há risco de vazamento de informação ou de a classe estar óbvia demais por causa de um único atributo.
+
+Responda com:
+- Resumo da validação;
+- Problemas encontrados;
+- Exemplos de linhas suspeitas, se houver;
+- Correções recomendadas;
+- Veredito final: aprovado, aprovado com ressalvas ou reprovado.
+
+Dataset CSV:
+
+[COLE O DATASET FINAL AQUI]"
+
+Prompt 07 — Geração do Cabeçalho ARFF
+
+Objetivo: gerar a estrutura ARFF compatível com Weka.
+
+"Gere apenas o cabeçalho ARFF para o dataset abaixo.
+
+O nome da relação deve ser:
+
+datacenter_ai_environmental_waste_risk
+
+Use os atributos nesta ordem:
+
+active_power_w,
+energy_consumption_kwh,
+water_usage_effectiveness,
+carbon_intensity_gco2_kwh,
+inlet_temperature_c,
+exhaust_temperature_c,
+delta_t_c,
+fan_speed_rpm,
+cooling_method,
+cpu_utilization_percent,
+memory_utilization_percent,
+gpu_power_w,
+gpu_utilization_percent,
+gpu_temperature_c,
+gpu_core_frequency_mhz,
+num_gpus,
+ai_workload_type,
+batch_size,
+num_epochs,
+model_parameter_size_million,
+training_samples,
+job_duration_hours,
+job_status,
+rack_power_density_kw,
+gpu_sharing_mode,
+power_cap_w,
+manufacturer_sku_id,
+rack_label_color,
+rack_inventory_zone,
+environmental_waste_risk_level
+
+Tipos:
+
+active_power_w: numeric
+energy_consumption_kwh: numeric
+water_usage_effectiveness: numeric
+carbon_intensity_gco2_kwh: numeric
+inlet_temperature_c: numeric
+exhaust_temperature_c: numeric
+delta_t_c: numeric
+fan_speed_rpm: numeric
+cooling_method: {air,liquid,immersion,hybrid}
+cpu_utilization_percent: numeric
+memory_utilization_percent: numeric
+gpu_power_w: numeric
+gpu_utilization_percent: numeric
+gpu_temperature_c: numeric
+gpu_core_frequency_mhz: numeric
+num_gpus: numeric
+ai_workload_type: {training,inference,fine_tuning,idle}
+batch_size: numeric
+num_epochs: numeric
+model_parameter_size_million: numeric
+training_samples: numeric
+job_duration_hours: numeric
+job_status: {success,failed,aborted,running}
+rack_power_density_kw: numeric
+gpu_sharing_mode: {full_gpu,temporal_sharing,mig,none}
+power_cap_w: numeric
+manufacturer_sku_id: {sku_a,sku_b,sku_c,sku_d,sku_e}
+rack_label_color: {blue,green,yellow,red,white}
+rack_inventory_zone: {zone_a,zone_b,zone_c,zone_d}
+environmental_waste_risk_level: {baixo,moderado,alto}
+
+Regras:
+- Gere somente o cabeçalho ARFF.
+- Inclua a linha @data ao final.
+- Não inclua linhas de dados.
+- Não escreva explicações."

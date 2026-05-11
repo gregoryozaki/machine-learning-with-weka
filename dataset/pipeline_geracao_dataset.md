@@ -80,17 +80,17 @@ Valores faltantes, ruído e outliers são requisitos do trabalho e também simul
 **O que será feito:**
 
 * criar prompts com instruções explícitas;
+* informar requisitos;
 * informar os atributos e seus tipos;
 * informar as faixas permitidas;
 * informar as regras semânticas;
+* informar o plano de inserção controlada de valores faltantes, ruídos e outliers;
 * informar o formato esperado da saída;
 * solicitar saída em formato tabular, preferencialmente CSV;
-* versionar os prompts utilizados.
 
 **Artefatos gerados:**
 
-* `prompts/prompts_utilizados.txt`;
-* versões dos prompts, se necessário.
+* [prompts utiliados para geração de dataset](/prompts/prompts_utilizados.txt);
 
 **Justificativa:**
 

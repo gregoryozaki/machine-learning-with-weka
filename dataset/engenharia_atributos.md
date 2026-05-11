@@ -37,7 +37,7 @@ A seleção dos atributos considerou:
 | 11 | Job Status / Exit Code | Categórico | Operacional | Resultado da execução de um job, como sucesso, erro ou falha | N/A | Servidor / Workload |
 | 12 | P-states / C-states | Categórico | Operacional | Estados de voltagem, frequência e economia de energia da CPU | N/A | Componente |
 | 13 | Fator de Potência | Numérico | Energético | Razão entre potência real e potência aparente | Ratio | Rack |
-| 14 | ID de Fabricante / SKU | Categórico | Operacional | Metadados estáticos do hardware | N/A | Servidor |
+| 14 | ID de Fabricante / SKU | Categórico | Controle / Irrelevante | Metadado estático do hardware, usado como atributo de controle sem relação direta esperada com o desperdício ambiental | N/A | Servidor / Rack |
 | 15 | PUE Global — Power Usage Effectiveness | Numérico | Energético | Eficiência energética total da instalação | Ratio | Datacenter |
 | 16 | Timestamp | Numérico | Operacional | Registro temporal da coleta dos dados | ms / s | Todos |
 | 17 | Throughput Bruto — FLOPS | Numérico | Computacional | Capacidade teórica de processamento | Ops/s | Componente |
@@ -64,8 +64,11 @@ A seleção dos atributos considerou:
 | 38 | Power Budget / Orçamento de Potência | Numérico | Operacional / Energético | Orçamento de potência disponível para execução de jobs ou operação do cluster | W | Rack / Cluster |
 | 39 | Taxa de Requisições de Inferência | Numérico | Workload IA | Volume de requisições processadas em workloads de inferência | req/s | Workload |
 | 40 | Quantidade de Tokens Processados | Numérico | Workload IA | Número de tokens processados em tarefas de inferência de LLMs | tokens | Workload |
-| 41 | Cor da Etiqueta do Rack | Categórico | Controle | Atributo artificial sem relação semântica com desperdício ambiental | N/A | Rack |
-| 42 | Nível de Risco de Desperdício Ambiental | Categórico | Classe | Classe-alvo do dataset | ```baixo / moderado / alto``` | Rack |
+| 41 | Densidade de Potência do Rack | Numérico | Infraestrutura IA / Energético | Potência média ou projetada por rack, usada para representar a intensidade energética de racks de IA de alta densidade. | kW | Rack |
+| 42 | Modo de Compartilhamento da GPU | Categórico | IA / Configuração | Forma de alocação da GPU, como uso exclusivo, compartilhamento temporal ou particionamento via MIG. | N/A | GPU / Workload |
+| 43 | Cor da Etiqueta do Rack | Categórico | Controle | Atributo artificial sem relação semântica com desperdício ambiental | N/A | Rack |
+| 44 | Zona de Inventário do Rack | Categórico | Controle / Irrelevante | Metadado administrativo usado para representar uma zona interna de inventário ou organização do rack | N/A | Rack |
+| 45 | Nível de Risco de Desperdício Ambiental | Categórico | Classe | Classe-alvo do dataset | ```baixo / moderado / alto``` | Rack |
 
 ---
 
@@ -86,7 +89,7 @@ A seleção dos atributos considerou:
 | 11 | Job Status / Exit Code | Relevante | Jobs com erro ou falha podem desperdiçar energia e carbono acumulados durante a execução | Grishina; Bartolini | Feature preditora / base para regra semântica | Sim |
 | 12 | P-states / C-states | Relevante, mas substituível | Representa estados de economia de energia da CPU. No recorte de IA, pode ser substituído por frequência/clock da GPU | Guitart; Meisner | Feature preditora ou atributo a substituir | Opcional |
 | 13 | Fator de Potência | Relevante | Baixo fator de potência indica uso menos eficiente da energia elétrica e perdas na distribuição | Shedd; Bartolini | Feature preditora | Sim |
-| 14 | ID de Fabricante / SKU | Irrelevante | Informação estática do hardware. Pode ter relação indireta com eficiência, por isso não é o melhor atributo irrelevante | Grishina; Curtis | Atributo a descartar / substituir | Não |
+| 14 | ID de Fabricante / SKU | Irrelevante / Controle | Informação estática do hardware incluída como atributo de controle. Para evitar viés artificial, seus valores serão distribuídos aleatoriamente e não serão usados nas regras de geração da classe-alvo | Grishina; Curtis | Atributo irrelevante / candidato a remoção no pré-processamento | Sim |
 | 15 | PUE Global — Power Usage Effectiveness | Irrelevante para nível de rack | Métrica de granularidade de datacenter, podendo ocultar ineficiências específicas de rack | Grishina; Sommerhalter; Ferraz; Cruzes | Atributo a descartar | Não |
 | 16 | Timestamp | Irrelevante como preditor | Serve para indexação temporal, mas não representa diretamente desperdício ambiental | Bartolini; Sommerhalter | Feature de indexação | Não |
 | 17 | Throughput Bruto — FLOPS | Irrelevante ou substituível | Mede capacidade teórica de processamento. Sem vínculo com energia, pode não representar desperdício ambiental | Fanara; Sommerhalter | Atributo a descartar / substituir | Não |
@@ -108,13 +111,16 @@ A seleção dos atributos considerou:
 | 33 | Throughput de Treinamento | Relevante | Relaciona desempenho com consumo e pode apoiar análise de eficiência energética | Gu et al. | Feature preditora ou métrica auxiliar | Opcional |
 | 34 | Energia por Iteração | Derivado / risco de vazamento | Resume diretamente energia por unidade de processamento. Pode aproximar demais a regra de rotulagem | Gu et al. | Métrica auxiliar interna | Apenas internamente |
 | 35 | Método de Refrigeração | Relevante | Métodos como ar, refrigeração líquida e imersão alteram eficiência térmica, energia e uso de água | Sunkara; Narukulla; Cruzes | Feature preditora | Sim |
-| 36 | Emissão Estimada de Carbono | Derivado | Estimada a partir de energia e intensidade de carbono. Útil para análise, mas pode causar vazamento se a classe depender diretamente dela | Ferraz; Cruzes | Métrica auxiliar ou feature com cautela | Opcional |
+| 36 | Emissão Estimada de Carbono | Derivado | Estimada a partir de energia e intensidade de carbono. Útil para análise, mas pode causar vazamento se a classe depender diretamente dela | Cho et al.; Chung et al. | Feature preditora | Opcional |
 | 37 | Power Cap / Limite de Potência | Relevante | Limites de potência influenciam desempenho, subutilização e desperdício planejado | Cho et al.; Chung et al. | Feature preditora | Opcional |
 | 38 | Power Budget / Orçamento de Potência | Relevante | Orçamento energético influencia alocação de jobs e decisões de scheduling | Gu et al. | Feature preditora | Opcional |
 | 39 | Taxa de Requisições de Inferência | Relevante para inferência | Volume de requisições altera consumo, carga e demanda de recursos | Lai et al.; Cho et al. | Feature preditora | Opcional |
 | 40 | Quantidade de Tokens Processados | Relevante para inferência | Tokens processados influenciam demanda computacional, memória e potência em LLMs | Lai et al.; Cruzes | Feature preditora | Opcional |
-| 41 | Cor da Etiqueta do Rack | Irrelevante | Atributo artificial sem relação semântica com desperdício ambiental, incluído para atender ao requisito de atributo irrelevante | Autores do projeto | Atributo irrelevante | Sim |
-| 42 | Nível de Risco de Desperdício Ambiental | Classe-alvo | Representa a variável a ser prevista pelo modelo de classificação | Autores do projeto | Classe-alvo | Sim |
+| 41 | Densidade de Potência do Rack | Relevante | Racks de IA podem apresentar densidades de potência muito superiores às de datacenters tradicionais, o que aumenta exigências térmicas, energéticas e de refrigeração. | Cruzes; Sunkara; Narukulla | Feature preditora | Sim |
+| 42 | Modo de Compartilhamento da GPU | Relevante | O modo de compartilhamento da GPU influencia a subutilização e o desperdício energético, especialmente quando GPUs potentes são alocadas integralmente para cargas pequenas. | Jacquet et al. | Feature preditora | Sim |
+| 43 | Cor da Etiqueta do Rack | Irrelevante | Atributo artificial sem relação semântica com desperdício ambiental, incluído para atender ao requisito de atributo irrelevante | Autores do projeto | Atributo irrelevante | Sim |
+| 45 | Zona de Inventário do Rack | Irrelevante / Controle | Metadado administrativo de organização do rack, sem relação semântica esperada com consumo energético, refrigeração, carga computacional ou impacto ambiental. Seus valores serão distribuídos aleatoriamente | Autores do projeto | Atributo irrelevante / candidato a remoção no pré-processamento | Sim |
+| 45 | Nível de Risco de Desperdício Ambiental | Classe-alvo | Representa a variável a ser prevista pelo modelo de classificação | Autores do projeto | Classe-alvo | Sim |
 
 ---
 
@@ -146,5 +152,10 @@ A seleção dos atributos considerou:
 | 21 | Quantidade de Amostras de Treinamento | `training_samples` | `amostras_treinamento` | Número absoluto | Numérico | Workload IA | 1000 a 100000000 |
 | 22 | Duração do Job | `job_duration_hours` | `duracao_job_horas` | Horas | Numérico | Operacional | 0.05 a 240 |
 | 23 | Job Status / Exit Code | `job_status` | `status_job` | N/A | Categórico | Operacional | `success`, `failed`, `aborted`, `running` |
-| 24 | Cor da Etiqueta do Rack | `rack_label_color` | `cor_etiqueta_rack` | N/A | Categórico | Controle / Irrelevante | `blue`, `green`, `yellow`, `red`, `white` |
-| 25 | Nível de Risco de Desperdício Ambiental | `environmental_waste_risk_level` | `nivel_risco_desperdicio_ambiental` | N/A | Categórico | Classe | `baixo`, `moderado`, `alto` |
+| 24 | Densidade de Potência do Rack | `rack_power_density_kw` | `densidade_potencia_rack_kw` | kW | Numérico | Infraestrutura IA / Energético | 5 a 120 |
+| 25 | Modo de Compartilhamento da GPU | `gpu_sharing_mode` | `modo_compartilhamento_gpu` | N/A | Categórico | IA / Configuração | `full_gpu`, `temporal_sharing`, `mig`, `none` |
+| 26 | Power Cap / Limite de Potência | `power_cap_w` | `limite_potencia_w` | W | Numérico | Operacional / Energético | 100 a 12000 |
+| 27 | ID de Fabricante / SKU | `manufacturer_sku_id` | `id_fabricante_sku` | N/A | Categórico | Controle / Irrelevante | `sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e` |
+| 28 | Cor da Etiqueta do Rack | `rack_label_color` | `cor_etiqueta_rack` | N/A | Categórico | Controle / Irrelevante | `blue`, `green`, `yellow`, `red`, `white` |
+| 29 | Zona de Inventário do Rack | `rack_inventory_zone` | `zona_inventario_rack` | N/A | Categórico | Controle / Irrelevante | `zone_a`, `zone_b`, `zone_c`, `zone_d` |
+| 30 | Nível de Risco de Desperdício Ambiental | `environmental_waste_risk_level` | `nivel_risco_desperdicio_ambiental` | N/A | Categórico | Classe | `baixo`, `moderado`, `alto` |
