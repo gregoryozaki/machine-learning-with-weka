@@ -22,7 +22,7 @@ O processo está organizado nas seguintes etapas:
 
 **Artefato gerado:**
 
-* [especificações do dataset](/especificacoes_dataset.md), [engenharia de atributos](/engenharia_atributos.md).
+* [README](/README.md),[engenharia de atributos](/engenharia_atributos.md).
 
 **Justificativa:**
 
@@ -51,7 +51,29 @@ A geração com LLM não deve ser livre ou aleatória. As regras semânticas fun
 
 ---
 
-### Etapa 3 — Construção dos Prompts
+### Etapa 3 — Planejamento de Anomalias e Inconsistências
+
+**Objetivo:** definir previamente como valores faltantes, ruído e outliers serão tratados no processo de geração do dataset.
+
+**O que será feito:**
+
+* definir quais atributos poderão receber valores faltantes;
+* definir quais atributos poderão receber ruído;
+* definir quais tipos de outliers serão inseridos;
+* definir proporções aproximadas para cada tipo de inconsistência;
+* garantir que esses elementos sejam inseridos de forma controlada e documentada.
+
+**Artefato gerado:**
+
+* [planejamento da inserção controlada de valores faltantes, ruidos e outliers](/planejamento_anomalias_inconsistencias.md)
+
+**Justificativa:**
+
+Valores faltantes, ruído e outliers são requisitos do trabalho e também simulam problemas comuns em dados operacionais reais. Planejar esses elementos antes da geração evita inserções aleatórias e permite controlar melhor a qualidade e a rastreabilidade do dataset.
+
+---
+
+### Etapa 4 — Construção dos Prompts
 
 **Objetivo:** criar prompts estruturados para orientar a geração dos dados.
 
@@ -76,7 +98,7 @@ A literatura analisada no MSL 3 aponta que prompts estruturados, com esquema, re
 
 ---
 
-### Etapa 4 — Geração de Amostra Inicial
+### Etapa 5 — Geração de Amostra Inicial
 
 **Objetivo:** testar se o LLM compreende a estrutura esperada antes da geração completa.
 
@@ -100,7 +122,7 @@ A geração de uma amostra inicial reduz o risco de gerar um dataset completo co
 
 ---
 
-### Etapa 5 — Geração Completa do Dataset
+### Etapa 6 — Geração Completa do Dataset
 
 **Objetivo:** gerar o dataset sintético completo.
 
@@ -130,7 +152,7 @@ A geração por classe ou cenário ajuda a controlar a distribuição da classe-
 
 ---
 
-### Etapa 6 — Inserção Planejada de Valores Faltantes, Ruído e Outliers
+### Etapa 7 — Inserção Controlada de Valores Faltantes, Ruído e Outliers
 
 **Objetivo:** atender aos requisitos do trabalho e simular imperfeições presentes em dados operacionais.
 
@@ -152,7 +174,7 @@ O enunciado do trabalho exige que o dataset contenha valores faltantes, ruído e
 
 ---
 
-### Etapa 7 — Validação Estrutural e Semântica da Geração
+### Etapa 8 — Validação Estrutural e Semântica da Geração
 
 **Objetivo:** verificar se o dataset gerado atende aos requisitos mínimos e se está coerente com o esquema definido.
 
@@ -180,7 +202,7 @@ Esta etapa **não corresponde ao pré-processamento formal**. Valores faltantes,
 
 ---
 
-### Etapa 8 — Documentação e Rastreabilidade
+### Etapa 9 — Documentação e Rastreabilidade
 
 **Objetivo:** registrar o processo de geração do dataset.
 
