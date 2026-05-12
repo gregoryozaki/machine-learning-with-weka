@@ -25,7 +25,7 @@ Verificar se o conjunto de dados está corretamente estruturado e pode ser utili
 
 ### 1. Carregamento no Weka
 A base foi aberta corretamente no Weka, sem erros de importação.
-![Captura de tela do Weka](<img width="800" height="559" alt="Banco_de_dados_tela_inicial" src="https://github.com/user-attachments/assets/05435f68-a568-44b8-bec1-89b01fcd0fc1" />
+![Captura de tela do Weka](<https://github.com/user-attachments/assets/05435f68-a568-44b8-bec1-89b01fcd0fc1>
 )
 
 ### 2. Número de instâncias
