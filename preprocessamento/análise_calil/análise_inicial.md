@@ -3,7 +3,7 @@
 ### Objetivo:
 Realizar uma análise exploratória inicial do dataset original antes da aplicação de qualquer técnica de pré-processamento.
 
-### Equipe de Testes: Calil Lima, Tiago Santos, Wamberson Pacheco
+### Analisador: Calil Lima
 
 ----
 
@@ -29,7 +29,7 @@ Verificar se o dataset está tecnicamente correto, se abre no Weka sem erro e se
 
 ### Carregamento no Weka e verificação de instâncias e atributos:
 
-![conteudoWeka](<../imagens/Captura de tela 2026-05-12 001241.png>)
+![conteudoWeka](../análise_calil/imagens/wekaInicial.png)
 
 <p align="justify">
 O dataset dataset_original.arff foi carregado corretamente no Weka, sem apresentar erros de leitura ou formatação. 
@@ -69,7 +69,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo active_power_w:
 
 <div align="center">
-  <img src="../imagens/activatePowerHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/activatePowerHist.png">
 </div>
 
 ----
@@ -77,7 +77,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo energy_consumption_kwh:
 
 <div align="center">
-  <img src="../imagens/energyConsulHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/energyConsulHist.png">
 </div>
 
 ----
@@ -85,7 +85,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo water_usage_effectiveness:
 
 <div align="center">
-  <img src="../imagens/waterUsageHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/waterUsageHist.png">
 </div>
 
 ----
@@ -93,7 +93,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo carbon_intensity_gco2_kwh:
 
 <div align="center">
-  <img src="../imagens/carbonIntensityHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/carbonIntensityHist.png">
 </div>
 
 ----
@@ -101,7 +101,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo inlet_temperature_c:
 
 <div align="center">
-  <img src="../imagens/inletTemperatureHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/inletTemperatureHist.png">
 </div>
 
 ----
@@ -109,7 +109,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo exhaust_temperature_c:
 
 <div align="center">
-  <img src="../imagens/exhaustTemperatureHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/exhaustTemperatureHist.png">
 </div>
 
 ----
@@ -117,7 +117,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo delta_t_c:
 
 <div align="center">
-  <img src="../imagens/deltaTHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/deltaTHist.png">
 </div>
 
 ----
@@ -125,7 +125,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo fan_speed_rpm:
 
 <div align="center">
-  <img src="../imagens/fanSpeedHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/fanSpeedHist.png">
 </div>
 
 ----
@@ -133,7 +133,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo gpu_power_w:
 
 <div align="center">
-  <img src="../imagens/gpuPowerHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/gpuPowerHist.png">
 </div>
 
 ----
@@ -141,7 +141,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo gpu_utilization_percent:
 
 <div align="center">
-  <img src="../imagens/gpuUtilizationHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/gpuUtilizationHist.png">
 </div>
 
 ----
@@ -149,7 +149,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo gpu_temperature_c:
 
 <div align="center">
-  <img src="../imagens/GpuTemperatureHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/GpuTemperatureHist.png">
 </div>
 
 ----
@@ -157,7 +157,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo job_duration_hours:
 
 <div align="center">
-  <img src="../imagens/jobDurationHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/jobDurationHist.png">
 </div>
 
 ----
@@ -165,7 +165,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo rack_power_density_kw:
 
 <div align="center">
-  <img src="../imagens/rackPowerHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/rackPowerHist.png">
 </div>
 
 ----
@@ -173,7 +173,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo power_cap_w:
 
 <div align="center">
-  <img src="../imagens/powerCapHist.png" alt="conteudoWeka">
+  <img src="../análise_calil/imagens/powerCapHist.png">
 </div>
 
 ----
@@ -231,3 +231,240 @@ Esses atributos devem receber mais atenção porque podem influenciar diretament
 | A2 | Estatística descritiva | `active_power_w`, `fan_speed_rpm`, `job_duration_hours`, `rack_power_density_kw` | Alta dispersão nos atributos | Histogramas e estatísticas do Weka | Existem cargas operacionais muito distintas | Pode exigir normalização     | Avaliar normalização em algoritmos sensíveis à escala |
 
 ----
+
+## Etapa 3 - Análise de Valores Faltantes
+### Objetivo da etapa:
+Verificar se os valores faltantes foram inseridos conforme o planejamento e levantar hipóteses sobre o tratamento posterior.
+
+### O que sera analisado
+
+| Verificação                     | Descrição                                                    |
+| ------------------------------- | ------------------------------------------------------------ |
+| Quantidade de valores faltantes | Contar quantos `?` existem no dataset                        |
+| Atributos afetados              | Verificar em quais colunas aparecem valores faltantes        |
+| Proporção de faltantes          | Verificar se está próxima da proporção planejada             |
+| Distribuição por classe         | Observar se faltantes aparecem concentrados em alguma classe |
+| Impacto potencial               | Avaliar se os faltantes afetam atributos críticos            |
+
+----
+
+### Atributos candidatos a valores faltantes
+
+```bash
+gpu_temperature_c
+fan_speed_rpm
+water_usage_effectiveness
+carbon_intensity_gco2_kwh
+job_status
+```
+
+### Distribuição de valores faltantes:
+
+#### Atributo gpu_temperature_c:
+
+<div align="center">
+  <img src="../análise_calil/imagens/gpuTemperatureMissing.png">
+</div>
+
+----
+
+#### Atributo fan_speed_rpm:
+
+<div align="center">
+  <img src="../análise_calil/imagens/fanSpeedMissing.png">
+</div>
+
+----
+
+#### Atributo water_usage_effectiveness
+
+<div align="center">
+  <img src="../análise_calil/imagens/waterUsageMissing.png">
+</div>
+
+----
+
+#### Atributo carbon_intensity_gco2_kwh:
+
+<div align="center">
+  <img src="../análise_calil/imagens/carbonIntensityMissing.png">
+</div>
+
+----
+
+#### Atributo job_status:
+
+<div align="center">
+  <img src="../análise_calil/imagens/jobStatusMissing.png">
+</div>
+
+----
+
+### Valores Faltantes Identificados:
+
+| Atributo                    | Quantidade de faltantes | Percentual | Observação                      |
+| --------------------------- | ----------------------: | ---------: | ------------------------------- |
+| `gpu_temperature_c`         |                       7 |      1,04% | Atributo térmico crítico        |
+| `fan_speed_rpm`             |                       7 |      1,04% | Atributo ligado à refrigeração  |
+| `water_usage_effectiveness` |                       7 |      1,04% | Indicador ambiental             |
+| `carbon_intensity_gco2_kwh` |                       7 |      1,04% | Indicador ambiental             |
+| `job_status`                |                       6 |      0,89% | Atributo categórico operacional |
+
+### Distribuição dos Faltante por Classe:
+
+| Atributo                    | Distribuição observada                     |
+| --------------------------- | ------------------------------------------ |
+| `gpu_temperature_c`         | 4 em `alto`, 2 em `baixo`, 1 em `moderado` |
+| `fan_speed_rpm`             | 5 em `baixo`, 2 em `moderado`              |
+| `water_usage_effectiveness` | 6 em `baixo`, 1 em `alto`                  |
+| `carbon_intensity_gco2_kwh` | 3 em `moderado`, 3 em `baixo`, 1 em `alto` |
+| `job_status`                | 3 em `alto`, 3 em `moderado`               |
+
+### Observações
+Os valores faltantes estão em baixa quantidade, aproximadamente 1%. Isso indica que a ausência de dados é controlada. Porém, os atributos afetados são importantes, principalmente os térmicos e ambientais.
+
+<p align="justify">
+  Foram identificados valores faltantes apenas nos atributos previstos pela metodologia do teste piloto. Os atributos gpu_temperature_c, fan_speed_rpm, water_usage_effectiveness e carbon_intensity_gco2_kwh apresentaram 7 valores faltantes cada, correspondendo a aproximadamente 1,04% do dataset. O atributo categórico job_status apresentou 6 valores faltantes, correspondendo a aproximadamente 0,89% dos registros. A baixa proporção indica que os faltantes foram inseridos de forma controlada, não comprometendo a estrutura geral do dataset. Entretanto, como esses atributos possuem importância operacional, térmica e ambiental, recomenda-se tratá-los posteriormente antes da etapa de treinamento dos modelos.
+</p>
+
+### Decisão Futura Sugerida:
+
+| Tipo de atributo | Técnica sugerida                     |
+| ---------------- | ------------------------------------ |
+| Numérico         | Substituir por média ou mediana      |
+| Categórico       | Substituir pela moda                 |
+| Weka             | Testar filtro `ReplaceMissingValues` |
+
+### Registro de Achados:
+
+| ID | Eixo      | Atributo(s) analisado(s)                                                                                     | Achado observado              | Evidência                | Hipótese                                              | Impacto no pré-processamento          | Ação sugerida                                          |
+| -- | --------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ------------------------ | ----------------------------------------------------- | ------------------------------------- | ------------------------------------------------------ |
+| A3 | Faltantes | `gpu_temperature_c`, `fan_speed_rpm`, `water_usage_effectiveness`, `carbon_intensity_gco2_kwh`, `job_status` | Valores faltantes controlados | Cerca de 1% por atributo | Simulação de falha de medição ou ausência de registro | Exige tratamento antes do treinamento | Aplicar `ReplaceMissingValues` ou imputação específica |
+
+----
+
+## Etapa 4 - Análise de Ruído
+### Objetivo da Etapa:
+Verificar se o ruído inserido no dataset é leve, plausível e compatível com o domínio.
+
+### O que sera analisado
+
+| Verificação                | Descrição                                                                            |
+| -------------------------- | ------------------------------------------------------------------------------------ |
+| Pequenas oscilações        | Observar variações plausíveis em atributos numéricos                                 |
+| Coerência potência-energia | Verificar relação entre `active_power_w` e `energy_consumption_kwh`                  |
+| Coerência térmica          | Verificar relação entre `inlet_temperature_c`, `exhaust_temperature_c` e `delta_t_c` |
+| Valores fora de faixa      | Verificar se o ruído gerou valores inválidos                                         |
+| Impacto na classe          | Observar se o ruído tornou algum registro incoerente                                 |
+
+### Atributos candidatos a ruído
+
+```bash
+active_power_w
+energy_consumption_kwh
+gpu_power_w
+cpu_utilization_percent
+memory_utilization_percent
+gpu_utilization_percent
+inlet_temperature_c
+exhaust_temperature_c
+gpu_temperature_c
+delta_t_c
+fan_speed_rpm
+gpu_core_frequency_mhz
+```
+
+### Comparação de atributos relacionados:
+
+#### Relação 1 - Potencia x Energia
+
+<div align="center">
+  <img src="../análise_calil/imagens/PowerxEnergy.png">
+</div>
+
+### Observação econtrada
+| Relação                                     | Resultado                      |
+| ------------------------------------------- | ------------------------------ |
+| `active_power_w` × `energy_consumption_kwh` | Relação muito forte e coerente |
+| Correlação aproximada                       | 0,999                          |
+
+<p align="justify">
+  A relação entre active_power_w e energy_consumption_kwh mostrou-se altamente coerente, pois o consumo energético acompanha diretamente a potência ativa. Como cada instância representa uma hora de operação, essa relação era esperada. Pequenas variações podem ser interpretadas como ruído controlado e não indicam erro estrutural.
+</p>
+
+----
+
+#### Relação 2 - Temperaturas x Delta T
+
+<div align="center">
+  <img src="../análise_calil/imagens/ExhaustxDelta.png">
+</div>
+
+----
+
+<div align="center">
+  <img src="../análise_calil/imagens/InletxExhaust.png">
+</div>
+
+### Observação encontrada
+
+| Relação                               | Resultado                |
+| ------------------------------------- | ------------------------ |
+| `exhaust_temperature_c` × `delta_t_c` | Relação forte e coerente |
+| Inconsistências relevantes            | Apenas casos pontuais    |
+
+<p align="Justify">
+  A relação entre inlet_temperature_c, exhaust_temperature_c e delta_t_c apresentou coerência geral. O delta_t_c acompanha a diferença térmica entre a temperatura de exaustão e a temperatura de entrada. Foram observadas pequenas variações pontuais, mas elas não caracterizam erro estrutural grave, podendo ser interpretadas como ruído controlado.
+</p>
+
+----
+
+#### Relação 3 - Percentuais de utilização
+
+#### cpu_utilization_percent:
+
+<div align="center">
+  <img src="../análise_calil/imagens/CpuCpu.png">
+</div>
+
+----
+
+#### memory_utilization_percent:
+
+<div align="center">
+  <img src="../análise_calil/imagens/MemoryMemory.png">
+</div>
+
+----
+
+#### gpu_utilization_percent:
+
+<div align="center">
+  <img src="../análise_calil/imagens/GpuGpu.png">
+</div>
+
+### Valores observados
+
+| Atributo                     | Mínimo | Máximo | Situação          |
+| ---------------------------- | -----: | -----: | ----------------- |
+| `cpu_utilization_percent`    |      4 |     87 | Dentro de 0 a 100 |
+| `memory_utilization_percent` |     12 |     92 | Dentro de 0 a 100 |
+| `gpu_utilization_percent`    |      2 |     94 | Dentro de 0 a 100 |
+
+<p align="justify">
+  Os atributos percentuais permaneceram dentro do intervalo esperado de 0 a 100, não sendo identificados valores inválidos. Isso indica que o ruído inserido não gerou inconsistências críticas nos campos de utilização de CPU, memória e GPU.
+</p>
+
+### Registro de Achados:
+
+| ID | Eixo  | Atributo(s) analisado(s)                      | Achado observado                                 | Evidência                       | Hipótese                           | Impacto no pré-processamento | Ação sugerida             |
+| -- | ----- | --------------------------------------------- | ------------------------------------------------ | ------------------------------- | ---------------------------------- | ---------------------------- | ------------------------- |
+| A4 | Ruído | Potência, energia, temperaturas e percentuais | Ruído plausível e sem valores inválidos críticos | Gráficos e estatísticas do Weka | Variações simulam oscilações reais | Não exige remoção imediata   | Manter ruído inicialmente |
+
+----
+
+## Etapa 5 - Análise de Outliers
+### Objetivos da etapa:
+Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis para a tarefa de classificação.
+
+
