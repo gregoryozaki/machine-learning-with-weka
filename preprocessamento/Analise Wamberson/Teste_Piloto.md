@@ -25,7 +25,8 @@ Verificar se o conjunto de dados está corretamente estruturado e pode ser utili
 
 ### 1. Carregamento no Weka
 A base foi aberta corretamente no Weka, sem erros de importação.
-[Captura de tela do Weka](<img width="800" height="559" alt="Banco_de_dados_tela_inicial" src="https://github.com/user-attachments/assets/3cb657e2-09bb-410f-92b5-b8df13eccdd2" />)
+![Captura de tela do Weka](<img width="800" height="559" alt="Banco_de_dados_tela_inicial" src="https://github.com/user-attachments/assets/05435f68-a568-44b8-bec1-89b01fcd0fc1" />
+)
 
 ### 2. Número de instâncias
 O Weka exibiu **674 instâncias**, confirmando a quantidade total de registros.
