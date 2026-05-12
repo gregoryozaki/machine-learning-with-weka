@@ -29,7 +29,7 @@ A base foi aberta corretamente no Weka, sem erros de importação.
 )
 
 ### 2. Número de instâncias
-O Weka exibiu **674 instâncias**, confirmando a quantidade total de registros.
+O Weka exibiu **674 instâncias**, confirmando a quantidade total de registros.  
 ![Captura de tela do Weka](<https://github.com/user-attachments/assets/a5b5e35f-135d-4026-bc6d-9d0b908413d4>
 )
 
@@ -52,7 +52,7 @@ Os atributos numéricos foram reconhecidos como **numeric** e os atributos categ
 ### 6. Valores faltantes
 Os valores faltantes foram observados em alguns atributos planejados:
 
-- `water_usage_effectiveness` → `Missing: 7 (1%)`.
+- `water_usage_effectiveness` → `Missing: 7 (1%)`.  
 ![](<https://github.com/user-attachments/assets/dfb3385a-9ab8-40b6-8129-076df3147c81>).  
 
 - `fan_speed_rpm` → `Missing: 7 (1%)`.  
@@ -82,8 +82,37 @@ Os atributos nominais apresentaram apenas categorias previstas:
 | `gpu_sharing_mode` | Nominal | `full_gpu`, `temporal_sharing`, `mig`, `none` | As categorias listadas estão coerentes com o domínio definido. |
 | `rack_label_color` | Nominal | `blue`, `green`, `yellow`, `red`, `white` | O Weka exibiu apenas categorias esperadas para esse campo. |
 | `environmental_waste_risk_level` | Nominal | `baixo`, `moderado`, `alto` | A classe-alvo foi reconhecida corretamente com 3 categorias nominais. |
-| `rack_inventory_zone` | Nominal | `zone_a`, `zone_b`, `zone_c`, `zone_d` | O atributo contém apenas as categorias previstas e nenhuma extra. |
-![]().
+| `rack_inventory_zone` | Nominal | `zone_a`, `zone_b`, `zone_c`, `zone_d` | O atributo contém apenas as categorias previstas e nenhuma extra.|
+
+- `cooling_method` →   `air`, `liquid`, `immersion`, `hybrid`   
+![`cooling_method`](<https://github.com/user-attachments/assets/9c4bb10e-66dc-497f-8d6a-69b43d58dee3>).  
+
+- `ai_workload_type` →  `training`, `inference`, `fine_tuning`, `idle` 
+![](<https://github.com/user-attachments/assets/abeeeb25-07c0-4a86-9830-f13c72be01ef>).  
+
+- `job_status` →  `success`, `failed`, `aborted`, `running`
+![](<https://github.com/user-attachments/assets/a060cd6c-319a-4cb6-b7ea-5c24dfc527d2>
+).
+
+- `manufacturer_sku_id` → `sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e` 
+![](<https://github.com/user-attachments/assets/0a75da64-4c14-4012-9ded-8ff2788bbd6c>
+).
+
+- `gpu_sharing_mode` → `full_gpu`, `temporal_sharing`, `mig`, `none` 
+![](<https://github.com/user-attachments/assets/cf824cfd-eac0-47ff-91f2-5660ccb935c7>
+).
+
+- `rack_label_color` → `blue`, `green`, `yellow`, `red`, `white` 
+![](<https://github.com/user-attachments/assets/ffc051d0-22d5-41a8-a463-2776e671ce5f>
+).
+
+- `environmental_waste_risk_level` → `baixo`, `moderado`, `alto`
+![](<https://github.com/user-attachments/assets/53d4f181-7e01-41ba-a7a1-dcb9307e7ffd>
+).
+
+- `rack_inventory_zone` → `zone_a`, `zone_b`, `zone_c`, `zone_d`
+![](<https://github.com/user-attachments/assets/9fc8a910-7b1f-4f5c-bf62-428e597dccb5>
+).
 
 ### 8. Linhas quebradas
 Não foram encontrados indícios de registros mal formatados. A base abriu corretamente, os tipos foram reconhecidos e os atributos numéricos e nominais aparecem coerentes, sem sinais visíveis de desalinhamento.
@@ -111,9 +140,14 @@ Não foram identificados registros 100% idênticos em excesso.
 As evidências podem incluir:
 
 - Print da tela de carregamento do Weka.
-- Estatísticas exibidas pelo Weka.
-- Contagem de instâncias.
-- Contagem de atributos.
+  ![Captura de tela do Weka](<https://github.com/user-attachments/assets/05435f68-a568-44b8-bec1-89b01fcd0fc1>
+)  
+  
+- Contagem de instâncias e Contagem de atributos.
+![Captura de tela do Weka](<https://github.com/user-attachments/assets/a5b5e35f-135d-4026-bc6d-9d0b908413d4>
+)
+
+
 - Tabela com atributos que possuem valores faltantes.
 - Observações sobre problemas encontrados.
 
