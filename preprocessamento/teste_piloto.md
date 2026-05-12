@@ -116,7 +116,7 @@ As evidências podem incluir:
 
 * print da tela de carregamento do Weka;
 * estatísticas exibidas pelo Weka;
-* contagem de instâncias;
+* contagem de instancias;
 * contagem de atributos;
 * tabela com atributos que possuem valores faltantes;
 * observações sobre problemas encontrados.
