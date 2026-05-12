@@ -53,20 +53,22 @@ Os atributos numéricos foram reconhecidos como **numeric** e os atributos categ
 Os valores faltantes foram observados em alguns atributos planejados:
 
 - `water_usage_effectiveness` → `Missing: 7 (1%)`.
-![](https://github.com/user-attachments/assets/dfb3385a-9ab8-40b6-8129-076df3147c81>
+![](<https://github.com/user-attachments/assets/dfb3385a-9ab8-40b6-8129-076df3147c81>).  
+
+- `fan_speed_rpm` → `Missing: 7 (1%)`.  
+![](<https://github.com/user-attachments/assets/8d3217a3-762a-4771-b285-fbd22d666a8c>).
+
+- `gpu_temperature_c` → `Missing: 7 (1%)`.  
+![](<https://github.com/user-attachments/assets/7a1562aa-69b0-46c8-a4af-2cbde9323226>).
+
+- `carbon_intensity_gco2_kwh` → `Missing: 7 (1%)`.  
+![](<https://github.com/user-attachments/assets/8a4d80bb-f5ce-4f2d-9480-f81a0e807c51>
 ).
-- `fan_speed_rpm` → `Missing: 7 (1%)`.
-![](https://github.com/user-attachments/assets/8d3217a3-762a-4771-b285-fbd22d666a8c>
+- `job_status` → `Missing: 6 (1%)`.  
+![](<https://github.com/user-attachments/assets/c5c8f158-6d0e-41a8-adfa-e0b5fcd442fa>
 ).
-- `gpu_temperature_c` → `Missing: 7 (1%)`.
-![]().
-- `carbon_intensity_gco2_kwh` → `Missing: 7 (1%)`.
-![]().
-- `job_status` → `Missing: 6 (1%)`.
-![]().
 
 Esses valores indicam ausência pontual de dados e devem ser tratados no pré-processamento.
-![]().
 
 ### 7. Categorias válidas
 Os atributos nominais apresentaram apenas categorias previstas:
