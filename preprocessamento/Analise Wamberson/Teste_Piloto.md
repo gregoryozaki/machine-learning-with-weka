@@ -53,10 +53,17 @@ Os atributos numéricos foram reconhecidos como **numeric** e os atributos categ
 Os valores faltantes foram observados em alguns atributos planejados:
 
 - `water_usage_effectiveness` → `Missing: 7 (1%)`.
+![](https://github.com/user-attachments/assets/dfb3385a-9ab8-40b6-8129-076df3147c81>
+).
 - `fan_speed_rpm` → `Missing: 7 (1%)`.
+![](https://github.com/user-attachments/assets/8d3217a3-762a-4771-b285-fbd22d666a8c>
+).
 - `gpu_temperature_c` → `Missing: 7 (1%)`.
+![]().
 - `carbon_intensity_gco2_kwh` → `Missing: 7 (1%)`.
+![]().
 - `job_status` → `Missing: 6 (1%)`.
+![]().
 
 Esses valores indicam ausência pontual de dados e devem ser tratados no pré-processamento.
 ![]().
