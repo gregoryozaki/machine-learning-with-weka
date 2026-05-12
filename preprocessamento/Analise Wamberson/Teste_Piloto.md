@@ -141,18 +141,17 @@ As evidências podem incluir:
 
 - Print da tela de carregamento do Weka.
   ![Captura de tela do Weka](<https://github.com/user-attachments/assets/05435f68-a568-44b8-bec1-89b01fcd0fc1>
-)  
+)    
   
 - Contagem de instâncias e Contagem de atributos.
 ![Captura de tela do Weka](<https://github.com/user-attachments/assets/a5b5e35f-135d-4026-bc6d-9d0b908413d4>
-)
+)  
 
-
-- Tabela com atributos que possuem valores faltantes.
-- Observações sobre problemas encontrados.
-
-## Conclusão
-Com base na análise feita no Weka, a base está estruturalmente consistente para uso em mineração de dados e classificação. Os registros foram carregados sem erro, a classe-alvo foi reconhecida como nominal, os atributos numéricos e categóricos foram interpretados corretamente, e os únicos problemas identificados foram valores ausentes pontuais em alguns campos específicos.
+- Tabela com atributos que possuem valores faltantes.  
+Foram identificados valores ausentes em alguns atributos como ja foi identificado acima. 
+  
+- Observações sobre problemas encontrados.  
+Esses atributos ausentes aparecem no Weka como Missing, com pequenas proporções em relação ao total, e devem ser considerados no pré-processamento antes da modelagem. Com base na análise feita no Weka, a base está estruturalmente consistente para uso em mineração de dados e classificação. Os registros foram carregados sem erro, a classe-alvo foi reconhecida como nominal, os atributos numéricos e categóricos foram interpretados corretamente, e os únicos problemas identificados foram valores ausentes pontuais em alguns campos específicos.
 
 ## 5.2. Etapa 2 — Análise Estatística Descritiva
 
@@ -160,14 +159,7 @@ Com base na análise feita no Weka, a base está estruturalmente consistente par
 
 Investigar o comportamento geral dos atributos numéricos e categóricos, observando médias, dispersões, frequências e distribuições.
 
-# Análise exploratória dos atributos no Weka
-
-## Objetivo
-Esta etapa investiga o comportamento geral dos atributos numéricos e categóricos da base, observando medidas de tendência central, dispersão, frequências e distribuições visíveis no Weka. A análise considera os atributos numéricos prioritários e os atributos categóricos prioritários informados, com foco em identificar padrões relevantes, possíveis desequilíbrios, variáveis muito dispersas e comportamentos suspeitos para uso posterior em mineração de dados e classificação.
-
-## Atributos analisados
-
-### Numéricos prioritários
+## Atributos numéricos prioritários
 - `active_power_w`
 - `energy_consumption_kwh`
 - `water_usage_effectiveness`
@@ -191,7 +183,7 @@ Esta etapa investiga o comportamento geral dos atributos numéricos e categóric
 - `rack_power_density_kw`
 - `power_cap_w`
 
-### Categóricos prioritários
+## Atributos categóricos prioritários
 - `cooling_method`
 - `ai_workload_type`
 - `job_status`
@@ -201,49 +193,62 @@ Esta etapa investiga o comportamento geral dos atributos numéricos e categóric
 - `rack_inventory_zone`
 - `environmental_waste_risk_level`
 
-## Tipos de análise considerados
+## O que será analisado
 
 | Tipo de análise | Descrição |
 |---|---|
-| Mínimo e máximo | Verificar se os valores observados estão dentro das faixas planejadas. |
+| Mínimo e máximo | Verificar se os valores estão dentro das faixas planejadas. |
 | Média | Observar a tendência central dos atributos numéricos. |
-| Mediana | Avaliar possível efeito de valores extremos sobre a distribuição. |
-| Desvio-padrão | Medir o grau de dispersão dos dados. |
-| Distribuição | Observar o formato dos histogramas e possíveis assimetrias. |
+| Mediana | Verificar o possível efeito de valores extremos. |
+| Desvio-padrão | Avaliar o grau de dispersão dos atributos. |
+| Distribuição | Observar o formato dos histogramas no Weka. |
 | Frequência de categorias | Verificar a distribuição dos atributos nominais. |
-| Distribuição da classe | Verificar a quantidade de registros em cada classe da variável-alvo. |
-
-## Estatísticas observadas no Weka
-Os atributos numéricos exibidos no Weka apresentaram estatísticas básicas como mínimo, máximo, média, desvio-padrão, quantidade de valores distintos e valores ausentes. Nos exemplos verificados, `water_usage_effectiveness` apresentou mínimo de 0.28, máximo de 4.96, média de 1.246 e desvio-padrão de 0.635, sugerindo uma dispersão moderada e valores compatíveis com a faixa operacional esperada para o atributo. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/1e61ce10-2cd8-4db1-869a-fc618d6568d3/Captura-de-tela-de-2026-05-11-09-23-58.jpg)
-
-O atributo `fan_speed_rpm` apresentou mínimo de 1948, máximo de 22000, média de 11612.787 e desvio-padrão de 4099.732, indicando alta amplitude e dispersão considerável entre os registros. Esse comportamento sugere variabilidade operacional real e torna esse atributo um dos mais sensíveis para análise de heterogeneidade da base. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/9f945b40-166c-4f6d-88c5-0e04d6389841/Captura-de-tela-de-2026-05-11-09-23-58.jpg)
-
-O atributo `gpu_temperature_c` apresentou mínimo de 32, máximo de 95, média de 74.798 e desvio-padrão de 13.343, indicando distribuição plausível e dispersão moderada. Já `carbon_intensity_gco2_kwh` apresentou mínimo de 62, máximo de 891, média de 377.663 e desvio-padrão de 159.486, o que aponta para dispersão elevada e possível presença de grupos com perfis energéticos distintos. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/c77e64c9-a56e-4125-ad99-6a9ef14ad4b5/Captura-de-tela-de-2026-05-11-09-32-20.jpg)
+| Distribuição da classe | Verificar a quantidade de registros por classe. |
 
 ## Análise dos atributos numéricos
-De modo geral, os atributos numéricos parecem estar em faixas compatíveis com o domínio da base e não há evidência visual imediata de valores impossíveis nas estatísticas observadas. Ainda assim, atributos como `fan_speed_rpm` e `carbon_intensity_gco2_kwh` mostram dispersão mais alta e merecem atenção especial em análises posteriores, principalmente para avaliação de outliers e padronização antes do treinamento de modelos. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/f3dd6de7-9e93-476a-b964-4e01dc9e211e/Captura-de-tela-de-2026-05-11-09-31-37.jpg)
+Os atributos numéricos da base apresentam comportamento compatível com um cenário de monitoramento técnico e operacional de data center, com diferentes escalas e amplitudes entre si. No Weka, esses atributos foram reconhecidos como `Numeric` e exibiram estatísticas como mínimo, máximo, média, desvio-padrão, quantidade de valores distintos e valores ausentes, o que permite uma leitura descritiva inicial consistente.
 
-Os atributos numéricos com maior amplitude tendem a influenciar mais fortemente algoritmos sensíveis à escala, o que reforça a necessidade de normalização ou padronização em etapas posteriores. Além disso, a comparação entre média e distribuição visual nos histogramas do Weka é importante para verificar se há assimetria, concentração em faixas específicas ou comportamento aparentemente artificial em alguma variável.
+Nos exemplos verificados, `water_usage_effectiveness` apresentou mínimo de 0.28, máximo de 4.96, média de 1.246 e desvio-padrão de 0.635. Isso sugere valores concentrados em uma faixa relativamente controlada, com dispersão moderada e sem indícios imediatos de valores extremos incompatíveis com o contexto da variável.
 
-Com base nas estatísticas vistas, não há sinal claro de atributo totalmente artificial, mas alguns campos podem apresentar distribuição muito controlada ou discretizada, especialmente aqueles ligados a capacidade, limites de potência ou quantidades inteiras, como `num_gpus`, `batch_size`, `num_epochs` e `power_cap_w`. Esse comportamento não necessariamente indica erro, mas deve ser interpretado como característica do processo de geração ou coleta da base.
+O atributo `fan_speed_rpm` apresentou mínimo de 1948, máximo de 22000, média de 11612.787 e desvio-padrão de 4099.732. Essa combinação revela grande amplitude e dispersão elevada, indicando forte variabilidade operacional entre os registros e tornando esse atributo um dos mais sensíveis para análise posterior de padronização e outliers.
+
+Já `gpu_temperature_c` apresentou mínimo de 32, máximo de 95, média de 74.798 e desvio-padrão de 13.343, sugerindo dispersão moderada e comportamento plausível. O atributo `carbon_intensity_gco2_kwh` apresentou mínimo de 62, máximo de 891, média de 377.663 e desvio-padrão de 159.486, o que indica maior heterogeneidade e possibilidade de diferentes perfis de consumo e impacto ambiental entre os registros.
+
+De modo geral, os valores mínimos e máximos observados não sugerem inconsistências evidentes nas variáveis verificadas. Ainda assim, atributos como `fan_speed_rpm` e `carbon_intensity_gco2_kwh` merecem atenção por apresentarem maior dispersão, o que pode influenciar diretamente algoritmos sensíveis à escala dos dados.
 
 ## Análise dos atributos categóricos
-Os atributos categóricos prioritários foram reconhecidos como nominais e apresentaram apenas categorias coerentes com o domínio esperado. Em `cooling_method`, as categorias observadas foram `air`, `liquid`, `immersion` e `hybrid`; em `ai_workload_type`, apareceram `training`, `inference`, `fine_tuning` e `idle`; em `job_status`, foram observadas `success`, `failed`, `aborted` e `running`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/609054b6-2906-4083-81ba-2615655d05e8/Captura-de-tela-de-2026-05-12-06-23-14.jpg)
+Os atributos categóricos prioritários foram reconhecidos como `Nominal` no Weka e apresentaram apenas categorias coerentes com o domínio esperado da base. Isso indica que os campos foram estruturados corretamente e que não há sinais de categorias inesperadas ou ruído nominal evidente.
 
-Também foram confirmadas categorias válidas em `manufacturer_sku_id` (`sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e`), `gpu_sharing_mode` (`full_gpu`, `temporal_sharing`, `mig`, `none`), `rack_label_color` (`blue`, `green`, `yellow`, `red`, `white`) e `rack_inventory_zone` (`zone_a`, `zone_b`, `zone_c`, `zone_d`). Esses resultados mostram que os atributos nominais estão bem definidos e não apresentam categorias inesperadas. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/92ef393f-6c03-4237-a59a-01454d957013/Captura-de-tela-de-2026-05-12-06-22-39.jpg)
+No atributo `cooling_method`, foram observadas as categorias `air`, `liquid`, `immersion` e `hybrid`. Em `ai_workload_type`, as categorias identificadas foram `training`, `inference`, `fine_tuning` e `idle`. Já `job_status` apresentou as categorias `success`, `failed`, `aborted` e `running`, mostrando uma distribuição coerente com estados operacionais típicos da execução de tarefas computacionais.
 
-A distribuição da classe-alvo `environmental_waste_risk_level` mostrou três categorias: `baixo` com 268 registros, `moderado` com 248 e `alto` com 158. Isso indica que a classe está relativamente distribuída, embora exista menor frequência na classe `alto`, o que deve ser considerado ao avaliar balanceamento e desempenho dos classificadores. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/9699abf9-9e10-4c07-b36f-9ba420fa6587/Captura-de-tela-de-2026-05-12-06-22-13.jpg)
+Também foram confirmadas categorias válidas em `gpu_sharing_mode` (`full_gpu`, `temporal_sharing`, `mig`, `none`), `manufacturer_sku_id` (`sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e`), `rack_label_color` (`blue`, `green`, `yellow`, `red`, `white`) e `rack_inventory_zone` (`zone_a`, `zone_b`, `zone_c`, `zone_d`). Em todos esses casos, a frequência das categorias pode ser analisada diretamente pelo painel `Selected attribute` do Weka.
 
-## Valores faltantes e consistência
-Foram identificados valores ausentes pontuais em alguns atributos, como `water_usage_effectiveness`, `fan_speed_rpm`, `gpu_temperature_c`, `carbon_intensity_gco2_kwh` e `job_status`. Nos prints analisados, esses campos apresentaram `Missing` entre 6 e 7 registros, equivalentes a cerca de 1% da base, o que representa uma taxa baixa, mas suficiente para exigir decisão de tratamento no pré-processamento. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/a80cee01-b1fa-4770-a090-03ed6f56ce73/Captura-de-tela-de-2026-05-11-09-32-05.jpg)
+A variável-alvo `environmental_waste_risk_level` foi reconhecida como nominal, com as classes `baixo`, `moderado` e `alto`. Essa distribuição é importante para a etapa de classificação, pois permite avaliar se há balanceamento suficiente entre as classes ou se existe predominância de alguma delas na base.
 
-A baixa proporção de ausências sugere que a base permanece adequada para análise, mas esses atributos precisam ser monitorados para evitar viés em etapas posteriores. Não há evidência visual de que existam faltas fora dos atributos planejados ou inconsistências estruturais associadas a colunas deslocadas.
+## Valores faltantes e comportamento suspeito
+A base apresenta valores ausentes pontuais em alguns atributos, como `water_usage_effectiveness`, `fan_speed_rpm`, `gpu_temperature_c`, `carbon_intensity_gco2_kwh` e `job_status`. Nos exemplos já verificados, a proporção de ausências foi baixa, em torno de 1% da base, o que não compromete a estrutura geral do conjunto de dados, mas exige tratamento adequado no pré-processamento.
+
+Não há evidência forte de que algum atributo seja artificial demais, embora certas variáveis discretas, como `num_gpus`, `batch_size`, `num_epochs` e `power_cap_w`, possam apresentar distribuição mais controlada devido à própria natureza operacional dos dados. Isso deve ser interpretado com cautela: uma distribuição regular pode ser parte natural do processo de coleta e não necessariamente um erro.
 
 ## Respostas às perguntas vocacionais
 
 | Pergunta | Resposta | Comentário |
 |---|---|---|
-| Os valores mínimos e máximos estão dentro das faixas planejadas? | Sim, de forma geral. | As estatísticas observadas no Weka não indicam valores visivelmente impossíveis nos atributos verificados. |
-| Algum atributo possui dispersão muito alta? | Sim. | `fan_speed_rpm` e `carbon_intensity_gco2_kwh` mostram dispersão mais elevada em relação aos demais atributos observados. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/9f945b40-166c-4f6d-88c5-0e04d6389841/Captura-de-tela-de-2026-05-11-09-23-58.jpg) |
-| Algum atributo parece artificial demais? | Não há evidência forte disso. | Alguns atributos discretos podem parecer controlados, mas isso pode ser efeito natural do processo de coleta ou parametrização da base. |
-| As classes estão distribuídas de forma adequada? | Sim, com leve desequilíbrio. | A classe `environmental_waste_risk_level` apresenta distribuição entre `baixo`, `moderado` e `alto`, com menor frequência em `alto`. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/11284219/9699abf9-9e10-4c07-b36f-9ba420fa6587/Captura-de-tela-de-2026-05-12-06-22-13.jpg)
+| Os valores mínimos e máximos estão dentro das faixas planejadas? | Sim, de forma geral. | As estatísticas observadas no Weka não indicam valores visivelmente incompatíveis nos atributos analisados. |
+| Algum atributo possui dispersão muito alta? | Sim. | `fan_speed_rpm` e `carbon_intensity_gco2_kwh` se destacam por maior amplitude e maior desvio-padrão. |
+| Algum atributo parece artificial demais? | Não há evidência forte disso. | Algumas variáveis discretas podem parecer controladas, mas isso é compatível com a natureza parametrizada da base. |
+| As classes estão distribuídas de forma adequada? | Sim, com possível leve desequilíbrio. | A classe-alvo possui três categorias e deve ser observada quanto ao balanceamento na modelagem. |
+| A distribuição dos atributos relevantes parece desejada? | Sim. | Os atributos categóricos têm categorias válidas e os atributos numéricos mostram variação plausível. |
+| Existem atributos com distribuição muito separados por classe? | Não foi possível afirmar de forma conclusiva apenas com as estatísticas básicas. | Essa resposta depende de histogramas separados por classe ou comparação visual adicional no Weka. |
+
+## Evidências esperadas
+As evidências desta etapa devem incluir:
+
+- Prints dos histogramas do Weka.
+- Tabelas com estatísticas básicas dos atributos numéricos.
+- Comentários sobre distribuições relevantes.
+- Identificação dos atributos com maior dispersão.
+- Identificação de atributos com comportamento suspeito.
+
+## Síntese final
+A análise exploratória mostra que a base possui atributos numéricos e categóricos estruturalmente consistentes para uso no Weka. Os atributos numéricos apresentam escalas variadas e, em alguns casos, dispersão mais elevada, enquanto os atributos categóricos possuem categorias válidas e coerentes com o domínio. Os valores faltantes existem, mas em baixa proporção, e não há indícios claros de atributos artificiais ou inconsistências estruturais severas.
