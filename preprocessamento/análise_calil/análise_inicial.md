@@ -467,4 +467,247 @@ gpu_core_frequency_mhz
 ### Objetivos da etapa:
 Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis para a tarefa de classificação.
 
+### O que será analisado
+
+| Verificação          | Descrição                                                          |
+| -------------------- | ------------------------------------------------------------------ |
+| Outliers numéricos   | Valores extremos em atributos como potência, temperatura e duração |
+| Outliers relacionais | Combinações incomuns entre atributos                               |
+| Outliers por classe  | Verificar se estão concentrados apenas em uma classe               |
+| Plausibilidade       | Avaliar se os outliers têm interpretação no domínio                |
+| Decisão futura       | Manter, tratar ou remover no pré-processamento                     |
+
+### Tipos de outliers esperados
+
+| Tipo de outlier   | Exemplo                                                  |
+| ----------------- | -------------------------------------------------------- |
+| Energético        | Alta potência com baixa utilização de CPU/GPU            |
+| Térmico           | Temperatura elevada mesmo com fan speed alto             |
+| Operacional       | `job_status = failed` ou `aborted` com longa duração     |
+| Ambiental         | Alto consumo com alta intensidade de carbono ou alto WUE |
+| Refrigeração      | Fan speed alto com baixa carga computacional             |
+| Alocação de GPU   | `full_gpu` com baixa utilização de GPU                   |
+| Densidade de rack | Alta densidade com refrigeração inadequada               |
+
+#### Verificação outliers por histogramas
+
+#### gpu_temperature_c:
+
+<div align="center">
+  <img src="../análise_calil/imagens/GpuTemperatureHist.png">
+</div>
+
+----
+
+#### fan_speed_rpm:
+
+<div align="center">
+  <img src="../análise_calil/imagens/fanSpeedHist.png">
+</div>
+
+----
+
+#### job_duration_hours:
+
+<div align="center">
+  <img src="../análise_calil/imagens/jobDurationHist.png">
+</div>
+
+----
+
+#### rack_power_density_kw:
+
+<div align="center">
+  <img src="../análise_calil/imagens/rackPowerHist.png">
+</div>
+
+----
+
+#### Verificação outliers por relações
+
+#### Relação gpu_utilization_percent × gpu_power_w:
+
+<div align="center">
+  <img src="../análise_calil/imagens/gpuUtlixGpuPower.png">
+</div>
+
+----
+
+#### Relação fan_speed_rpm × gpu_temperature_c:
+
+<div align="center">
+  <img src="../análise_calil/imagens/fanSpeedxGpuTemp.png">
+</div>
+
+----
+
+#### Relação rack_power_density_kw × environmental_waste_risk_level:
+
+<div align="center">
+  <img src="../análise_calil/imagens/rackPowerxEnvironmental.png">
+</div>
+
+----
+
+### Outliers observados
+
+| Atributo ou relação                       | Outlier observado                     | Interpretação                         | Ação sugerida                 |
+| ----------------------------------------- | ------------------------------------- | ------------------------------------- | ----------------------------- |
+| `gpu_temperature_c`                       | Valores até 95 °C                     | Temperatura elevada em carga intensa  | Manter inicialmente           |
+| `fan_speed_rpm`                           | Valores até 22000 RPM                 | Esforço extremo de refrigeração       | Manter e avaliar impacto      |
+| `job_duration_hours`                      | Valores até 170 h                     | Jobs longos podem indicar desperdício | Manter como caso crítico      |
+| `rack_power_density_kw`                   | Valores até 120 kW                    | Alta densidade energética do rack     | Manter, mas testar dominância |
+| `gpu_utilization_percent` × `gpu_power_w` | Baixa utilização com potência elevada | Desperdício energético plausível      | Manter como padrão relevante  |
+
+<p align="justify">
+  Foram identificados valores extremos em atributos térmicos, energéticos e operacionais. A temperatura da GPU atingiu até 95 °C, a velocidade das ventoinhas chegou a 22000 RPM, a duração de jobs chegou a 170 horas e a densidade de potência do rack chegou a 120 kW. Apesar de extremos, esses valores são interpretáveis no domínio de datacenters com cargas intensivas de IA. Por esse motivo, não devem ser removidos automaticamente, pois podem representar exatamente os casos de maior risco de desperdício ambiental.
+</p>
+
+### Registro de achados
+
+| ID | Eixo     | Atributo(s) analisado(s)                                                            | Achado observado                | Evidência           | Hipótese                  | Impacto no pré-processamento                   | Ação sugerida       |
+| -- | -------- | ----------------------------------------------------------------------------------- | ------------------------------- | ------------------- | ------------------------- | ---------------------------------------------- | ------------------- |
+| A5 | Outliers | `gpu_temperature_c`, `fan_speed_rpm`, `job_duration_hours`, `rack_power_density_kw` | Valores extremos interpretáveis | Histogramas do Weka | Casos críticos planejados | Podem ser importantes para detectar risco alto | Manter inicialmente |
+
+----
+
+## Etapa 6 - Análise da Classe-Alvo
+### Objetivo da etapa:
+Verificar como a classe `environmental_waste_risk_level` está distribuída e se há separação excessiva entre as classes.
+
+### O que será analisado
+
+| Verificação                | Descrição                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------ |
+| Distribuição das classes   | Quantidade de registros `baixo`, `moderado` e `alto`                           |
+| Sobreposição entre classes | Verificar se atributos aparecem em faixas compartilhadas                       |
+| Atributos dominantes       | Identificar se uma variável separa a classe sozinha                            |
+| Casos de fronteira         | Observar registros próximos entre `baixo` e `moderado`, ou `moderado` e `alto` |
+| Coerência semântica        | Avaliar se a classe é justificável pela combinação de atributos                |
+
+### Atributos importantes para observar por classe
+
+```bash
+active_power_w
+energy_consumption_kwh
+water_usage_effectiveness
+carbon_intensity_gco2_kwh
+fan_speed_rpm
+gpu_utilization_percent
+gpu_power_w
+gpu_temperature_c
+job_duration_hours
+job_status
+rack_power_density_kw
+gpu_sharing_mode
+power_cap_w
+```
+
+#### Histograma da classe-alvo
+
+<div align="center">
+  <img src="../análise_calil/imagens/environmentalHist.png">
+</div>
+
+----
+
+#### Distribuição da classe
+| Classe     | Quantidade | Percentual |
+| ---------- | ---------: | ---------: |
+| `baixo`    |        268 |     39,76% |
+| `moderado` |        248 |     36,80% |
+| `alto`     |        158 |     23,44% |
+
+A classe alto tem menos registros, mas não está ausente. Portanto, existe um desbalanceamento moderado, não extremo.
+
+----
+
+#### Principais relações:
+
+#### active_power_w × energy_consumption_kwh:
+
+<div align="center">
+  <img src="../análise_calil/imagens/activatePowerxEnergyConsul.png">
+</div>
+
+----
+
+#### gpu_utilization_percent × gpu_power_w:
+
+<div align="center">
+  <img src="../análise_calil/imagens/gpuUtlixGpuPower.png">
+</div>
+
+----
+
+#### gpu_temperature_c × fan_speed_rpm:
+
+<div align="center">
+  <img src="../análise_calil/imagens/gpuTemperaturexFanSpeed.png">
+</div>
+
+----
+
+#### rack_power_density_kw × active_power_w:
+
+<div align="center">
+  <img src="../análise_calil/imagens/rackPowerxActivatePower.png">
+</div>
+
+----
+
+#### Médias por classe:
+
+| Classe     | Potência média | Energia média | GPU util. média | GPU power média | Temp. GPU média | Duração média | Densidade média |
+| ---------- | -------------: | ------------: | --------------: | --------------: | --------------: | ------------: | --------------: |
+| `baixo`    |      4754,05 W |      4,75 kWh |          65,31% |        354,34 W |        70,41 °C |       27,45 h |        12,76 kW |
+| `moderado` |      5396,77 W |      5,39 kWh |          58,33% |        392,16 W |        74,89 °C |       27,26 h |        17,93 kW |
+| `alto`     |      7938,79 W |      7,96 kWh |          35,11% |        495,13 W |        82,22 °C |       49,00 h |        65,24 kW |
+
+### Interpretação principal
+A classe `alto` apresenta:
+
+* maior potência média;
+* maior consumo energético;
+* maior temperatura média da GPU;
+* maior duração média dos jobs;
+* maior densidade média de potência;
+* menor utilização média de GPU.
+
+Isso é coerente com o problema, porque risco alto de desperdício ambiental pode ocorrer quando há alto consumo com baixa utilização efetiva.
+
+<p align="justify">
+A classe-alvo apresentou as três categorias previstas: baixo, moderado e alto. A classe baixo possui 268 registros, a classe moderado possui 248 registros e a classe alto possui 158 registros. Embora a classe alto seja menos representada, o desbalanceamento não é extremo. A análise das médias por classe mostrou coerência semântica, pois a classe alto apresenta maior potência, maior consumo energético, maior temperatura de GPU, maior duração dos jobs e maior densidade de potência, ao mesmo tempo em que apresenta menor utilização média de GPU. Esse comportamento é compatível com a ideia de desperdício ambiental.
+</p>
+
+### Registro de Achados:
+
+| ID | Eixo        | Atributo(s) analisado(s)         | Achado observado                    | Evidência                            | Hipótese                  | Impacto no pré-processamento      | Ação sugerida                                         |
+| -- | ----------- | -------------------------------- | ----------------------------------- | ------------------------------------ | ------------------------- | --------------------------------- | ----------------------------------------------------- |
+| A6 | Classe-alvo | `environmental_waste_risk_level` | Classe `alto` é menor, mas presente | baixo: 268, moderado: 248, alto: 158 | Desbalanceamento moderado | Pode afetar avaliação dos modelos | Usar matriz de confusão, precision, recall e F1-score |
+
+----
+
+## Etapa 7 - Análise dos Atributos Irrelevantes
+### Objetivo da etapa:
+Verificar se os atributos irrelevantes planejados realmente não apresentam relação clara com a classe-alvo.
+
+### O que será analisado
+
+| Verificação           | Descrição                                                  |
+| --------------------- | ---------------------------------------------------------- |
+| Frequência geral      | Distribuição dos valores de cada atributo                  |
+| Frequência por classe | Verificar se algum valor aparece concentrado em uma classe |
+| Relação com a classe  | Observar se há padrão artificial                           |
+| Decisão futura        | Confirmar remoção ou manutenção temporária                 |
+
+### Atributos analisados
+
+```bash
+manufacturer_sku_id
+rack_label_color
+rack_inventory_zone
+```
+
+
 
