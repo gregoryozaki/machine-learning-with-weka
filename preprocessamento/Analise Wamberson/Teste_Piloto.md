@@ -46,7 +46,8 @@ O atributo `environmental_waste_risk_level` foi reconhecido como **nominal**.
 
 ### 5. Tipos dos atributos
 Os atributos numéricos foram reconhecidos como **numeric** e os atributos categóricos como **nominal**.
-![]().
+![](<https://github.com/user-attachments/assets/2c6a5492-dbc8-46a3-b3d3-69fb9a3d845f>
+).
 
 ### 6. Valores faltantes
 Os valores faltantes foram observados em alguns atributos planejados:
