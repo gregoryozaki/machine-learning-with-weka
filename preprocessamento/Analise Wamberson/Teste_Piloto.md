@@ -21,7 +21,7 @@ Verificar se o conjunto de dados está corretamente estruturado e pode ser utili
 
 ---
 
-## Comprovação
+## Comprovacão
 
 ### 1. Carregamento no Weka
 A base foi aberta corretamente no Weka, sem erros de importação.
@@ -30,15 +30,23 @@ A base foi aberta corretamente no Weka, sem erros de importação.
 
 ### 2. Número de instâncias
 O Weka exibiu **674 instâncias**, confirmando a quantidade total de registros.
+![Captura de tela do Weka](<https://github.com/user-attachments/assets/a5b5e35f-135d-4026-bc6d-9d0b908413d4>
+)
 
 ### 3. Número de atributos
-O Weka exibiu **30 atributos**, confirmando a estrutura esperada da base.
+O Weka exibiu **30 atributos**, **sendo 29 atributaos + 1 classe alvo** . Confirmando a estrutura esperada da base.
+
+![Captura de tela do Weka](<https://github.com/user-attachments/assets/a5b5e35f-135d-4026-bc6d-9d0b908413d4>
+)
 
 ### 4. Classe-alvo
 O atributo `environmental_waste_risk_level` foi reconhecido como **nominal**.
+![](<https://github.com/user-attachments/assets/31e8fb8a-24d6-4d4f-88a5-f4715bb9f9c8>
+).
 
 ### 5. Tipos dos atributos
 Os atributos numéricos foram reconhecidos como **numeric** e os atributos categóricos como **nominal**.
+![]().
 
 ### 6. Valores faltantes
 Os valores faltantes foram observados em alguns atributos planejados:
@@ -50,6 +58,7 @@ Os valores faltantes foram observados em alguns atributos planejados:
 - `job_status` → `Missing: 6 (1%)`.
 
 Esses valores indicam ausência pontual de dados e devem ser tratados no pré-processamento.
+![]().
 
 ### 7. Categorias válidas
 Os atributos nominais apresentaram apenas categorias previstas:
@@ -64,6 +73,7 @@ Os atributos nominais apresentaram apenas categorias previstas:
 | `rack_label_color` | Nominal | `blue`, `green`, `yellow`, `red`, `white` | O Weka exibiu apenas categorias esperadas para esse campo. |
 | `environmental_waste_risk_level` | Nominal | `baixo`, `moderado`, `alto` | A classe-alvo foi reconhecida corretamente com 3 categorias nominais. |
 | `rack_inventory_zone` | Nominal | `zone_a`, `zone_b`, `zone_c`, `zone_d` | O atributo contém apenas as categorias previstas e nenhuma extra. |
+![]().
 
 ### 8. Linhas quebradas
 Não foram encontrados indícios de registros mal formatados. A base abriu corretamente, os tipos foram reconhecidos e os atributos numéricos e nominais aparecem coerentes, sem sinais visíveis de desalinhamento.
