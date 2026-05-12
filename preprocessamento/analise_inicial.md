@@ -38,7 +38,7 @@ A classe-alvo environmental_waste_risk_level foi reconhecida como nominal, conte
 Os atributos numéricos e categóricos também foram reconhecidos adequadamente, indicando que o arquivo ARFF está estruturalmente válido para a etapa de análise exploratória.
 </p>
 
-### Matriz de Considerações:
+### Registro de Achados:
 
 | ID | Eixo        | Atributo(s) analisado(s) | Achado observado                       | Evidência                     | Hipótese              | Impacto no pré-processamento | Ação sugerida           |
 | -- | ----------- | ------------------------ | -------------------------------------- | ----------------------------- | --------------------- | ---------------------------- | ----------------------- |
@@ -224,7 +224,7 @@ Esses atributos devem receber mais atenção porque podem influenciar diretament
   pois podem estar associados ao próprio fenômeno investigado: o desperdício ambiental em racks de datacenters voltados a cargas de IA.
 </p>
 
-### Matriz de Considerações:
+### Registro de Achados:
 
 | ID | Eixo                   | Atributo(s) analisado(s)                                                         | Achado observado             | Evidência                          | Hipótese                                    | Impacto no pré-processamento | Ação sugerida                                         |
 | -- | ---------------------- | -------------------------------------------------------------------------------- | ---------------------------- | ---------------------------------- | ------------------------------------------- | ---------------------------- | ----------------------------------------------------- |
