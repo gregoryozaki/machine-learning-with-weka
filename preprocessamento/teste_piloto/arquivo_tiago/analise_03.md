@@ -2,6 +2,8 @@
 
 ## Etapa 1 — Verificação de Integridade Estrutural
 
+#### Responsável: `Tiago Santos`
+
 ### Objetivo
 
 Verificar se o dataset está corretamente estruturado e pode ser utilizado no Weka sem erros técnicos.
