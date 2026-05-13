@@ -1,4 +1,4 @@
-# Metodologia do Teste Piloto
+# Teste Piloto
 
 ## 1. Objetivo do Teste Piloto
 
