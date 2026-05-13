@@ -225,20 +225,20 @@ Já `gpu_temperature_c` apresentou mínimo de 32, máximo de 95, média de 74.79
 ![](<https://github.com/user-attachments/assets/90a4cb3c-7d5d-4b0b-8ea7-6f7316477356>
 )  
 
-De modo geral, os valores mínimos e máximos observados não sugerem inconsistências evidentes nas variáveis verificadas. Ainda assim, atributos como `fan_speed_rpm` e `carbon_intensity_gco2_kwh` merecem atenção por apresentarem maior dispersão, o que pode influenciar diretamente algoritmos sensíveis à escala dos dados.
-![](<https://github.com/user-attachments/assets/9e2e2e94-4753-440d-9cc9-d9cdd5606bcd>)    
-![](<https://github.com/user-attachments/assets/9d15771f-767f-41fe-a965-15ea9a8aa5b5>)
+De modo geral, os valores mínimos e máximos observados não sugerem inconsistências evidentes nas variáveis verificadas. Ainda assim, atributos como `fan_speed_rpm` e `carbon_intensity_gco2_kwh` merecem atenção por apresentarem maior dispersão, o que pode influenciar diretamente algoritmos sensíveis à escala dos dados.  
+![](<https://github.com/user-attachments/assets/9e2e2e94-4753-440d-9cc9-d9cdd5606bcd>)      
+![](<https://github.com/user-attachments/assets/9d15771f-767f-41fe-a965-15ea9a8aa5b5>)  
 
 
 ## Análise dos atributos categóricos
 Os atributos categóricos prioritários foram reconhecidos como `Nominal` no Weka e apresentaram apenas categorias coerentes com o domínio esperado da base. Isso indica que os campos foram estruturados corretamente e que não há sinais de categorias inesperadas ou ruído nominal evidente. 
 
 No atributo `cooling_method`, foram observadas as categorias `air`, `liquid`, `immersion` e `hybrid`. Em `ai_workload_type`, as categorias identificadas foram `training`, `inference`, `fine_tuning` e `idle`. Já `job_status` apresentou as categorias `success`, `failed`, `aborted` e `running`, mostrando uma distribuição coerente com estados operacionais típicos da execução de tarefas computacionais. 
-![](<https://github.com/user-attachments/assets/542fe540-1265-48b5-9e6e-117cc18a1263>)
+![](<https://github.com/user-attachments/assets/542fe540-1265-48b5-9e6e-117cc18a1263>)  
 
-![](<https://github.com/user-attachments/assets/73463b1f-ebf0-4bdc-b626-0b942b6ad75d>)  
+![](<https://github.com/user-attachments/assets/73463b1f-ebf0-4bdc-b626-0b942b6ad75d>)    
 
-![](<https://github.com/user-attachments/assets/ffecd974-ca04-4891-8040-db62d5a47ef4>)  
+![](<https://github.com/user-attachments/assets/ffecd974-ca04-4891-8040-db62d5a47ef4>)    
 
  
 Também foram confirmadas categorias válidas em `gpu_sharing_mode` (`full_gpu`, `temporal_sharing`, `mig`, `none`), `manufacturer_sku_id` (`sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e`), `rack_label_color` (`blue`, `green`, `yellow`, `red`, `white`) e `rack_inventory_zone` (`zone_a`, `zone_b`, `zone_c`, `zone_d`). Em todos esses casos, a frequência das categorias pode ser analisada diretamente pelo painel `Selected attribute` do Weka.   
