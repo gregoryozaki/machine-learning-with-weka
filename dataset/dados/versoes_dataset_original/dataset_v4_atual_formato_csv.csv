@@ -1,37 +1,4 @@
-@relation datacenter_ai_environmental_waste_risk_v2
-
-@attribute active_power_w numeric
-@attribute energy_consumption_kwh numeric
-@attribute water_usage_effectiveness numeric
-@attribute carbon_intensity_gco2_kwh numeric
-@attribute inlet_temperature_c numeric
-@attribute exhaust_temperature_c numeric
-@attribute delta_t_c numeric
-@attribute fan_speed_rpm numeric
-@attribute cooling_method {air,liquid,immersion,hybrid}
-@attribute cpu_utilization_percent numeric
-@attribute memory_utilization_percent numeric
-@attribute gpu_power_w numeric
-@attribute gpu_utilization_percent numeric
-@attribute gpu_temperature_c numeric
-@attribute gpu_core_frequency_mhz numeric
-@attribute num_gpus numeric
-@attribute ai_workload_type {training,inference,fine_tuning,idle}
-@attribute batch_size numeric
-@attribute num_epochs numeric
-@attribute model_parameter_size_million numeric
-@attribute training_samples numeric
-@attribute job_duration_hours numeric
-@attribute job_status {success,failed,aborted,running}
-@attribute rack_power_density_kw numeric
-@attribute gpu_sharing_mode {full_gpu,temporal_sharing,mig,none}
-@attribute power_cap_w numeric
-@attribute manufacturer_sku_id {sku_a,sku_b,sku_c,sku_d,sku_e}
-@attribute rack_label_color {blue,green,yellow,red,white}
-@attribute rack_inventory_zone {zone_a,zone_b,zone_c,zone_d}
-@attribute environmental_waste_risk_level {baixo,moderado,alto}
-
-@data
+active_power_w,energy_consumption_kwh,water_usage_effectiveness,carbon_intensity_gco2_kwh,inlet_temperature_c,exhaust_temperature_c,delta_t_c,fan_speed_rpm,cooling_method,cpu_utilization_percent,memory_utilization_percent,gpu_power_w,gpu_utilization_percent,gpu_temperature_c,gpu_core_frequency_mhz,num_gpus,ai_workload_type,batch_size,num_epochs,model_parameter_size_million,training_samples,job_duration_hours,job_status,rack_power_density_kw,gpu_sharing_mode,power_cap_w,manufacturer_sku_id,rack_label_color,rack_inventory_zone,environmental_waste_risk_level
 4671,4.66,0.93,257,23.2,52.7,29.5,10380,liquid,69,79,372,79,75,1781,4,fine_tuning,64,18,10325,16726926,31.59,success,10.5,temporal_sharing,5946,sku_a,green,zone_a,moderado
 5408,5.41,1.22,?,23.8,51.1,27.3,13891,hybrid,54,67,535,73,84,1548,4,fine_tuning,384,22,3811,10141190,25.56,success,10.3,full_gpu,7227,sku_a,blue,zone_a,baixo
 5434,5.37,0.81,298,22.3,44.6,22.3,10933,hybrid,58,60,513,75,83,1844,4,fine_tuning,384,9,12675,12045192,30.78,success,10.1,full_gpu,6660,sku_e,yellow,zone_a,moderado
