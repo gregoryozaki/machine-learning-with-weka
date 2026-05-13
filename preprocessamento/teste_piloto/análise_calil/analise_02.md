@@ -1,5 +1,8 @@
 # Teste Piloto - Dataset Classificação do Nível de Risco de Desperdício Ambiental em Racks de Datacenters Voltados a Cargas de IA.
 
+#### Responsável: `Calil Lima`
+
+
 ### Objetivo:
 Realizar uma análise exploratória inicial do dataset original antes da aplicação de qualquer técnica de pré-processamento.
 
