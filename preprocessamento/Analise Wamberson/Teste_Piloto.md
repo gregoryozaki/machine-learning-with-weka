@@ -211,11 +211,11 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 Os atributos numéricos da base apresentam comportamento compatível com um cenário de monitoramento técnico e operacional de data center, com diferentes escalas e amplitudes entre si. No Weka, esses atributos foram reconhecidos como `Numeric` e exibiram estatísticas como mínimo, máximo, média, desvio-padrão, quantidade de valores distintos e valores ausentes, o que permite uma leitura descritiva inicial consistente.
 
 E na base de dados verificada, `water_usage_effectiveness` apresentou mínimo de 0.28, máximo de 4.96, média de 1.246 e desvio-padrão de 0.635. Isso sugere valores concentrados em uma faixa relativamente controlada, com dispersão moderada e sem indícios imediatos de valores extremos incompatíveis com o contexto da variável.    
-![](<https://github.com/user-attachments/assets/bc8b0e48-06f6-41b7-a607-82b4887e3f06>
+![](<https://github.com/user-attachments/assets/94960243-1462-40bf-99a0-bb983a9c783f>
 )
 
 O atributo `fan_speed_rpm` apresentou mínimo de 1948, máximo de 22000, média de 11612.787 e desvio-padrão de 4099.732. Essa combinação revela grande amplitude e dispersão elevada, indicando forte variabilidade operacional entre os registros e tornando esse atributo um dos mais sensíveis para análise posterior de padronização e outliers.   
-![](<https://github.com/user-attachments/assets/9e2e2e94-4753-440d-9cc9-d9cdd5606bcd>
+![](<https://github.com/user-attachments/assets/54017baa-f9f3-4885-b056-600b828ac2b4>
 )  
 
 Já `gpu_temperature_c` apresentou mínimo de 32, máximo de 95, média de 74.798 e desvio-padrão de 13.343, sugerindo dispersão moderada e comportamento plausível. O atributo `carbon_intensity_gco2_kwh` apresentou mínimo de 62, máximo de 891, média de 377.663 e desvio-padrão de 159.486, o que indica maior heterogeneidade e possibilidade de diferentes perfis de consumo e impacto ambiental entre os registros.   
