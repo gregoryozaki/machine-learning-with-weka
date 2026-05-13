@@ -709,5 +709,284 @@ rack_label_color
 rack_inventory_zone
 ```
 
+#### Histogramas de atributos irrelevantes
 
+#### manufacturer_sku_id:
 
+<div align="center">
+  <img src="../análise_calil/imagens/manufacturerHist.png">
+</div>
+
+----
+
+#### rack_label_color:
+
+<div align="center">
+  <img src="../análise_calil/imagens/rackLabelHist.png">
+</div>
+
+----
+
+#### rack_inventory_zone:
+
+<div align="center">
+  <img src="../análise_calil/imagens/rackInventoryHist.png">
+</div>
+
+----
+
+#### Análise de concentração por classe:
+
+#### manufacturer_sku_id:
+
+<div align="center">
+  <img src="../análise_calil/imagens/manufacturerxManufacturer.png">
+</div>
+
+----
+
+#### rack_label_color:
+
+<div align="center">
+  <img src="../análise_calil/imagens/rackLabelxRackLabel.png">
+</div>
+
+----
+
+#### rack_inventory_zone:
+
+<div align="center">
+  <img src="../análise_calil/imagens/racknventiryxRackInventory.png">
+</div>
+
+----
+
+### Frequências gerais
+
+| Atributo              | Distribuição observada                                           | Interpretação                   |
+| --------------------- | ---------------------------------------------------------------- | ------------------------------- |
+| `manufacturer_sku_id` | `sku_a` a `sku_e` distribuídos                                   | Identificador administrativo    |
+| `rack_label_color`    | Cores distribuídas entre azul, verde, amarelo, vermelho e branco | Sem relação semântica com risco |
+| `rack_inventory_zone` | Zonas `zone_a` a `zone_d` distribuídas                           | Localização administrativa      |
+
+<p align="justify">
+  Os atributos manufacturer_sku_id, rack_label_color e rack_inventory_zone possuem natureza administrativa ou identificadora. A análise inicial não indica relação semântica direta entre esses atributos e o nível de risco de desperdício ambiental. Como esses campos podem induzir o modelo a aprender padrões artificiais, recomenda-se testar sua remoção na etapa de pré-processamento.
+</p>
+
+### Registro de Achados:
+
+| ID | Eixo         | Atributo(s) analisado(s)                                         | Achado observado                       | Evidência                          | Hipótese                                               | Impacto no pré-processamento   | Ação sugerida                      |
+| -- | ------------ | ---------------------------------------------------------------- | -------------------------------------- | ---------------------------------- | ------------------------------------------------------ | ------------------------------ | ---------------------------------- |
+| A7 | Irrelevantes | `manufacturer_sku_id`, `rack_label_color`, `rack_inventory_zone` | Sem relação semântica direta com risco | Frequências e visualização no Weka | Atributos administrativos planejados como irrelevantes | Podem prejudicar generalização | Testar remoção com filtro `Remove` |
+
+----
+
+## Etapa 8 - Análise de Relações Semânticas
+### Objetivo da etapa:
+Verificar se as principais regras semânticas usadas na geração do dataset aparecem de forma coerente nos dados.
+
+### Relações prioritárias
+
+| Relação                                                       | O que verificar                                             |
+| ------------------------------------------------------------- | ----------------------------------------------------------- |
+| `active_power_w` × `energy_consumption_kwh`                   | Energia deve ser compatível com potência em uma hora        |
+| `inlet_temperature_c` × `exhaust_temperature_c` × `delta_t_c` | Delta T deve representar diferença térmica                  |
+| `gpu_utilization_percent` × `gpu_power_w`                     | Alta utilização tende a maior potência                      |
+| `gpu_utilization_percent` × `environmental_waste_risk_level`  | Baixa utilização com alta potência pode indicar desperdício |
+| `fan_speed_rpm` × temperaturas                                | Fan speed deve acompanhar esforço térmico                   |
+| `job_status` × `job_duration_hours`                           | Jobs falhos longos podem indicar desperdício                |
+| `rack_power_density_kw` × classe                              | Verificar risco de dominância                               |
+| `gpu_sharing_mode` × `gpu_utilization_percent`                | GPU inteira com baixa utilização pode indicar desperdício   |
+
+#### Relações de atributos:
+
+#### Relação 1 — Potência × Energia
+
+<div align="center">
+  <img src="../análise_calil/imagens/activatePowerxEnergyConsul.png">
+</div>
+
+----
+
+| Achado               | Interpretação                                      | Ação sugerida                        |
+| -------------------- | -------------------------------------------------- | ------------------------------------ |
+| Relação quase linear | Energia acompanha potência em uma hora de operação | Manter; avaliar possível redundância |
+
+<p align="justify">
+  A relação entre potência ativa e consumo energético mostrou-se coerente, pois o aumento da potência acompanha o aumento do consumo. Essa relação confirma a consistência física do dataset, já que cada instância representa uma hora de operação.
+</p>
+
+----
+
+#### Relação 2 - Temperaturas × Delta T
+
+#### exhaust_temperature_c:
+
+<div align="center">
+  <img src="../análise_calil/imagens/exhaustxExhaust.png">
+</div>
+
+----
+
+#### inlet_temperature_c
+
+<div align="center">
+  <img src="../análise_calil/imagens/inletxInlet.png">
+</div>
+
+----
+
+#### exhaust_temperature_c x delta_t_c:
+
+<div align="center">
+  <img src="../análise_calil/imagens/ExhaustxDelta.png">
+</div>
+
+----
+
+#### inlet_temperature_c x delta_t_c:
+
+<div align="center">
+  <img src="../análise_calil/imagens/inletxDeltaT.png">
+</div>
+
+----
+
+#### inlet_temperature_c x exhaust_temperature_c x delta_t_c:
+
+<div align="center">
+  <img src="../análise_calil/imagens/inletTempxExhaustxDelta.png">
+</div>
+
+----
+
+| Achado                                | Interpretação             | Ação sugerida             |
+| ------------------------------------- | ------------------------- | ------------------------- |
+| Delta T acompanha a diferença térmica | Relação térmica plausível | Manter atributos térmicos |
+
+<p align="justify">
+  A relação entre temperatura de entrada, temperatura de exaustão e delta_t_c apresentou coerência geral. O aumento da temperatura de exaustão acompanha o aumento do delta térmico, indicando consistência nos atributos térmicos.
+</p>
+
+----
+
+#### Relação 3 - GPU Utilization × GPU Power
+
+<div align="center">
+  <img src="../análise_calil/imagens/gpuUtlixGpuPower.png">
+</div>
+
+----
+
+| Achado                    | Interpretação                                                                              | Ação sugerida                       |
+| ------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------- |
+| Relação positiva moderada | Maior utilização tende a maior consumo, mas há casos de baixa utilização com alta potência | Manter para identificar desperdício |
+
+<p align="justify">
+  A relação entre utilização de GPU e potência da GPU indica tendência de aumento de consumo com maior utilização. Entretanto, também existem casos de baixa utilização com consumo elevado, o que é relevante para a classificação de desperdício ambiental.
+</p>
+
+----
+
+#### 4 — GPU Power × GPU Temperature
+
+<div align="center">
+  <img src="../análise_calil/imagens/gpuPowerxGpuTemperature.png">
+</div>
+
+----
+
+| Achado        | Interpretação                                      | Ação sugerida    |
+| ------------- | -------------------------------------------------- | ---------------- |
+| Relação forte | Maior potência tende a elevar a temperatura da GPU | Manter atributos |
+
+<p align="justify">
+  A relação entre potência da GPU e temperatura da GPU mostrou-se fisicamente coerente, pois maiores valores de potência tendem a estar associados a maiores temperaturas. Essa relação reforça a importância dos atributos térmicos e energéticos no problema.
+</p>
+
+----
+
+#### 5 — Fan Speed × Temperatura
+
+<div align="center">
+  <img src="../análise_calil/imagens/gpuTemperaturexFanSpeed.png">
+</div>
+
+----
+
+| Achado                                      | Interpretação                                   | Ação sugerida |
+| ------------------------------------------- | ----------------------------------------------- | ------------- |
+| Fan speed aumenta com temperaturas elevadas | Esforço de refrigeração acompanha carga térmica | Manter        |
+
+<p align="justify">
+  A velocidade das ventoinhas tende a acompanhar o aumento da temperatura, indicando coerência entre esforço de refrigeração e carga térmica. Valores elevados de fan speed podem representar maior consumo auxiliar e esforço de resfriamento.
+</p>
+
+----
+
+#### Relação 6 — Job Status × Job Duration
+
+<div align="center">
+  <img src="../análise_calil/imagens/jobStatusxJobDuration.png">
+</div>
+
+----
+
+| Achado                                         | Interpretação                                                     | Ação sugerida   |
+| ---------------------------------------------- | ----------------------------------------------------------------- | --------------- |
+| Jobs longos e falhos podem indicar desperdício | Execuções improdutivas podem consumir recursos sem resultado útil | Manter atributo |
+
+<p align="justify">
+  A relação entre job_status e job_duration_hours é relevante porque jobs falhos, abortados ou muito longos podem indicar desperdício operacional. Assim, o atributo job_status deve ser mantido inicialmente e tratado apenas quanto aos valores faltantes.
+</p>
+
+----
+
+#### Relação 7 — Rack Power Density × Classe
+
+<div align="center">
+  <img src="../análise_calil/imagens/rackPowerxActivatePower.png">
+</div>
+
+----
+
+| Achado                                     | Interpretação                           | Ação sugerida                          |
+| ------------------------------------------ | --------------------------------------- | -------------------------------------- |
+| Classe `alto` possui maior densidade média | Densidade pode ser atributo muito forte | Testar modelos com e sem esse atributo |
+
+<p align="justify">
+  A densidade de potência do rack apresenta valores mais elevados na classe alto, o que sugere forte relação com o risco de desperdício ambiental. Entretanto, por poder se tornar um atributo dominante, recomenda-se avaliar posteriormente modelos com e sem esse atributo.
+</p>
+
+----
+
+#### Relação 8 — GPU Sharing Mode × GPU Utilization
+
+<div align="center">
+  <img src="../análise_calil/imagens/gpuSharexGpuUtil.png">
+</div>
+
+----
+
+| Achado                                                          | Interpretação                                    | Ação sugerida   |
+| --------------------------------------------------------------- | ------------------------------------------------ | --------------- |
+| Uso de `full_gpu` com baixa utilização pode indicar desperdício | GPU dedicada subutilizada representa má alocação | Manter atributo |
+
+<p align="justify">
+  A relação entre modo de compartilhamento da GPU e utilização da GPU é relevante para identificar desperdício por alocação inadequada. Casos de full_gpu com baixa utilização podem indicar uso ineficiente de recursos computacionais.
+</p>
+
+### Registro de Achados:
+
+| ID | Eixo                | Atributo(s) analisado(s)                                | Achado observado                           | Evidência                        | Hipótese                                          | Impacto no pré-processamento                   | Ação sugerida               |
+| -- | ------------------- | ------------------------------------------------------- | ------------------------------------------ | -------------------------------- | ------------------------------------------------- | ---------------------------------------------- | --------------------------- |
+| A8 | Relações semânticas | Potência, energia, temperatura, GPU, fan speed e classe | Relações físicas e operacionais coerentes  | Gráficos de dispersão no Weka    | Dataset representa padrões plausíveis de operação | Atributos são úteis para classificação         | Manter atributos principais |
+| A9 | Relações semânticas | `rack_power_density_kw` × classe                        | Classe `alto` possui maior densidade média | Visualização e médias por classe | Atributo pode ser dominante                       | Pode influenciar excessivamente alguns modelos | Testar com e sem o atributo |
+
+----
+
+## Parecer Sobre a Qualidade Inicial do Dataset:
+
+<p align ="justify">
+  O teste piloto demonstrou que o dataset original está estruturalmente adequado para uso no Weka, pois foi carregado corretamente, possui 674 instâncias, 30 atributos e a classe-alvo nominal environmental_waste_risk_level. A análise identificou valores faltantes em atributos previamente planejados, com proporção aproximada de 1%, indicando incompletude controlada. Também foram observados ruídos plausíveis, sem valores inválidos críticos em atributos percentuais ou relações físicas fundamentais. Os outliers encontrados em temperatura, velocidade de ventoinha, duração de jobs e densidade de potência são interpretáveis no domínio de datacenters voltados a cargas de IA, devendo ser mantidos inicialmente. A classe-alvo apresenta desbalanceamento moderado, com menor representação da classe alto, mas ainda é adequada para classificação. Os atributos manufacturer_sku_id, rack_label_color e rack_inventory_zone não apresentam relação semântica direta com o risco ambiental e devem ser avaliados para remoção. Assim, o dataset está apto para seguir para a etapa de pré-processamento, desde que as decisões posteriores sejam orientadas pelos achados registrados nesta análise exploratória.
+</p>
