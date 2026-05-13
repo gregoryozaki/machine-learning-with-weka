@@ -1,8 +1,13 @@
 
 
-## Etapa 1
+## Etapa 1 — Verificação de Integridade Estrutural
 
-- Carregamento no Weka: Verificar se o arquivo `.arff` abre corretamente  
+### Objetivo
+
+Verificar se o dataset está corretamente estruturado e pode ser utilizado no Weka sem erros técnicos.
+
+
+-  Carregamento no Weka: Verificar se o arquivo `.arff` abre corretamente  
 - Número de instâncias: Confirmar a quantidade total de registros  
 - Número de atributos: Confirmar se existem 30 atributos  
 - Classe-alvo: Verificar se `environmental_waste_risk_level` foi reconhecida como nominal  
@@ -12,9 +17,29 @@
 - Linhas quebradas: Verificar se existem registros mal formatados  
 - Duplicatas: Verificar se há registros 100% idênticos em excesso  
 
+
+| Atributo                     | Valores Faltantes |
+|------------------------------|-------------------|
+| water_usage_effectiveness    | 7                 |
+| carbon_intensity_gco2_kwh    | 7                 |
+| fan_speed_rpm                | 7                 |
+| gpu_temperature_c            | 7                 |
+| job_status                   | 6                 |
+
+
+
+### Observações
+
+- Atributo `num_gpus` apesar de ser expresso com números, é um atributo categórico, possuindo 5 valores possíveis
+- Não foram encontradas instâncias idênticas
+
 ---
 
-## Etapa 2
+##  Etapa 2 — Análise Estatística Descritiva
+
+### Objetivo
+
+Investigar o comportamento geral dos atributos numéricos e categóricos, observando médias, dispersões, frequências e distribuições.
 
 - Mínimo e máximo: Verificar se os valores estão dentro das faixas planejadas  
 - Média: Observar tendência central  
@@ -26,7 +51,12 @@
 
 ---
 
-## Etapa 3
+##  Etapa 3 — Análise de Valores Faltantes
+
+### Objetivo
+
+Verificar se os valores faltantes foram inseridos conforme o planejamento e levantar hipóteses sobre o tratamento posterior.
+
 
 - Quantidade de valores faltantes: Contar quantos `?` existem no dataset  
 - Atributos afetados: Verificar em quais colunas aparecem valores faltantes  
@@ -36,7 +66,11 @@
 
 ---
 
-## Etapa 4
+##  Etapa 4 — Análise de Ruído
+
+### Objetivo
+
+Verificar se o ruído inserido no dataset é leve, plausível e compatível com o domínio.
 
 - Pequenas oscilações: Observar variações plausíveis em atributos numéricos  
 - Coerência potência-energia: Verificar relação entre `active_power_w` e `energy_consumption_kwh`  
@@ -46,7 +80,11 @@
 
 ---
 
-## Etapa 5
+##  Etapa 5 — Análise de Outliers
+
+### Objetivo
+
+Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis para a tarefa de classificação.
 
 - Outliers numéricos: Valores extremos em atributos como potência, temperatura e duração  
 - Outliers relacionais: Combinações incomuns entre atributos  
@@ -56,7 +94,11 @@
 
 ---
 
-## Etapa 6
+##  Etapa 6 — Análise da Classe-Alvo
+
+### Objetivo
+
+Verificar como a classe `environmental_waste_risk_level` está distribuída e se há separação excessiva entre as classes.
 
 - Distribuição das classes: Quantidade de registros `baixo`, `moderado` e `alto`  
 - Sobreposição entre classes: Verificar se atributos aparecem em faixas compartilhadas  
@@ -66,7 +108,11 @@
 
 ---
 
-## Etapa 7
+##  Etapa 7 — Análise dos Atributos Irrelevantes
+
+### Objetivo
+
+Verificar se os atributos irrelevantes planejados realmente não apresentam relação clara com a classe-alvo.
 
 - Frequência geral: Distribuição dos valores de cada atributo  
 - Frequência por classe: Verificar se algum valor aparece concentrado em uma classe  
@@ -75,7 +121,11 @@
 
 ---
 
-## Etapa 8
+##  Etapa 8 — Análise de Relações Semânticas
+
+### Objetivo
+
+Verificar se as principais regras semânticas usadas na geração do dataset aparecem de forma coerente nos dados.
 
 - `active_power_w` × `energy_consumption_kwh`: Energia compatível com potência  
 - `inlet_temperature_c` × `exhaust_temperature_c` × `delta_t_c`: Delta T coerente  
