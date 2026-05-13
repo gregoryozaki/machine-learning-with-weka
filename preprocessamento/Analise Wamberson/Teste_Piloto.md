@@ -219,7 +219,10 @@ O atributo `fan_speed_rpm` apresentou mínimo de 1948, máximo de 22000, média 
 )  
 
 Já `gpu_temperature_c` apresentou mínimo de 32, máximo de 95, média de 74.798 e desvio-padrão de 13.343, sugerindo dispersão moderada e comportamento plausível. O atributo `carbon_intensity_gco2_kwh` apresentou mínimo de 62, máximo de 891, média de 377.663 e desvio-padrão de 159.486, o que indica maior heterogeneidade e possibilidade de diferentes perfis de consumo e impacto ambiental entre os registros.   
-![](<https://github.com/user-attachments/assets/ae578a27-63f7-4437-9a2d-c6937e77c748>
+![](<https://github.com/user-attachments/assets/7444888b-119c-4e72-ac00-45f95d0fc38d>
+)
+
+![](<https://github.com/user-attachments/assets/90a4cb3c-7d5d-4b0b-8ea7-6f7316477356>
 )  
 
 De modo geral, os valores mínimos e máximos observados não sugerem inconsistências evidentes nas variáveis verificadas. Ainda assim, atributos como `fan_speed_rpm` e `carbon_intensity_gco2_kwh` merecem atenção por apresentarem maior dispersão, o que pode influenciar diretamente algoritmos sensíveis à escala dos dados.
