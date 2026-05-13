@@ -68,11 +68,14 @@ Assim, as decisões posteriores serão baseadas em evidências observadas nos da
 
 A análise será realizada por três integrantes, cada um responsável por um eixo de investigação. Essa divisão permite que o dataset seja analisado sob perspectivas diferentes.
 
-| Responsável  | Eixo de Análise | Objetivo |
-| --- | --- | --- |
-| Calil Lima, Tiago Santos, Wamberson Pacheco | Integridade estrutural e qualidade dos dados | Verificar se o dataset está tecnicamente correto e compatível com o Weka |
-| Calil Lima, Tiago Santos, Wamberson Pacheco | Distribuições, valores faltantes, ruído e outliers | Investigar o comportamento estatístico dos atributos |
-| Calil Lima, Tiago Santos, Wamberson Pacheco | Relações semânticas e relação com a classe-alvo | Avaliar se as relações entre atributos e classes são coerentes |
+| Responsável | Eixo de Análise | Objetivo |
+|---|---|---|
+| Wamberson Pacheco | Integridade estrutural e compatibilidade com Weka | Verificar abertura do arquivo `.arff`, quantidade de instâncias, quantidade de atributos, tipo da classe-alvo, tipos dos atributos, categorias válidas e ausência de linhas quebradas. |
+| Tiago Santos | Conferência complementar de estrutura e valores faltantes | Revisar a estrutura geral, confirmar presença de valores faltantes nos atributos planejados, verificar ausência de duplicatas e observar atributos com comportamento discreto, como `num_gpus`. |
+| Wamberson Pacheco | Estatísticas descritivas e distribuições | Analisar mínimos, máximos, médias, desvios-padrão, histogramas e frequências dos atributos numéricos e categóricos. |
+| Calil Lima | Valores faltantes, ruído e outliers | Avaliar a proporção dos valores faltantes, a plausibilidade do ruído e a presença de outliers interpretáveis no domínio de datacenters de IA. |
+| Calil Lima | Relações semânticas e classe-alvo | Avaliar relações entre potência, energia, temperatura, GPU, fan speed, densidade de potência e classe-alvo, identificando possíveis atributos dominantes e implicações para o pré-processamento. |
+| Gregory Ozaki | Consolidação dos achados e decisão sobre nova versão do dataset | Consolidar os resultados do teste piloto da V1 e, caso as análises indiquem baixa presença de valores faltantes, ruído ou outliers, propor e documentar a criação de uma V2 com maior grau de imperfeições controladas. |
 
 Cada integrante deverá registrar seus achados, evidências e hipóteses. Ao final, os resultados serão consolidados em uma análise única para orientar as decisões de pré-processamento.
 
@@ -91,7 +94,7 @@ Verificar se o dataset está corretamente estruturado e pode ser utilizado no We
 | Verificação          | Descrição                                                                         |
 | -------------------- | --------------------------------------------------------------------------------- |
 | Carregamento no Weka | Verificar se o arquivo `.arff` abre corretamente                                  |
-| Número de instâncias | Confirmar a quantidade total de registros                                         |
+| Número de instancias | Confirmar a quantidade total de registros                                         |
 | Número de atributos  | Confirmar se existem 30 atributos                                                 |
 | Classe-alvo          | Verificar se `environmental_waste_risk_level` foi reconhecida como nominal        |
 | Tipos dos atributos  | Verificar se os atributos numéricos e categóricos foram reconhecidos corretamente |
@@ -116,7 +119,7 @@ As evidências podem incluir:
 
 * print da tela de carregamento do Weka;
 * estatísticas exibidas pelo Weka;
-* contagem de instâncias;
+* contagem de instancias;
 * contagem de atributos;
 * tabela com atributos que possuem valores faltantes;
 * observações sobre problemas encontrados.

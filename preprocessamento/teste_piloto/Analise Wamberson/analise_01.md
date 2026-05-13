@@ -1,15 +1,13 @@
 # Análise 01 do Teste Piloto
 
-**Responsável:** `Wamberson Pacheco`
-
----
+#### Responsável: `Wamberson Pacheco`
 
 ## Etapa 1 — Verificação de Integridade Estrutural
 
-### Objetivo
+## Objetivo
 Verificar se o conjunto de dados está corretamente estruturado e pode ser utilizado no Weka sem erros técnicos.
 
-### Resultado da verificação
+## Resultado da verificação
 
 | Nº | Verificação | Descrição | Status | Relato |
 |---|---|---|---|---|
@@ -25,7 +23,7 @@ Verificar se o conjunto de dados está corretamente estruturado e pode ser utili
 
 ---
 
-### Comprovacão
+## Comprovacão
 
 ### 1. Carregamento no Weka
 
@@ -61,25 +59,27 @@ Os atributos numéricos foram reconhecidos como **numeric** e os atributos categ
 
 Os valores faltantes foram observados em alguns atributos planejados:
 
-- `water_usage_effectiveness` → `Missing: 7 (1%)`.
+- `water_usage_effectiveness` → `Missing: 7 (1%)`.  
 
-![](<https://github.com/user-attachments/assets/dfb3385a-9ab8-40b6-8129-076df3147c81>).
+![](<https://github.com/user-attachments/assets/dfb3385a-9ab8-40b6-8129-076df3147c81>).  
 
-- `fan_speed_rpm` → `Missing: 7 (1%)`.
+- `fan_speed_rpm` → `Missing: 7 (1%)`.  
 
 ![](<https://github.com/user-attachments/assets/8d3217a3-762a-4771-b285-fbd22d666a8c>).
 
-- `gpu_temperature_c` → `Missing: 7 (1%)`.
+- `gpu_temperature_c` → `Missing: 7 (1%)`.  
 
 ![](<https://github.com/user-attachments/assets/7a1562aa-69b0-46c8-a4af-2cbde9323226>).
 
-- `carbon_intensity_gco2_kwh` → `Missing: 7 (1%)`.
+- `carbon_intensity_gco2_kwh` → `Missing: 7 (1%)`.  
 
-![](<https://github.com/user-attachments/assets/8a4d80bb-f5ce-4f2d-9480-f81a0e807c51>).
+![](<https://github.com/user-attachments/assets/8a4d80bb-f5ce-4f2d-9480-f81a0e807c51>
+).
 
-- `job_status` → `Missing: 6 (1%)`.
+- `job_status` → `Missing: 6 (1%)`.  
 
-![](<https://github.com/user-attachments/assets/c5c8f158-6d0e-41a8-adfa-e0b5fcd442fa>).
+![](<https://github.com/user-attachments/assets/c5c8f158-6d0e-41a8-adfa-e0b5fcd442fa>
+).
 
 Esses valores indicam ausência pontual de dados e devem ser tratados no pré-processamento.
 
@@ -98,37 +98,43 @@ Os atributos nominais apresentaram apenas categorias previstas:
 | `environmental_waste_risk_level` | Nominal | `baixo`, `moderado`, `alto` | A classe-alvo foi reconhecida corretamente com 3 categorias nominais. |
 | `rack_inventory_zone` | Nominal | `zone_a`, `zone_b`, `zone_c`, `zone_d` | O atributo contém apenas as categorias previstas e nenhuma extra.|
 
-- `cooling_method` →   `air`, `liquid`, `immersion`, `hybrid`
+- `cooling_method` →   `air`, `liquid`, `immersion`, `hybrid`   
 
-![`cooling_method`](<https://github.com/user-attachments/assets/9c4bb10e-66dc-497f-8d6a-69b43d58dee3>).
+![`cooling_method`](<https://github.com/user-attachments/assets/9c4bb10e-66dc-497f-8d6a-69b43d58dee3>).  
 
-- `ai_workload_type` →  `training`, `inference`, `fine_tuning`, `idle`
+- `ai_workload_type` →  `training`, `inference`, `fine_tuning`, `idle` 
 
-![](<https://github.com/user-attachments/assets/abeeeb25-07c0-4a86-9830-f13c72be01ef>).
+![](<https://github.com/user-attachments/assets/abeeeb25-07c0-4a86-9830-f13c72be01ef>).  
 
 - `job_status` →  `success`, `failed`, `aborted`, `running`
 
-![](<https://github.com/user-attachments/assets/a060cd6c-319a-4cb6-b7ea-5c24dfc527d2>).
+![](<https://github.com/user-attachments/assets/a060cd6c-319a-4cb6-b7ea-5c24dfc527d2>
+).
 
-- `manufacturer_sku_id` → `sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e`
+- `manufacturer_sku_id` → `sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e` 
 
-![](<https://github.com/user-attachments/assets/0a75da64-4c14-4012-9ded-8ff2788bbd6c>).
+![](<https://github.com/user-attachments/assets/0a75da64-4c14-4012-9ded-8ff2788bbd6c>
+).
 
-- `gpu_sharing_mode` → `full_gpu`, `temporal_sharing`, `mig`, `none`
+- `gpu_sharing_mode` → `full_gpu`, `temporal_sharing`, `mig`, `none` 
 
-![](<https://github.com/user-attachments/assets/cf824cfd-eac0-47ff-91f2-5660ccb935c7>).
+![](<https://github.com/user-attachments/assets/cf824cfd-eac0-47ff-91f2-5660ccb935c7>
+).
 
-- `rack_label_color` → `blue`, `green`, `yellow`, `red`, `white`
+- `rack_label_color` → `blue`, `green`, `yellow`, `red`, `white` 
 
-![](<https://github.com/user-attachments/assets/ffc051d0-22d5-41a8-a463-2776e671ce5f>).
+![](<https://github.com/user-attachments/assets/ffc051d0-22d5-41a8-a463-2776e671ce5f>
+).
 
 - `environmental_waste_risk_level` → `baixo`, `moderado`, `alto`
 
-![](<https://github.com/user-attachments/assets/53d4f181-7e01-41ba-a7a1-dcb9307e7ffd>).
+![](<https://github.com/user-attachments/assets/53d4f181-7e01-41ba-a7a1-dcb9307e7ffd>
+).
 
 - `rack_inventory_zone` → `zone_a`, `zone_b`, `zone_c`, `zone_d`
 
-![](<https://github.com/user-attachments/assets/9fc8a910-7b1f-4f5c-bf62-428e597dccb5>).
+![](<https://github.com/user-attachments/assets/9fc8a910-7b1f-4f5c-bf62-428e597dccb5>
+).
 
 ### 8. Linhas quebradas
 
@@ -140,7 +146,7 @@ Não foram identificados registros 100% idênticos em excesso.
 
 ---
 
-### Perguntas vocacionais
+## Perguntas vocacionais
 
 | Nº | Pergunta | Resposta | Evidência nos prints |
 |---|---|---|---|
@@ -154,23 +160,25 @@ Não foram identificados registros 100% idênticos em excesso.
 
 ---
 
-### Evidências esperadas
+## Evidências esperadas
 
 As evidências podem incluir:
 
 - Print da tela de carregamento do Weka.
 
-![Captura de tela do Weka](<https://github.com/user-attachments/assets/05435f68-a568-44b8-bec1-89b01fcd0fc1>)
-
+![Captura de tela do Weka](<https://github.com/user-attachments/assets/05435f68-a568-44b8-bec1-89b01fcd0fc1>
+)    
+  
 - Contagem de instâncias e Contagem de atributos.
 
-![Captura de tela do Weka](<https://github.com/user-attachments/assets/a5b5e35f-135d-4026-bc6d-9d0b908413d4>)
+![Captura de tela do Weka](<https://github.com/user-attachments/assets/a5b5e35f-135d-4026-bc6d-9d0b908413d4>
+)  
 
-- Tabela com atributos que possuem valores faltantes.
+- Tabela com atributos que possuem valores faltantes.  
 
-Foram identificados valores ausentes em alguns atributos como ja foi identificado acima.
-
-- Observações sobre problemas encontrados.
+Foram identificados valores ausentes em alguns atributos como ja foi identificado acima. 
+  
+- Observações sobre problemas encontrados.  
 
 Esses atributos ausentes aparecem no Weka como Missing, com pequenas proporções em relação ao total, e devem ser considerados no pré-processamento antes da modelagem. Com base na análise feita no Weka, a base está estruturalmente consistente para uso em mineração de dados e classificação. Os registros foram carregados sem erro, a classe-alvo foi reconhecida como nominal, os atributos numéricos e categóricos foram interpretados corretamente, e os únicos problemas identificados foram valores ausentes pontuais em alguns campos específicos.
 
@@ -182,7 +190,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 
 ### Análise exploratória dos atributos no Weka
 
-### Atributos numéricos prioritários
+## Atributos numéricos prioritários
 - `active_power_w`
 - `energy_consumption_kwh`
 - `water_usage_effectiveness`
@@ -206,7 +214,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 - `rack_power_density_kw`
 - `power_cap_w`
 
-### Atributos categóricos prioritários
+## Atributos categóricos prioritários
 - `cooling_method`
 - `ai_workload_type`
 - `job_status`
@@ -216,7 +224,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 - `rack_inventory_zone`
 - `environmental_waste_risk_level`
 
-### O que será analisado
+## O que será analisado
 
 | Tipo de análise | Descrição |
 |---|---|
@@ -228,21 +236,25 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 | Frequência de categorias | Verificar a distribuição dos atributos nominais. |
 | Distribuição da classe | Verificar a quantidade de registros por classe. |
 
-### Análise dos atributos numéricos
+## Análise dos atributos numéricos
 
 Os atributos numéricos da base apresentam comportamento compatível com um cenário de monitoramento técnico e operacional de data center, com diferentes escalas e amplitudes entre si. No Weka, esses atributos foram reconhecidos como `Numeric` e exibiram estatísticas como mínimo, máximo, média, desvio-padrão, quantidade de valores distintos e valores ausentes, o que permite uma leitura descritiva inicial consistente.
 
-E na base de dados verificada, `water_usage_effectiveness` apresentou mínimo de 0.28, máximo de 4.96, média de 1.246 e desvio-padrão de 0.635. Isso sugere valores concentrados em uma faixa relativamente controlada, com dispersão moderada e sem indícios imediatos de valores extremos incompatíveis com o contexto da variável.
+E na base de dados verificada, `water_usage_effectiveness` apresentou mínimo de 0.28, máximo de 4.96, média de 1.246 e desvio-padrão de 0.635. Isso sugere valores concentrados em uma faixa relativamente controlada, com dispersão moderada e sem indícios imediatos de valores extremos incompatíveis com o contexto da variável.    
 
-![](<https://github.com/user-attachments/assets/94960243-1462-40bf-99a0-bb983a9c783f>)
+![](<https://github.com/user-attachments/assets/94960243-1462-40bf-99a0-bb983a9c783f>
+)
 
-O atributo `fan_speed_rpm` apresentou mínimo de 1948, máximo de 22000, média de 11612.787 e desvio-padrão de 4099.732. Essa combinação revela grande amplitude e dispersão elevada, indicando forte variabilidade operacional entre os registros e tornando esse atributo um dos mais sensíveis para análise posterior de padronização e outliers.
+O atributo `fan_speed_rpm` apresentou mínimo de 1948, máximo de 22000, média de 11612.787 e desvio-padrão de 4099.732. Essa combinação revela grande amplitude e dispersão elevada, indicando forte variabilidade operacional entre os registros e tornando esse atributo um dos mais sensíveis para análise posterior de padronização e outliers.   
 
-![](<https://github.com/user-attachments/assets/54017baa-f9f3-4885-b056-600b828ac2b4>)
+![](<https://github.com/user-attachments/assets/54017baa-f9f3-4885-b056-600b828ac2b4>
+)  
 
-Já `gpu_temperature_c` apresentou mínimo de 32, máximo de 95, média de 74.798 e desvio-padrão de 13.343, sugerindo dispersão moderada e comportamento plausível. O atributo `carbon_intensity_gco2_kwh` apresentou mínimo de 62, máximo de 891, média de 377.663 e desvio-padrão de 159.486, o que indica maior heterogeneidade e possibilidade de diferentes perfis de consumo e impacto ambiental entre os registros.
+Já `gpu_temperature_c` apresentou mínimo de 32, máximo de 95, média de 74.798 e desvio-padrão de 13.343, sugerindo dispersão moderada e comportamento plausível. O atributo `carbon_intensity_gco2_kwh` apresentou mínimo de 62, máximo de 891, média de 377.663 e desvio-padrão de 159.486, o que indica maior heterogeneidade e possibilidade de diferentes perfis de consumo e impacto ambiental entre os registros.   
 
-![](<https://github.com/user-attachments/assets/7444888b-119c-4e72-ac00-45f95d0fc38d>)
+![](<https://github.com/user-attachments/assets/7444888b-119c-4e72-ac00-45f95d0fc38d>
+)
+
 
 ## 5.3. Etapa 3 — Análise de Valores Faltantes
 
@@ -258,26 +270,26 @@ Verificar se os valores faltantes foram inseridos conforme o planejamento e leva
 
 ### Verificação dos faltantes
 
-Os valores faltantes aparecem apenas nos atributos planejados. Nos prints verificados no Weka, os campos `water_usage_effectiveness`, `fan_speed_rpm`, `gpu_temperature_c` e `carbon_intensity_gco2_kwh` apresentam `Missing: 7 (1%)`, enquanto `job_status` apresenta `Missing: 6 (1%)`.
+Os valores faltantes aparecem apenas nos atributos planejados. Nos prints verificados no Weka, os campos `water_usage_effectiveness`, `fan_speed_rpm`, `gpu_temperature_c` e `carbon_intensity_gco2_kwh` apresentam `Missing: 7 (1%)`, enquanto `job_status` apresenta `Missing: 6 (1%)`. 
 
 ### Proporção de faltantes
 
-A proporção de faltantes é baixa e compatível com uma inserção planejada para simular ausência realista de dados. Em termos práticos, os faltantes representam cerca de 1% da base em cada um desses atributos, o que é aceitável para análise exploratória e modelagem, desde que o tratamento seja feito de forma consistente.
-
+A proporção de faltantes é baixa e compatível com uma inserção planejada para simular ausência realista de dados. Em termos práticos, os faltantes representam cerca de 1% da base em cada um desses atributos, o que é aceitável para análise exploratória e modelagem, desde que o tratamento seja feito de forma consistente. 
+  
 ### Distribuição por classe
 
-Pelos prints enviados, não há evidência visual suficiente de concentração forte dos faltantes em uma classe específica. Essa análise pode ser refinada com filtros de visualização por classe no Weka ou com uma tabela cruzada entre faltantes e `environmental_waste_risk_level`.
+Pelos prints enviados, não há evidência visual suficiente de concentração forte dos faltantes em uma classe específica. Essa análise pode ser refinada com filtros de visualização por classe no Weka ou com uma tabela cruzada entre faltantes e `environmental_waste_risk_level`. 
 
 ### Impacto potencial
 
-Os faltantes ocorrem em atributos importantes para o modelo, principalmente `gpu_temperature_c`, `fan_speed_rpm` e `carbon_intensity_gco2_kwh`, que podem influenciar tanto o comportamento térmico quanto o ambiental da base. `job_status` também é relevante porque ajuda a explicar estados operacionais do experimento.
+Os faltantes ocorrem em atributos importantes para o modelo, principalmente `gpu_temperature_c`, `fan_speed_rpm` e `carbon_intensity_gco2_kwh`, que podem influenciar tanto o comportamento térmico quanto o ambiental da base. `job_status` também é relevante porque ajuda a explicar estados operacionais do experimento. 
 
 ### Técnica de tratamento sugerida
 
-A técnica mais adequada depende do tipo de atributo:
-- Para variáveis numéricas com distribuição contínua, a **mediana** é mais robusta que a média quando há assimetria ou valores extremos.
-- Para `job_status`, que é nominal, a **moda** ou o filtro `ReplaceMissingValues` do Weka são opções mais apropriadas.
-- Se você quiser padronização automática, o filtro `ReplaceMissingValues` do Weka é uma alternativa prática para a etapa inicial.
+A técnica mais adequada depende do tipo de atributo:  
+- Para variáveis numéricas com distribuição contínua, a **mediana** é mais robusta que a média quando há assimetria ou valores extremos.  
+- Para `job_status`, que é nominal, a **moda** ou o filtro `ReplaceMissingValues` do Weka são opções mais apropriadas.  
+- Se você quiser padronização automática, o filtro `ReplaceMissingValues` do Weka é uma alternativa prática para a etapa inicial. 
 
 ### Respostas vocacionais
 
@@ -324,11 +336,11 @@ Os histogramas e estatísticas observados indicam que há variações plausívei
 
 ### Coerência potência-energia
 
-A relação entre `active_power_w` e `energy_consumption_kwh` parece plausível, com ambos os atributos mostrando amplitude e distribuição compatíveis com consumo real. O atributo `active_power_w` apresenta mínimo de 600, máximo de 11980, média de 5737.113 e desvio-padrão de 2881.924, enquanto `energy_consumption_kwh` apresenta mínimo de 0.6, máximo de 12, média de 5.738 e desvio-padrão de 2.881.
+A relação entre `active_power_w` e `energy_consumption_kwh` parece plausível, com ambos os atributos mostrando amplitude e distribuição compatíveis com consumo real. O atributo `active_power_w` apresenta mínimo de 600, máximo de 11980, média de 5737.113 e desvio-padrão de 2881.924, enquanto `energy_consumption_kwh` apresenta mínimo de 0.6, máximo de 12, média de 5.738 e desvio-padrão de 2.881. 
 
 ### Coerência térmica
 
-Os atributos térmicos também mantêm relação lógica entre si. `inlet_temperature_c` vai de 18.2 a 31, `exhaust_temperature_c` vai de 25.8 a 74 e `delta_t_c` vai de 6.6 a 43, o que sugere uma coerência interna entre entrada, saída e diferença térmica.
+Os atributos térmicos também mantêm relação lógica entre si. `inlet_temperature_c` vai de 18.2 a 31, `exhaust_temperature_c` vai de 25.8 a 74 e `delta_t_c` vai de 6.6 a 43, o que sugere uma coerência interna entre entrada, saída e diferença térmica. 
 
 ### Valores fora de faixa
 
@@ -336,7 +348,7 @@ Não há evidência de valores inválidos nos atributos de ruído analisados. Os
 
 ### Impacto na classe
 
-O ruído parece simular variações reais e não ruído aleatório puro. Isso é desejável, porque preserva relações semânticas importantes entre atributos e classe-alvo.
+O ruído parece simular variações reais e não ruído aleatório puro. Isso é desejável, porque preserva relações semânticas importantes entre atributos e classe-alvo. 
 
 ### Respostas vocacionais
 
@@ -364,23 +376,23 @@ Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis
 
 ### Valores atípicos numéricos
 
-Alguns atributos apresentam amplitude elevada e caudas longas, como `fan_speed_rpm`, `gpu_core_frequency_mhz`, `job_duration_hours`, `batch_size`, `active_power_w` e `energy_consumption_kwh`. Esses casos não significam erro por si só, mas indicam possíveis extremos operacionais que podem ser interpretados como eventos relevantes.
+Alguns atributos apresentam amplitude elevada e caudas longas, como `fan_speed_rpm`, `gpu_core_frequency_mhz`, `job_duration_hours`, `batch_size`, `active_power_w` e `energy_consumption_kwh`. Esses casos não significam erro por si só, mas indicam possíveis extremos operacionais que podem ser interpretados como eventos relevantes. 
 
 ### Combinações peculiares
 
-Há padrões que podem caracterizar outliers semânticos, como alta potência com baixa utilização de GPU, temperaturas elevadas com velocidade alta do ventilador ou `job_status = failed` junto com duração longa. Esses casos são úteis para análise de desperdício, falha ou comportamento anômalo do sistema.
+Há padrões que podem caracterizar outliers semânticos, como alta potência com baixa utilização de GPU, temperaturas elevadas com velocidade alta do ventilador ou `job_status = failed` junto com duração longa. Esses casos são úteis para análise de desperdício, falha ou comportamento anômalo do sistema. 
 
 ### Outliers por classe
 
-Os outliers podem aparecer em todas as classes, não apenas em `alto`. A distribuição da classe-alvo mostra que há registros em `baixo`, `moderado` e `alto`, então os extremos podem estar associados tanto a situações normais quanto a situações de maior risco ambiental.
+Os outliers podem aparecer em todas as classes, não apenas em `alto`. A distribuição da classe-alvo mostra que há registros em `baixo`, `moderado` e `alto`, então os extremos podem estar associados tanto a situações normais quanto a situações de maior risco ambiental. 
 
 ### Verossimilhança
 
-Os outliers parecem interpretáveis no contexto de datacenters de IA, especialmente quando refletem eventos críticos plausíveis, como maior carga térmica, maior potência ou execução longa com falha.
+Os outliers parecem interpretáveis no contexto de datacenters de IA, especialmente quando refletem eventos críticos plausíveis, como maior carga térmica, maior potência ou execução longa com falha. 
 
 ### Decisão futura
 
-A recomendação inicial é manter os outliers interpretáveis e tratar apenas casos que claramente pareçam erro de medição ou inconsistência estrutural. Em datasets de monitoramento, extremos podem carregar informação relevante para a tarefa de classificação.
+A recomendação inicial é manter os outliers interpretáveis e tratar apenas casos que claramente pareçam erro de medição ou inconsistência estrutural. Em datasets de monitoramento, extremos podem carregar informação relevante para a tarefa de classificação. 
 
 ### Respostas vocacionais
 
@@ -409,15 +421,15 @@ Verificar como a classe `environmental_waste_risk_level` está distribuída e se
 
 ### Distribuição das classes
 
-A classe-alvo está distribuída em três categorias: `baixo` com 268 registros, `moderado` com 248 e `alto` com 158. Isso mostra presença de todas as classes e um leve desequilíbrio, com menor frequência em `alto`.
+A classe-alvo está distribuída em três categorias: `baixo` com 268 registros, `moderado` com 248 e `alto` com 158. Isso mostra presença de todas as classes e um leve desequilíbrio, com menor frequência em `alto`. 
 
 ### Sobreposição entre classes
 
-Os histogramas dos atributos numéricos indicam sobreposição considerável entre as classes em várias variáveis, o que é desejável para um problema realista de classificação. Em atributos como `gpu_temperature_c`, `exhaust_temperature_c`, `inlet_temperature_c`, `gpu_power_w` e `energy_consumption_kwh`, as classes não parecem totalmente separadas.
+Os histogramas dos atributos numéricos indicam sobreposição considerável entre as classes em várias variáveis, o que é desejável para um problema realista de classificação. Em atributos como `gpu_temperature_c`, `exhaust_temperature_c`, `inlet_temperature_c`, `gpu_power_w` e `energy_consumption_kwh`, as classes não parecem totalmente separadas. 
 
 ### Atributos dominantes
 
-Não há indício claro de que uma única variável separe perfeitamente a classe sozinha. A classe `alto` parece resultar de combinação de fatores, e não de um critério trivial isolado.
+Não há indício claro de que uma única variável separe perfeitamente a classe sozinha. A classe `alto` parece resultar de combinação de fatores, e não de um critério trivial isolado. 
 
 ### Casos de fronteira
 
@@ -459,7 +471,7 @@ Verificar se os atributos irrelevantes planejados realmente não apresentam rela
 
 ### Frequência geral
 
-Esses atributos apresentam categorias válidas e frequências relativamente distribuídas, sem concentração evidente em uma única categoria. `manufacturer_sku_id` possui `sku_a` a `sku_e`, `rack_label_color` possui cinco cores e `rack_inventory_zone` possui quatro zonas.
+Esses atributos apresentam categorias válidas e frequências relativamente distribuídas, sem concentração evidente em uma única categoria. `manufacturer_sku_id` possui `sku_a` a `sku_e`, `rack_label_color` possui cinco cores e `rack_inventory_zone` possui quatro zonas. 
 
 ### Relação com a classe
 
@@ -505,23 +517,23 @@ Verificar se as principais regras semânticas usadas na geração do conjunto de
 
 ### Potência × energia
 
-A relação entre `active_power_w` e `energy_consumption_kwh` é compatível com a ideia de consumo aproximado em uma hora. Os valores observados indicam coerência geral entre potência ativa e energia consumida, sem sinais evidentes de inversão ou incompatibilidade.
+A relação entre `active_power_w` e `energy_consumption_kwh` é compatível com a ideia de consumo aproximado em uma hora. Os valores observados indicam coerência geral entre potência ativa e energia consumida, sem sinais evidentes de inversão ou incompatibilidade. 
 
 ### Temperaturas × delta T
 
-Os atributos térmicos também mantêm coerência semântica. `inlet_temperature_c`, `exhaust_temperature_c` e `delta_t_c` apresentam faixas plausíveis e relacionamento lógico entre entrada, saída e diferença térmica.
+Os atributos térmicos também mantêm coerência semântica. `inlet_temperature_c`, `exhaust_temperature_c` e `delta_t_c` apresentam faixas plausíveis e relacionamento lógico entre entrada, saída e diferença térmica. 
 
 ### Utilização da GPU × potência da GPU
 
-A combinação entre `gpu_utilization_percent` e `gpu_power_w` sugere comportamento esperado: maior utilização tende a vir acompanhada de maior consumo de potência, embora a relação não seja perfeita, o que é normal em dados reais.
+A combinação entre `gpu_utilization_percent` e `gpu_power_w` sugere comportamento esperado: maior utilização tende a vir acompanhada de maior consumo de potência, embora a relação não seja perfeita, o que é normal em dados reais. 
 
 ### Velocidade do ventilador × temperatura
 
-Os atributos `fan_speed_rpm`, `gpu_temperature_c` e as temperaturas do sistema sugerem relação física coerente: maior esforço térmico tende a exigir maior velocidade do ventilador.
+Os atributos `fan_speed_rpm`, `gpu_temperature_c` e as temperaturas do sistema sugerem relação física coerente: maior esforço térmico tende a exigir maior velocidade do ventilador. 
 
 ### Situação profissional × duração
 
-A relação entre `job_status` e `job_duration_hours` mostra potencial semântico claro. Registros com `failed` ou `aborted` após longas durações podem representar desperdício operacional ou falhas tardias, o que é interpretável no domínio.
+A relação entre `job_status` e `job_duration_hours` mostra potencial semântico claro. Registros com `failed` ou `aborted` após longas durações podem representar desperdício operacional ou falhas tardias, o que é interpretável no domínio. 
 
 ### Coerência semântica geral
 
@@ -545,37 +557,39 @@ As relações físicas e operacionais fazem sentido e os dados parecem obedecer 
 | Velocidade do ventilador × temperatura | Resposta coerente ao estresse térmico.  | Relação física esperada. | Manter. |
 | Situação profissional × duração | Falhas longas podem indicar desperdício.  | Relação interpretável. | Avaliar caso a caso. |
 
-![imagem](<https://github.com/user-attachments/assets/90a4cb3c-7d5d-4b0b-8ea7-6f7316477356>)
+![imagem](<https://github.com/user-attachments/assets/90a4cb3c-7d5d-4b0b-8ea7-6f7316477356>)  
 
-De modo geral, os valores mínimos e máximos observados não sugerem inconsistências evidentes nas variáveis verificadas. Ainda assim, atributos como `fan_speed_rpm` e `carbon_intensity_gco2_kwh` merecem atenção por apresentarem maior dispersão, o que pode influenciar diretamente algoritmos sensíveis à escala dos dados.
+De modo geral, os valores mínimos e máximos observados não sugerem inconsistências evidentes nas variáveis verificadas. Ainda assim, atributos como `fan_speed_rpm` e `carbon_intensity_gco2_kwh` merecem atenção por apresentarem maior dispersão, o que pode influenciar diretamente algoritmos sensíveis à escala dos dados.  
 
-![](<https://github.com/user-attachments/assets/9e2e2e94-4753-440d-9cc9-d9cdd5606bcd>)
+![](<https://github.com/user-attachments/assets/9e2e2e94-4753-440d-9cc9-d9cdd5606bcd>)      
 
-![](<https://github.com/user-attachments/assets/9d15771f-767f-41fe-a965-15ea9a8aa5b5>)
+![](<https://github.com/user-attachments/assets/9d15771f-767f-41fe-a965-15ea9a8aa5b5>)  
 
-### Análise dos atributos categóricos
-Os atributos categóricos prioritários foram reconhecidos como `Nominal` no Weka e apresentaram apenas categorias coerentes com o domínio esperado da base. Isso indica que os campos foram estruturados corretamente e que não há sinais de categorias inesperadas ou ruído nominal evidente.
 
-No atributo `cooling_method`, foram observadas as categorias `air`, `liquid`, `immersion` e `hybrid`. Em `ai_workload_type`, as categorias identificadas foram `training`, `inference`, `fine_tuning` e `idle`. Já `job_status` apresentou as categorias `success`, `failed`, `aborted` e `running`, mostrando uma distribuição coerente com estados operacionais típicos da execução de tarefas computacionais.
+## Análise dos atributos categóricos
+Os atributos categóricos prioritários foram reconhecidos como `Nominal` no Weka e apresentaram apenas categorias coerentes com o domínio esperado da base. Isso indica que os campos foram estruturados corretamente e que não há sinais de categorias inesperadas ou ruído nominal evidente. 
 
-![](<https://github.com/user-attachments/assets/542fe540-1265-48b5-9e6e-117cc18a1263>)
+No atributo `cooling_method`, foram observadas as categorias `air`, `liquid`, `immersion` e `hybrid`. Em `ai_workload_type`, as categorias identificadas foram `training`, `inference`, `fine_tuning` e `idle`. Já `job_status` apresentou as categorias `success`, `failed`, `aborted` e `running`, mostrando uma distribuição coerente com estados operacionais típicos da execução de tarefas computacionais. 
 
-![](<https://github.com/user-attachments/assets/73463b1f-ebf0-4bdc-b626-0b942b6ad75d>)
+![](<https://github.com/user-attachments/assets/542fe540-1265-48b5-9e6e-117cc18a1263>)  
 
-![](<https://github.com/user-attachments/assets/ffecd974-ca04-4891-8040-db62d5a47ef4>)
+![](<https://github.com/user-attachments/assets/73463b1f-ebf0-4bdc-b626-0b942b6ad75d>)    
 
-Também foram confirmadas categorias válidas em `gpu_sharing_mode` (`full_gpu`, `temporal_sharing`, `mig`, `none`), `manufacturer_sku_id` (`sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e`), `rack_label_color` (`blue`, `green`, `yellow`, `red`, `white`) e `rack_inventory_zone` (`zone_a`, `zone_b`, `zone_c`, `zone_d`). Em todos esses casos, a frequência das categorias pode ser analisada diretamente pelo painel `Selected attribute` do Weka.
+![](<https://github.com/user-attachments/assets/ffecd974-ca04-4891-8040-db62d5a47ef4>)    
 
-A variável-alvo `environmental_waste_risk_level` foi reconhecida como nominal, com as classes `baixo`, `moderado` e `alto`. Essa distribuição é importante para a etapa de classificação, pois permite avaliar se há balanceamento suficiente entre as classes ou se existe predominância de alguma delas na base.
+ 
+Também foram confirmadas categorias válidas em `gpu_sharing_mode` (`full_gpu`, `temporal_sharing`, `mig`, `none`), `manufacturer_sku_id` (`sku_a`, `sku_b`, `sku_c`, `sku_d`, `sku_e`), `rack_label_color` (`blue`, `green`, `yellow`, `red`, `white`) e `rack_inventory_zone` (`zone_a`, `zone_b`, `zone_c`, `zone_d`). Em todos esses casos, a frequência das categorias pode ser analisada diretamente pelo painel `Selected attribute` do Weka.   
+
+A variável-alvo `environmental_waste_risk_level` foi reconhecida como nominal, com as classes `baixo`, `moderado` e `alto`. Essa distribuição é importante para a etapa de classificação, pois permite avaliar se há balanceamento suficiente entre as classes ou se existe predominância de alguma delas na base. 
 
 ![](<https://github.com/user-attachments/assets/db60a650-6c7c-4632-b43b-f1f8e3d5d250>)
+    
+## Valores faltantes e comportamento suspeito
+A base apresenta valores ausentes pontuais em alguns atributos, como `water_usage_effectiveness`, `fan_speed_rpm`, `gpu_temperature_c`, `carbon_intensity_gco2_kwh` e `job_status`. Nos exemplos já verificados, a proporção de ausências foi baixa, em torno de 1% da base, o que não compromete a estrutura geral do conjunto de dados, mas exige tratamento adequado no pré-processamento.  
 
-### Valores faltantes e comportamento suspeito
-A base apresenta valores ausentes pontuais em alguns atributos, como `water_usage_effectiveness`, `fan_speed_rpm`, `gpu_temperature_c`, `carbon_intensity_gco2_kwh` e `job_status`. Nos exemplos já verificados, a proporção de ausências foi baixa, em torno de 1% da base, o que não compromete a estrutura geral do conjunto de dados, mas exige tratamento adequado no pré-processamento.
+Não há evidência forte de que algum atributo seja artificial demais, embora certas variáveis discretas, como `num_gpus`, `batch_size`, `num_epochs` e `power_cap_w`, possam apresentar distribuição mais controlada devido à própria natureza operacional dos dados. Isso deve ser interpretado com cautela: uma distribuição regular pode ser parte natural do processo de coleta e não necessariamente um erro.     
 
-Não há evidência forte de que algum atributo seja artificial demais, embora certas variáveis discretas, como `num_gpus`, `batch_size`, `num_epochs` e `power_cap_w`, possam apresentar distribuição mais controlada devido à própria natureza operacional dos dados. Isso deve ser interpretado com cautela: uma distribuição regular pode ser parte natural do processo de coleta e não necessariamente um erro.
-
-### Respostas às perguntas vocacionais
+## Respostas às perguntas vocacionais
 
 | Pergunta | Resposta | Comentário |
 |---|---|---|
@@ -586,7 +600,7 @@ Não há evidência forte de que algum atributo seja artificial demais, embora c
 | A distribuição dos atributos relevantes parece desejada? | Sim. | Os atributos categóricos têm categorias válidas e os atributos numéricos mostram variação plausível. |
 | Existem atributos com distribuição muito separados por classe? | Não foi possível afirmar de forma conclusiva apenas com as estatísticas básicas. | Essa resposta depende de histogramas separados por classe ou comparação visual adicional no Weka.  |
 
-### Evidências esperadas
+## Evidências esperadas
 
 As evidências desta etapa devem incluir:
 
@@ -596,13 +610,13 @@ As evidências desta etapa devem incluir:
 - Identificação dos atributos com maior dispersão.
 - Identificação de atributos com comportamento suspeito.
 
-### Síntese final
+## Síntese final
 A análise exploratória mostra que a base possui atributos numéricos e categóricos estruturalmente consistentes para uso no Weka. Os atributos numéricos apresentam escalas variadas e, em alguns casos, dispersão mais elevada, enquanto os atributos categóricos possuem categorias válidas e coerentes com o domínio. Os valores faltantes existem, mas em baixa proporção, e não há indícios claros de atributos artificiais ou inconsistências estruturais severas.
 
 ## Etapa 3 — Análise de Valores Faltantes
 
 ### Objetivo
-
+ 
 Verificar se os valores faltantes foram inseridos conforme o planejamento e levantar hipóteses sobre o tratamento posterior.
 
 ### Atributos candidatos a valores faltantes
@@ -613,22 +627,22 @@ Verificar se os valores faltantes foram inseridos conforme o planejamento e leva
 - `job_status`
 
 ### Verificação dos faltantes
-Os valores faltantes aparecem apenas nos atributos planejados. Nos prints verificados no Weka, os campos `water_usage_effectiveness`, `fan_speed_rpm`, `gpu_temperature_c` e `carbon_intensity_gco2_kwh` apresentam `Missing: 7 (1%)`, enquanto `job_status` apresenta `Missing: 6 (1%)`.
+Os valores faltantes aparecem apenas nos atributos planejados. Nos prints verificados no Weka, os campos `water_usage_effectiveness`, `fan_speed_rpm`, `gpu_temperature_c` e `carbon_intensity_gco2_kwh` apresentam `Missing: 7 (1%)`, enquanto `job_status` apresenta `Missing: 6 (1%)`.   
 
 ### Proporção de faltantes
-A proporção de faltantes é baixa e compatível com uma inserção planejada para simular ausência realista de dados. Em termos práticos, os faltantes representam cerca de 1% da base em cada um desses atributos, o que é aceitável para análise exploratória e modelagem, desde que o tratamento seja feito de forma consistente.
+A proporção de faltantes é baixa e compatível com uma inserção planejada para simular ausência realista de dados. Em termos práticos, os faltantes representam cerca de 1% da base em cada um desses atributos, o que é aceitável para análise exploratória e modelagem, desde que o tratamento seja feito de forma consistente.   
 
 ### Distribuição por classe
-Pelos prints enviados, não há evidência visual suficiente de concentração forte dos faltantes em uma classe específica. Essa análise pode ser refinada com filtros de visualização por classe no Weka ou com uma tabela cruzada entre faltantes e `environmental_waste_risk_level`.
+Pelos prints enviados, não há evidência visual suficiente de concentração forte dos faltantes em uma classe específica. Essa análise pode ser refinada com filtros de visualização por classe no Weka ou com uma tabela cruzada entre faltantes e `environmental_waste_risk_level`. 
 
 ### Impacto potencial
-Os faltantes ocorrem em atributos importantes para o modelo, principalmente `gpu_temperature_c`, `fan_speed_rpm` e `carbon_intensity_gco2_kwh`, que podem influenciar tanto o comportamento térmico quanto o ambiental da base. `job_status` também é relevante porque ajuda a explicar estados operacionais do experimento.
+Os faltantes ocorrem em atributos importantes para o modelo, principalmente `gpu_temperature_c`, `fan_speed_rpm` e `carbon_intensity_gco2_kwh`, que podem influenciar tanto o comportamento térmico quanto o ambiental da base. `job_status` também é relevante porque ajuda a explicar estados operacionais do experimento. 
 
 ### Técnica de tratamento sugerida
-A técnica mais adequada depende do tipo de atributo:
-- Para variáveis numéricas com distribuição contínua, a **mediana** é mais robusta que a média quando há assimetria ou valores extremos.
-- Para `job_status`, que é nominal, a **moda** ou o filtro `ReplaceMissingValues` do Weka são opções mais apropriadas.
-- Se você quiser padronização automática, o filtro `ReplaceMissingValues` do Weka é uma alternativa prática para a etapa inicial.
+A técnica mais adequada depende do tipo de atributo:  
+- Para variáveis numéricas com distribuição contínua, a **mediana** é mais robusta que a média quando há assimetria ou valores extremos.  
+- Para `job_status`, que é nominal, a **moda** ou o filtro `ReplaceMissingValues` do Weka são opções mais apropriadas.  
+- Se você quiser padronização automática, o filtro `ReplaceMissingValues` do Weka é uma alternativa prática para a etapa inicial. 
 
 ### Respostas vocacionais
 - Os valores faltantes aparecem apenas nos atributos planejados? **Sim.**
@@ -668,19 +682,20 @@ Verificar se o ruído introduzido no conjunto de dados é leve, plausível e com
 - `gpu_core_frequency_mhz`
 
 ### Pequenas oscilações
-Os histogramas e estatísticas observados indicam que há variações plausíveis entre os registros, sem comportamento perfeitamente uniforme. Por exemplo, `cpu_utilization_percent`, `gpu_utilization_percent`, `gpu_power_w`, `inlet_temperature_c` e `exhaust_temperature_c` mostram dispersão coerente com flutuações operacionais normais em data centers de IA.
+Os histogramas e estatísticas observados indicam que há variações plausíveis entre os registros, sem comportamento perfeitamente uniforme. Por exemplo, `cpu_utilization_percent`, `gpu_utilization_percent`, `gpu_power_w`, `inlet_temperature_c` e `exhaust_temperature_c` mostram dispersão coerente com flutuações operacionais normais em data centers de IA. 
 
 ### Coerência potência-energia
-A relação entre `active_power_w` e `energy_consumption_kwh` parece plausível, com ambos os atributos mostrando amplitude e distribuição compatíveis com consumo real. O atributo `active_power_w` apresenta mínimo de 600, máximo de 11980, média de 5737.113 e desvio-padrão de 2881.924, enquanto `energy_consumption_kwh` apresenta mínimo de 0.6, máximo de 12, média de 5.738 e desvio-padrão de 2.881.
+A relação entre `active_power_w` e `energy_consumption_kwh` parece plausível, com ambos os atributos mostrando amplitude e distribuição compatíveis com consumo real. O atributo `active_power_w` apresenta mínimo de 600, máximo de 11980, média de 5737.113 e desvio-padrão de 2881.924, enquanto `energy_consumption_kwh` apresenta mínimo de 0.6, máximo de 12, média de 5.738 e desvio-padrão de 2.881. 
+  
 
 ### Coerência térmica
-Os atributos térmicos também mantêm relação lógica entre si. `inlet_temperature_c` vai de 18.2 a 31, `exhaust_temperature_c` vai de 25.8 a 74 e `delta_t_c` vai de 6.6 a 43, o que sugere uma coerência interna entre entrada, saída e diferença térmica.
+Os atributos térmicos também mantêm relação lógica entre si. `inlet_temperature_c` vai de 18.2 a 31, `exhaust_temperature_c` vai de 25.8 a 74 e `delta_t_c` vai de 6.6 a 43, o que sugere uma coerência interna entre entrada, saída e diferença térmica. 
 
 ### Valores fora de faixa
-Não há evidência de valores inválidos nos atributos de ruído analisados. Os intervalos observados permanecem dentro de faixas plausíveis para o domínio.
-
+Não há evidência de valores inválidos nos atributos de ruído analisados. Os intervalos observados permanecem dentro de faixas plausíveis para o domínio. 
+  
 ### Impacto na classe
-O ruído parece simular variações reais e não ruído aleatório puro. Isso é desejável, porque preserva relações semânticas importantes entre atributos e classe-alvo.
+O ruído parece simular variações reais e não ruído aleatório puro. Isso é desejável, porque preserva relações semânticas importantes entre atributos e classe-alvo. 
 
 ### Respostas vocacionais
 - O ruído permanece dentro das faixas plausíveis? **Sim.**
@@ -704,19 +719,19 @@ O ruído parece simular variações reais e não ruído aleatório puro. Isso é
 Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis para a tarefa de classificação.
 
 ### Valores atípicos numéricos
-Alguns atributos apresentam amplitude elevada e caudas longas, como `fan_speed_rpm`, `gpu_core_frequency_mhz`, `job_duration_hours`, `batch_size`, `active_power_w` e `energy_consumption_kwh`. Esses casos não significam erro por si só, mas indicam possíveis extremos operacionais que podem ser interpretados como eventos relevantes.
+Alguns atributos apresentam amplitude elevada e caudas longas, como `fan_speed_rpm`, `gpu_core_frequency_mhz`, `job_duration_hours`, `batch_size`, `active_power_w` e `energy_consumption_kwh`. Esses casos não significam erro por si só, mas indicam possíveis extremos operacionais que podem ser interpretados como eventos relevantes.  
 
 ### Combinações peculiares
 Há padrões que podem caracterizar outliers semânticos, como alta potência com baixa utilização de GPU, temperaturas elevadas com velocidade alta do ventilador ou `job_status = failed` junto com duração longa. Esses casos são úteis para análise de desperdício, falha ou comportamento anômalo do sistema.
-
+  
 ### Outliers por classe
-Os outliers podem aparecer em todas as classes, não apenas em `alto`. A distribuição da classe-alvo mostra que há registros em `baixo`, `moderado` e `alto`, então os extremos podem estar associados tanto a situações normais quanto a situações de maior risco ambiental.
+Os outliers podem aparecer em todas as classes, não apenas em `alto`. A distribuição da classe-alvo mostra que há registros em `baixo`, `moderado` e `alto`, então os extremos podem estar associados tanto a situações normais quanto a situações de maior risco ambiental. 
 
 ### Verossimilhança
 Os outliers parecem interpretáveis no contexto de datacenters de IA, especialmente quando refletem eventos críticos plausíveis, como maior carga térmica, maior potência ou execução longa com falha. [web:218][web:220]
 
 ### Decisão futura
-A recomendação inicial é manter os outliers interpretáveis e tratar apenas casos que claramente pareçam erro de medição ou inconsistência estrutural. Em datasets de monitoramento, extremos podem carregar informação relevante para a tarefa de classificação.
+A recomendação inicial é manter os outliers interpretáveis e tratar apenas casos que claramente pareçam erro de medição ou inconsistência estrutural. Em datasets de monitoramento, extremos podem carregar informação relevante para a tarefa de classificação. 
 
 ### Respostas vocacionais
 - Os outliers são interpretáveis no contexto? **Sim.**
@@ -741,19 +756,22 @@ A recomendação inicial é manter os outliers interpretáveis e tratar apenas c
 Verificar como a classe `environmental_waste_risk_level` está distribuída e se há separação excessiva entre as classes.
 
 ### Distribuição das classes
-A classe-alvo está distribuída em três categorias: `baixo` com 268 registros, `moderado` com 248 e `alto` com 158. Isso mostra presença de todas as classes e um leve desequilíbrio, com menor frequência em `alto`.
+A classe-alvo está distribuída em três categorias: `baixo` com 268 registros, `moderado` com 248 e `alto` com 158. Isso mostra presença de todas as classes e um leve desequilíbrio, com menor frequência em `alto`. 
+  
 
 ### Sobreposição entre classes
-Os histogramas dos atributos numéricos indicam sobreposição considerável entre as classes em várias variáveis, o que é desejável para um problema realista de classificação. Em atributos como `gpu_temperature_c`, `exhaust_temperature_c`, `inlet_temperature_c`, `gpu_power_w` e `energy_consumption_kwh`, as classes não parecem totalmente separadas.
+Os histogramas dos atributos numéricos indicam sobreposição considerável entre as classes em várias variáveis, o que é desejável para um problema realista de classificação. Em atributos como `gpu_temperature_c`, `exhaust_temperature_c`, `inlet_temperature_c`, `gpu_power_w` e `energy_consumption_kwh`, as classes não parecem totalmente separadas.   
 
 ### Atributos dominantes
-Não há indício claro de que uma única variável separe perfeitamente a classe sozinha. A classe `alto` parece resultar de combinação de fatores, e não de um critério trivial isolado.
+Não há indício claro de que uma única variável separe perfeitamente a classe sozinha. A classe `alto` parece resultar de combinação de fatores, e não de um critério trivial isolado. 
+  
 
 ### Casos de fronteira
-Os casos de fronteira parecem plausíveis, especialmente entre `baixo` e `moderado`. Isso é positivo, pois evita uma classificação artificialmente fácil e ajuda a avaliar melhor o desempenho dos algoritmos.
+Os casos de fronteira parecem plausíveis, especialmente entre `baixo` e `moderado`. Isso é positivo, pois evita uma classificação artificialmente fácil e ajuda a avaliar melhor o desempenho dos algoritmos. 
+  
 
 ### Coerência semântica
-A classe `alto` é coerente com combinações de maior potência, maior temperatura, maior consumo e menor eficiência. Isso sugere que a variável-alvo foi construída com base em uma lógica semântica consistente.
+A classe `alto` é coerente com combinações de maior potência, maior temperatura, maior consumo e menor eficiência. Isso sugere que a variável-alvo foi construída com base em uma lógica semântica consistente.   
 
 ### Respostas vocacionais
 - As três classes estão presentes? **Sim.**
@@ -783,13 +801,14 @@ Verificar se os atributos irrelevantes planejados realmente não apresentam rela
 - `rack_inventory_zone`
 
 ### Frequência geral
-Esses atributos apresentam categorias válidas e frequências relativamente distribuídas, sem concentração evidente em uma única categoria. `manufacturer_sku_id` possui `sku_a` a `sku_e`, `rack_label_color` possui cinco cores e `rack_inventory_zone` possui quatro zonas.
-
+Esses atributos apresentam categorias válidas e frequências relativamente distribuídas, sem concentração evidente em uma única categoria. `manufacturer_sku_id` possui `sku_a` a `sku_e`, `rack_label_color` possui cinco cores e `rack_inventory_zone` possui quatro zonas. 
+  
 ### Relação com a classe
-Pelos prints disponíveis, não há indício claro de que SKU, cor ou zona estejam determinando a classe `environmental_waste_risk_level` de forma artificial. Esses atributos podem até apresentar alguma associação residual, mas não há evidência de dependência forte apenas com base nas estatísticas e frequências observadas.
+Pelos prints disponíveis, não há indício claro de que SKU, cor ou zona estejam determinando a classe `environmental_waste_risk_level` de forma artificial. Esses atributos podem até apresentar alguma associação residual, mas não há evidência de dependência forte apenas com base nas estatísticas e frequências observadas. 
+  
 
 ### Decisão futura
-A tendência é manter esses atributos em análise exploratória, mas tratá-los como candidatos a remoção se a modelagem mostrar que induzem padrões espúrios. Em outras palavras, podem ser úteis como variáveis de contexto, mas não parecem ser determinantes semânticos diretos da classe.
+A tendência é manter esses atributos em análise exploratória, mas tratá-los como candidatos a remoção se a modelagem mostrar que induzem padrões espúrios. Em outras palavras, podem ser úteis como variáveis de contexto, mas não parecem ser determinantes semânticos diretos da classe.  
 
 ### Respostas vocacionais
 - Os atributos irrelevantes estão distribuídos de forma equilibrada? **Sim, em geral.**
@@ -822,22 +841,23 @@ Verificar se as principais regras semânticas usadas na geração do conjunto de
 - `gpu_sharing_mode × gpu_utilization_percent`
 
 ### Potência × energia
-A relação entre `active_power_w` e `energy_consumption_kwh` é compatível com a ideia de consumo aproximado em uma hora. Os valores observados indicam coerência geral entre potência ativa e energia consumida, sem sinais evidentes de inversão ou incompatibilidade.
+A relação entre `active_power_w` e `energy_consumption_kwh` é compatível com a ideia de consumo aproximado em uma hora. Os valores observados indicam coerência geral entre potência ativa e energia consumida, sem sinais evidentes de inversão ou incompatibilidade. 
 
 ### Temperaturas × delta T
-Os atributos térmicos também mantêm coerência semântica. `inlet_temperature_c`, `exhaust_temperature_c` e `delta_t_c` apresentam faixas plausíveis e relacionamento lógico entre entrada, saída e diferença térmica.
+Os atributos térmicos também mantêm coerência semântica. `inlet_temperature_c`, `exhaust_temperature_c` e `delta_t_c` apresentam faixas plausíveis e relacionamento lógico entre entrada, saída e diferença térmica. 
+  
 
 ### Utilização da GPU × potência da GPU
-A combinação entre `gpu_utilization_percent` e `gpu_power_w` sugere comportamento esperado: maior utilização tende a vir acompanhada de maior consumo de potência, embora a relação não seja perfeita, o que é normal em dados reais.
+A combinação entre `gpu_utilization_percent` e `gpu_power_w` sugere comportamento esperado: maior utilização tende a vir acompanhada de maior consumo de potência, embora a relação não seja perfeita, o que é normal em dados reais. 
 
 ### Velocidade do ventilador × temperatura
-Os atributos `fan_speed_rpm`, `gpu_temperature_c` e as temperaturas do sistema sugerem relação física coerente: maior esforço térmico tende a exigir maior velocidade do ventilador.
-
+Os atributos `fan_speed_rpm`, `gpu_temperature_c` e as temperaturas do sistema sugerem relação física coerente: maior esforço térmico tende a exigir maior velocidade do ventilador. 
+  
 ### Situação profissional × duração
-A relação entre `job_status` e `job_duration_hours` mostra potencial semântico claro. Registros com `failed` ou `aborted` após longas durações podem representar desperdício operacional ou falhas tardias, o que é interpretável no domínio.
+A relação entre `job_status` e `job_duration_hours` mostra potencial semântico claro. Registros com `failed` ou `aborted` após longas durações podem representar desperdício operacional ou falhas tardias, o que é interpretável no domínio. 
 
 ### Coerência semântica geral
-As relações físicas e operacionais fazem sentido e os dados parecem obedecer às regras esperadas do domínio. Não foram observadas incoerências graves que inviabilizem a análise, embora existam combinações extremas que devem ser interpretadas como possíveis eventos críticos.
+As relações físicas e operacionais fazem sentido e os dados parecem obedecer às regras esperadas do domínio. Não foram observadas incoerências graves que inviabilizem a análise, embora existam combinações extremas que devem ser interpretadas como possíveis eventos críticos. 
 
 ### Respostas vocacionais
 - As relações físicas e operacionais fazem sentido? **Sim.**
