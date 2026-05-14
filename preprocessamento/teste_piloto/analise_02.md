@@ -32,7 +32,7 @@ Verificar se o dataset está tecnicamente correto, se abre no Weka sem erro e se
 
 ### Carregamento no Weka e verificação de instâncias e atributos:
 
-![conteudoWeka](../análise_calil/imagens/wekaInicial.png)
+![conteudoWeka](../../imagens/prints_weka/teste_piloto/analise_02/wekaInicial.png)
 
 <p align="justify">
 O dataset dataset_original.arff foi carregado corretamente no Weka, sem apresentar erros de leitura ou formatação. 
@@ -72,7 +72,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo active_power_w:
 
 <div align="center">
-  <img src="../análise_calil/imagens/activatePowerHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/activatePowerHist.png">
 </div>
 
 ----
@@ -80,7 +80,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo energy_consumption_kwh:
 
 <div align="center">
-  <img src="../análise_calil/imagens/energyConsulHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/energyConsulHist.png">
 </div>
 
 ----
@@ -88,7 +88,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo water_usage_effectiveness:
 
 <div align="center">
-  <img src="../análise_calil/imagens/waterUsageHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/waterUsageHist.png">
 </div>
 
 ----
@@ -96,7 +96,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo carbon_intensity_gco2_kwh:
 
 <div align="center">
-  <img src="../análise_calil/imagens/carbonIntensityHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/carbonIntensityHist.png">
 </div>
 
 ----
@@ -104,7 +104,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo inlet_temperature_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/inletTemperatureHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/inletTemperatureHist.png">
 </div>
 
 ----
@@ -112,7 +112,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo exhaust_temperature_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/exhaustTemperatureHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/exhaustTemperatureHist.png">
 </div>
 
 ----
@@ -120,7 +120,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo delta_t_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/deltaTHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/deltaTHist.png">
 </div>
 
 ----
@@ -128,7 +128,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo fan_speed_rpm:
 
 <div align="center">
-  <img src="../análise_calil/imagens/fanSpeedHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/fanSpeedHist.png">
 </div>
 
 ----
@@ -136,7 +136,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo gpu_power_w:
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuPowerHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuPowerHist.png">
 </div>
 
 ----
@@ -144,7 +144,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo gpu_utilization_percent:
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuUtilizationHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuUtilizationHist.png">
 </div>
 
 ----
@@ -152,7 +152,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo gpu_temperature_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/GpuTemperatureHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/GpuTemperatureHist.png">
 </div>
 
 ----
@@ -160,7 +160,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo job_duration_hours:
 
 <div align="center">
-  <img src="../análise_calil/imagens/jobDurationHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/jobDurationHist.png">
 </div>
 
 ----
@@ -168,7 +168,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo rack_power_density_kw:
 
 <div align="center">
-  <img src="../análise_calil/imagens/rackPowerHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/rackPowerHist.png">
 </div>
 
 ----
@@ -176,7 +176,7 @@ Investigar o comportamento geral dos atributos numéricos e categóricos, observ
 #### Atributo power_cap_w:
 
 <div align="center">
-  <img src="../análise_calil/imagens/powerCapHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/powerCapHist.png">
 </div>
 
 ----
@@ -266,7 +266,7 @@ job_status
 #### Atributo gpu_temperature_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuTemperatureMissing.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuTemperatureMissing.png">
 </div>
 
 ----
@@ -274,7 +274,7 @@ job_status
 #### Atributo fan_speed_rpm:
 
 <div align="center">
-  <img src="../análise_calil/imagens/fanSpeedMissing.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/fanSpeedMissing.png">
 </div>
 
 ----
@@ -282,7 +282,7 @@ job_status
 #### Atributo water_usage_effectiveness
 
 <div align="center">
-  <img src="../análise_calil/imagens/waterUsageMissing.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/waterUsageMissing.png">
 </div>
 
 ----
@@ -290,7 +290,7 @@ job_status
 #### Atributo carbon_intensity_gco2_kwh:
 
 <div align="center">
-  <img src="../análise_calil/imagens/carbonIntensityMissing.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/carbonIntensityMissing.png">
 </div>
 
 ----
@@ -298,7 +298,7 @@ job_status
 #### Atributo job_status:
 
 <div align="center">
-  <img src="../análise_calil/imagens/jobStatusMissing.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/jobStatusMissing.png">
 </div>
 
 ----
@@ -382,7 +382,7 @@ gpu_core_frequency_mhz
 #### Relação 1 - Potencia x Energia
 
 <div align="center">
-  <img src="../análise_calil/imagens/PowerxEnergy.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/PowerxEnergy.png">
 </div>
 
 ### Observação econtrada
@@ -400,13 +400,13 @@ gpu_core_frequency_mhz
 #### Relação 2 - Temperaturas x Delta T
 
 <div align="center">
-  <img src="../análise_calil/imagens/ExhaustxDelta.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/ExhaustxDelta.png">
 </div>
 
 ----
 
 <div align="center">
-  <img src="../análise_calil/imagens/InletxExhaust.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/InletxExhaust.png">
 </div>
 
 ### Observação encontrada
@@ -427,7 +427,7 @@ gpu_core_frequency_mhz
 #### cpu_utilization_percent:
 
 <div align="center">
-  <img src="../análise_calil/imagens/CpuCpu.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/CpuCpu.png">
 </div>
 
 ----
@@ -435,7 +435,7 @@ gpu_core_frequency_mhz
 #### memory_utilization_percent:
 
 <div align="center">
-  <img src="../análise_calil/imagens/MemoryMemory.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/MemoryMemory.png">
 </div>
 
 ----
@@ -443,7 +443,7 @@ gpu_core_frequency_mhz
 #### gpu_utilization_percent:
 
 <div align="center">
-  <img src="../análise_calil/imagens/GpuGpu.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/GpuGpu.png">
 </div>
 
 ### Valores observados
@@ -497,7 +497,7 @@ Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis
 #### gpu_temperature_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/GpuTemperatureHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/GpuTemperatureHist.png">
 </div>
 
 ----
@@ -505,7 +505,7 @@ Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis
 #### fan_speed_rpm:
 
 <div align="center">
-  <img src="../análise_calil/imagens/fanSpeedHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/fanSpeedHist.png">
 </div>
 
 ----
@@ -513,7 +513,7 @@ Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis
 #### job_duration_hours:
 
 <div align="center">
-  <img src="../análise_calil/imagens/jobDurationHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/jobDurationHist.png">
 </div>
 
 ----
@@ -521,7 +521,7 @@ Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis
 #### rack_power_density_kw:
 
 <div align="center">
-  <img src="../análise_calil/imagens/rackPowerHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/rackPowerHist.png">
 </div>
 
 ----
@@ -531,7 +531,7 @@ Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis
 #### Relação gpu_utilization_percent × gpu_power_w:
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuUtlixGpuPower.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuUtlixGpuPower.png">
 </div>
 
 ----
@@ -539,7 +539,7 @@ Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis
 #### Relação fan_speed_rpm × gpu_temperature_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/fanSpeedxGpuTemp.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/fanSpeedxGpuTemp.png">
 </div>
 
 ----
@@ -547,7 +547,7 @@ Identificar outliers e avaliar se eles são interpretáveis, planejados e úteis
 #### Relação rack_power_density_kw × environmental_waste_risk_level:
 
 <div align="center">
-  <img src="../análise_calil/imagens/rackPowerxEnvironmental.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/rackPowerxEnvironmental.png">
 </div>
 
 ----
@@ -609,7 +609,7 @@ power_cap_w
 #### Histograma da classe-alvo
 
 <div align="center">
-  <img src="../análise_calil/imagens/environmentalHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/environmentalHist.png">
 </div>
 
 ----
@@ -630,7 +630,7 @@ A classe alto tem menos registros, mas não está ausente. Portanto, existe um d
 #### active_power_w × energy_consumption_kwh:
 
 <div align="center">
-  <img src="../análise_calil/imagens/activatePowerxEnergyConsul.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/activatePowerxEnergyConsul.png">
 </div>
 
 ----
@@ -638,7 +638,7 @@ A classe alto tem menos registros, mas não está ausente. Portanto, existe um d
 #### gpu_utilization_percent × gpu_power_w:
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuUtlixGpuPower.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuUtlixGpuPower.png">
 </div>
 
 ----
@@ -646,7 +646,7 @@ A classe alto tem menos registros, mas não está ausente. Portanto, existe um d
 #### gpu_temperature_c × fan_speed_rpm:
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuTemperaturexFanSpeed.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuTemperaturexFanSpeed.png">
 </div>
 
 ----
@@ -654,7 +654,7 @@ A classe alto tem menos registros, mas não está ausente. Portanto, existe um d
 #### rack_power_density_kw × active_power_w:
 
 <div align="center">
-  <img src="../análise_calil/imagens/rackPowerxActivatePower.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/rackPowerxActivatePower.png">
 </div>
 
 ----
@@ -717,7 +717,7 @@ rack_inventory_zone
 #### manufacturer_sku_id:
 
 <div align="center">
-  <img src="../análise_calil/imagens/manufacturerHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/manufacturerHist.png">
 </div>
 
 ----
@@ -725,7 +725,7 @@ rack_inventory_zone
 #### rack_label_color:
 
 <div align="center">
-  <img src="../análise_calil/imagens/rackLabelHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/rackLabelHist.png">
 </div>
 
 ----
@@ -733,7 +733,7 @@ rack_inventory_zone
 #### rack_inventory_zone:
 
 <div align="center">
-  <img src="../análise_calil/imagens/rackInventoryHist.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/rackInventoryHist.png">
 </div>
 
 ----
@@ -743,7 +743,7 @@ rack_inventory_zone
 #### manufacturer_sku_id:
 
 <div align="center">
-  <img src="../análise_calil/imagens/manufacturerxManufacturer.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/manufacturerxManufacturer.png">
 </div>
 
 ----
@@ -751,7 +751,7 @@ rack_inventory_zone
 #### rack_label_color:
 
 <div align="center">
-  <img src="../análise_calil/imagens/rackLabelxRackLabel.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/rackLabelxRackLabel.png">
 </div>
 
 ----
@@ -759,7 +759,7 @@ rack_inventory_zone
 #### rack_inventory_zone:
 
 <div align="center">
-  <img src="../análise_calil/imagens/racknventiryxRackInventory.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/racknventiryxRackInventory.png">
 </div>
 
 ----
@@ -806,7 +806,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### Relação 1 — Potência × Energia
 
 <div align="center">
-  <img src="../análise_calil/imagens/activatePowerxEnergyConsul.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/activatePowerxEnergyConsul.png">
 </div>
 
 ----
@@ -826,7 +826,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### exhaust_temperature_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/exhaustxExhaust.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/exhaustxExhaust.png">
 </div>
 
 ----
@@ -834,7 +834,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### inlet_temperature_c
 
 <div align="center">
-  <img src="../análise_calil/imagens/inletxInlet.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/inletxInlet.png">
 </div>
 
 ----
@@ -842,7 +842,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### exhaust_temperature_c x delta_t_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/ExhaustxDelta.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/ExhaustxDelta.png">
 </div>
 
 ----
@@ -850,7 +850,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### inlet_temperature_c x delta_t_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/inletxDeltaT.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/inletxDeltaT.png">
 </div>
 
 ----
@@ -858,7 +858,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### inlet_temperature_c x exhaust_temperature_c x delta_t_c:
 
 <div align="center">
-  <img src="../análise_calil/imagens/inletTempxExhaustxDelta.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/inletTempxExhaustxDelta.png">
 </div>
 
 ----
@@ -876,7 +876,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### Relação 3 - GPU Utilization × GPU Power
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuUtlixGpuPower.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuUtlixGpuPower.png">
 </div>
 
 ----
@@ -894,7 +894,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### 4 — GPU Power × GPU Temperature
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuPowerxGpuTemperature.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuPowerxGpuTemperature.png">
 </div>
 
 ----
@@ -912,7 +912,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### 5 — Fan Speed × Temperatura
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuTemperaturexFanSpeed.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuTemperaturexFanSpeed.png">
 </div>
 
 ----
@@ -930,7 +930,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### Relação 6 — Job Status × Job Duration
 
 <div align="center">
-  <img src="../análise_calil/imagens/jobStatusxJobDuration.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/jobStatusxJobDuration.png">
 </div>
 
 ----
@@ -948,7 +948,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### Relação 7 — Rack Power Density × Classe
 
 <div align="center">
-  <img src="../análise_calil/imagens/rackPowerxActivatePower.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/rackPowerxActivatePower.png">
 </div>
 
 ----
@@ -966,7 +966,7 @@ Verificar se as principais regras semânticas usadas na geração do dataset apa
 #### Relação 8 — GPU Sharing Mode × GPU Utilization
 
 <div align="center">
-  <img src="../análise_calil/imagens/gpuSharexGpuUtil.png">
+  <img src="../../imagens/prints_weka/teste_piloto/analise_02/gpuSharexGpuUtil.png">
 </div>
 
 ----
