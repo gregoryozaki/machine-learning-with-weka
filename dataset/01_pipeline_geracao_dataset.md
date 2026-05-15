@@ -1,6 +1,6 @@
 # Pipeline Metodológico de Geração do Dataset
 
-O pipeline de geração foi baseado nas práticas encontradas no MSL (Eixo 3 — Geração de Datasets Sintéticos com LLM), especialmente em estudos sobre geração de datasets sintéticos com LLMs, dados tabulares, validação, controle de qualidade e documentação.
+O pipeline de geração foi baseado nas práticas encontradas no [MSL](/mapeamento_sistematico/protocolo_msl.md), especialmente em estudos sobre geração de datasets sintéticos com LLMs, dados tabulares, validação, controle de qualidade e documentação.
 
 O processo está organizado nas seguintes etapas:
 
@@ -22,7 +22,7 @@ O processo está organizado nas seguintes etapas:
 
 **Artefato gerado:**
 
-* [README](/README.md),[engenharia de atributos](/engenharia_atributos.md).
+* [engenharia de atributos](/engenharia_atributos.md).
 
 **Justificativa:**
 
@@ -75,7 +75,7 @@ Valores faltantes, ruído e outliers são requisitos do trabalho e também simul
 
 ### Etapa 4 — Construção dos Prompts
 
-**Objetivo:** criar prompts estruturados para orientar a geração dos dados.
+**Objetivo:** criar prompts estruturados para orientar a geração dos dados, será usada a LLM **ChatGPT**.
 
 **O que será feito:**
 
@@ -90,7 +90,7 @@ Valores faltantes, ruído e outliers são requisitos do trabalho e também simul
 
 **Artefatos gerados:**
 
-* [prompts utiliados para geração de dataset](/prompts/prompts_utilizados.txt);
+* [prompts utiliados para geração de dataset](/prompts/geraracao_dataset/prompts_utilizados.md);
 
 **Justificativa:**
 
@@ -113,8 +113,7 @@ A literatura analisada no MSL 3 aponta que prompts estruturados, com esquema, re
 
 **Artefato gerado:**
 
-* primeira amostra sintética;
-* registro dos ajustes feitos nos prompts.
+* [amostras](/dataset/dados/amostras/)
 
 **Justificativa:**
 
@@ -134,17 +133,9 @@ A geração de uma amostra inicial reduz o risco de gerar um dataset completo co
 * gerar registros por classe ou por cenário;
 * consolidar os lotes em um único arquivo.
 
-**Estratégia sugerida:**
-
-| Classe   | Quantidade aproximada |
-| -------- | --------------------: |
-| baixo    |             preencher |
-| moderado |             preencher |
-| alto     |             preencher |
-
 **Artefato gerado:**
 
-* `dataset_original.arff`.
+* [`dataset_original.arff`](/dataset/dataset_original.arff).
 
 **Justificativa:**
 
@@ -166,7 +157,7 @@ A geração por classe ou cenário ajuda a controlar a distribuição da classe-
 
 **Artefato gerado:**
 
-* seção de registro de faltantes, ruído e outliers neste documento.
+* [04_planejamento_anomalias_inconsistencias](/dataset/04_planejamento_anomalias_inconsistencias.md)
 
 **Justificativa:**
 
@@ -192,13 +183,9 @@ O enunciado do trabalho exige que o dataset contenha valores faltantes, ruído e
 * verificar se há valores incompatíveis com o tipo do atributo;
 * verificar se as principais regras semânticas foram respeitadas.
 
-**Importante:**
-
-Esta etapa **não corresponde ao pré-processamento formal**. Valores faltantes, ruído e outliers planejados não devem ser removidos nesta fase, pois fazem parte do dataset original.
-
 **Artefatos gerados:**
 
-* `dataset_original.arff`.
+* [`dataset_original.arff`](/dataset/dataset_original.arff).
 
 ---
 

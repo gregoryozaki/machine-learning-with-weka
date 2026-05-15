@@ -1,12 +1,12 @@
 # Classificação do Nível de Risco de Desperdício Ambiental em Racks de Datacenters Voltados a Cargas de IA com Algoritmos de Aprendizado de Máquina
 
-Gregory Gabriel Ozaki Coelho¹, Ana Paula Guimarães Xavier 2¹, Tiago de Mendonça Santos 3¹, Gabriel Batista dos Santos 4¹, Calil Lima 5¹, Wamberson Pacheco Araújo 6¹
+Gregory Gabriel Ozaki Coelho¹, Ana Paula Guimarães Xavier 2¹, Tiago dos Santos Mendonça 3¹, Gabriel Batista dos Santos 4¹, Calil Lima Pereira 5¹, Wamberson Pacheco Araújo 6¹
 
 ¹Instituto de Ciências Exatas e Tecnologia — Universidade Federal do Amazonas (ICET/UFAM)  
 Itacoatiara — AM — Brasil
 
 ```bash
-{gregory.coelho, tiago.santos, ana.xavier, gabriel-batista.santos, calil.lima, wamberson.pacheco}@ufam.edu.br
+{gregory.coelho, tiago.mendonca, ana.xavier, gabriel-batista.santos, calil.lima, wamberson.pacheco}@ufam.edu.br
 ```
 
 ## Resumo
@@ -22,6 +22,8 @@ O crescimento de aplicações baseadas em inteligência artificial tem ampliado 
 The growth of artificial intelligence applications has increased the demand for computational infrastructure in data centers, raising energy consumption, cooling requirements, and the environmental impact associated with server and rack operation. In this context, this work presents the construction and evaluation of a synthetic dataset for classifying the environmental waste risk level in data center racks designed for AI workloads. Each instance represents a rack during one hour of operation, described by energy, thermal, environmental, computational, and operational attributes. The dataset was generated with the support of LLMs, following semantic rules and including missing values, noise, interpretable outliers, and irrelevant attributes to enable a complete preprocessing stage. The experiment was conducted in Weka, involving pilot testing, preprocessing, data visualization, and classifier training. The evaluated algorithms were `ZeroR`, `OneR`, `NaiveBayes`, `J48`, `RandomForest`, `IBk`, and `SMO`, using 10-fold cross-validation. The results showed that `RandomForest` with `numTrees = 200`, applied to the complete preprocessed dataset, achieved the best overall performance, with 91.9881% accuracy, 0.8769 Kappa, 0.920 weighted F1-score, and 0.975 recall for the `alto` class. The results indicate that combining energy, thermal, and operational attributes enables consistent classification of environmental waste risk in the experimental scenario analyzed.
 
 **Keywords:** Data centers; Environmental waste; Machine learning; Weka; Synthetic dataset; Artificial intelligence.
+
+---
 
 ## 1. Introdução
 
