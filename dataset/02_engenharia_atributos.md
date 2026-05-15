@@ -159,3 +159,33 @@ A seleção dos atributos considerou:
 | 28 | Cor da Etiqueta do Rack | `rack_label_color` | `cor_etiqueta_rack` | N/A | Categórico | Controle / Irrelevante | `blue`, `green`, `yellow`, `red`, `white` |
 | 29 | Zona de Inventário do Rack | `rack_inventory_zone` | `zona_inventario_rack` | N/A | Categórico | Controle / Irrelevante | `zone_a`, `zone_b`, `zone_c`, `zone_d` |
 | 30 | Nível de Risco de Desperdício Ambiental | `environmental_waste_risk_level` | `nivel_risco_desperdicio_ambiental` | N/A | Categórico | Classe | `baixo`, `moderado`, `alto` |
+
+## Referencial
+
+CHINNICI, A.; AHMADZADA, E.; KOR, A.-L.; DE CHIARA, D.; DOMÍNGUEZ-DÍAZ, A.; DE MARCOS ORTEGA, L.; CHINNICI, M. Towards Sustainability and Energy Efficiency Using Data Analytics for HPC Data Center. Electronics, v. 13, n. 17, artigo 3542, 2024. DOI: 10.3390/electronics13173542.
+
+CHUNG, H.; IM, Y.; PARK, J.; LEE, T.; KIM, T.-Y.; KIM, H.; LEE, D. Power Consumption Optimization of GPU Server With Offline Reinforcement Learning. IEEE Access, v. 13, 2025. DOI: 10.1109/ACCESS.2025.3569803.
+
+CRUZES, S. Data Centers in the Age of AI: A Tutorial Survey on Infrastructure, Sustainability, and Emerging Challenges. TechRxiv, 2025. DOI: 10.36227/techrxiv.176158592.23065552.
+
+FERRAZ, I. Green AI: métricas para eficiência energética e sustentabilidade dos algoritmos de inteligência artificial e data centers. Revista Brasileira de Gestão Ambiental e Sustentabilidade, v. 11, n. 29, p. 1255-1265, 2024. DOI: 10.21438/rbgas(2024)112914.
+
+ISMAIL, L.; MATERWALA, H. Computing Server Power Modeling in a Data Center: Survey, Taxonomy, and Performance Evaluation. ACM Computing Surveys, v. 53, n. 3, artigo 58, 2020. DOI: 10.1145/3390605.
+
+JACQUET, P.; AGUSTI, M.; CARON, E.; COTI, C.; DIAS DE ASSUNÇÃO, M.; LEFÈVRE, L.; ORGERIE, A.-C. Untangling GPU Power Consumption: Job-Level Inference in Cloud Shared Settings. In: EUROPEAN CONFERENCE ON COMPUTER SYSTEMS, EuroSys ’26, 2026, Edinburgh. Proceedings [...]. New York: ACM, 2026. DOI: 10.1145/3767295.3769333.
+
+KANG, D.-K.; LEE, K.-B.; KIM, Y.-C. Cost Efficient GPU Cluster Management for Training and Inference of Deep Learning. Energies, v. 15, n. 2, artigo 474, 2022. DOI: 10.3390/en15020474.
+
+KHAN, W.; DE CHIARA, D.; KOR, A.-L.; CHINNICI, M. Advanced data analytics modeling for evidence-based data center energy management. Physica A: Statistical Mechanics and its Applications, v. 624, artigo 128966, 2023. DOI: 10.1016/j.physa.2023.128966.
+
+LAI, R.; CAO, S.; LI, L.; MAI, L.; USTIUGOV, D. Manage the Workloads, not the Cluster: Designing a Control Plane for Large-Scale AI Clusters. In: WORKSHOP ON MACHINE LEARNING AND SYSTEMS, EuroMLSys ’25, 5., 2025, Rotterdam. Proceedings [...]. New York: ACM, 2025. DOI: 10.1145/3721146.3721937.
+
+LIAO, X.; LI, Y.; ZHANG, S.; WEI, X.; HU, J. Predicting GPU Training Energy Consumption in Data Centers Using Task Metadata via Symbolic Regression. Energies, v. 19, n. 2, artigo 448, 2026. DOI: 10.3390/en19020448.
+
+MUGHEES, M.; LI, Y.; CHEN, Y.; LI, Y. R. Short-Term Load Forecasting for AI-Data Center. Edmonton: University of Alberta, 2025.
+
+SUNKARA, K. C.; NARUKULLA, K. Power Consumption and Heat Dissipation in AI Data Centers: A Comparative Analysis. International Journal of Innovative Research in Science, Engineering and Technology, v. 14, n. 2, 2025. DOI: 10.15680/IJIRSET.2025.1402015.
+
+YOU, J.; CHUNG, J.-W.; CHOWDHURY, M. Zeus: Understanding and Optimizing GPU Energy Consumption of DNN Training. In: USENIX SYMPOSIUM ON NETWORKED SYSTEMS DESIGN AND IMPLEMENTATION, NSDI ’23, 20., 2023. Proceedings [...]. Berkeley: USENIX Association, 2023.
+
+YE, Z.; GAO, W.; HU, Q.; SUN, P.; WANG, X.; LUO, Y.; ZHANG, T.; WEN, Y. Deep Learning Workload Scheduling in GPU Datacenters: A Survey. ACM Computing Surveys, v. 56, n. 6, p. 1-38, 2024. DOI: 10.1145/3638757.
