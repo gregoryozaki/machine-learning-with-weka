@@ -228,3 +228,13 @@ Esta etapa **não corresponde ao pré-processamento formal**. Valores faltantes,
 * `imagens/pipeline_geracao.png`.
 
 ---
+
+### Referencial
+
+KIM, J.; KIM, T.; CHOO, J. EPIC: Effective Prompting for Imbalanced-Class Data Synthesis in Tabular Data Classification via Large Language Models. arXiv preprint arXiv:2404.12404, 2024.
+
+LIU, S.; ZHENG, Y.; ZHANG, Y. StructSynth: Leveraging LLMs for Structure-Aware Tabular Data Synthesis in Low-Data Regimes. arXiv preprint arXiv:2508.02601, 2025.
+
+ILATY, A.; SHIRAZI, H.; HOMAYOUNI, H. SynLLM: A Comparative Analysis of Large Language Models for Medical Tabular Synthetic Data Generation via Prompt Engineering. arXiv preprint arXiv:2508.08529, 2025.
+
+LONG, L. et al. On LLMs-Driven Synthetic Data Generation, Curation, and Evaluation: A Survey. In: FINDINGS OF THE ASSOCIATION FOR COMPUTATIONAL LINGUISTICS: ACL 2024. Bangkok: Association for Computational Linguistics, 2024. p. 11065-11082. DOI: 10.18653/v1/2024.findings-acl.658.
