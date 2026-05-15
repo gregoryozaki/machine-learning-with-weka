@@ -361,21 +361,3 @@ matriz de confusão
 erros críticos envolvendo a classe alto
 ```
 
----
-
-## 12. Resultado esperado da etapa
-
-Ao final desta etapa, espera-se obter:
-
-* resultados organizados por algoritmo;
-* comparação entre os dois datasets;
-* comparação com `ZeroR` e `OneR`;
-* análise das matrizes de confusão;
-* avaliação do ajuste de hiperparâmetros em `RandomForest` e `IBk`;
-* identificação do algoritmo mais adequado para classificar o risco de desperdício ambiental.
-
-A síntese geral será registrada em:
-
-```bash
-treino_teste/02_analise_resultados.md
-```

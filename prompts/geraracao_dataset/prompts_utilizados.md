@@ -1,10 +1,10 @@
-Prompts Utilizados para Geração do Dataset Sintético
+# Prompts Utilizados para Geração do Dataset Sintético
 
-Prompt 01 — Geração de Amostra Inicial
+## Prompt 01 - Geração de Amostra Inicial
 
 Objetivo: gerar uma amostra pequena para testar estrutura, atributos, faixas, categorias e coerência semântica.
 
-
+```bash
 "Você deve gerar uma amostra sintética em formato CSV para um dataset de classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
 Cada linha representa um rack de datacenter em uma hora de operação.
 A classe-alvo é: 'environmental_waste_risk_level'
@@ -145,13 +145,13 @@ Regras de formatação:
 - Use ponto decimal, não vírgula decimal.
 - Não use separador de milhar.
 - Não escreva explicações."
+```
 
-
-Prompt 02 — Revisão da Amostra Inicial
+## Prompt 02 - Revisão da Amostra Inicial
 
 Objetivo: verificar se a amostra inicial está estrutural e semanticamente correta antes da geração completa.
 
-
+```bash
 "Analise a amostra CSV fornecida abaixo e verifique se ela está adequada para o dataset sintético sobre classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
 Verifique:
 1. Se todas as colunas esperadas estão presentes.
@@ -172,11 +172,11 @@ Responda em formato de relatório curto, com:
 - Veredito: aprovado ou precisa ajustar.
 
 Amostra CSV:
-[COLE A AMOSTRA AQUI]"
+```
 
+## Prompt 03 - Segunda Amostra
 
-Prompt 03 - Segunda Amostra
-
+```bash
 "Você deve gerar uma segunda amostra sintética em formato CSV para um dataset de classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
 
 Cada linha representa um rack de datacenter em uma hora de operação.
@@ -361,18 +361,18 @@ Regras de formatação:
 - Não use separador de milhar.
 - Não escreva explicações.
 - Não use markdown."
+```
 
-Prompt 03 — Geração Completa do Dataset Base por Classe
+## Prompt 04 - Geração Completa do Dataset Base por Classe
 
 Objetivo: gerar os lotes principais do dataset, ainda sem valores faltantes, ruído ou outliers planejados.
 
-Use este prompt três vezes:
+Usdo 3 vezes:
 * uma para `baixo`;
 * uma para `moderado`;
 * uma para `alto`.
 
-Sugestão: gerar 200 registros por classe, totalizando 600 registros.
-
+```bash
 
 "Você deve gerar um lote sintético em formato CSV para um dataset de classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
 Cada linha representa um rack de datacenter em uma hora de operação.
@@ -513,11 +513,14 @@ Regras de formatação:
 - Use ponto decimal, não vírgula decimal.
 - Não use separador de milhar.
 - Não escreva explicações."
+```
 
 
-Prompt 04 — Consolidação dos Lotes
+## Prompt 05 - Consolidação dos Lotes
 
 Objetivo: juntar os lotes gerados por classe em um único CSV, mantendo cabeçalho único.
+
+```bash
 
 "Você receberá três lotes CSV de um dataset sintético.
 Sua tarefa é consolidar os lotes em um único CSV.
@@ -530,25 +533,15 @@ Regras:
 5. Não remova colunas.
 6. Não altere os valores das linhas.
 7. Não escreva explicações.
-8. Retorne somente o CSV consolidado.
+8. Retorne somente o CSV consolidado."
 
-Lote 1:
+```
 
-[COLE O LOTE DA CLASSE BAIXO AQUI]
-
-Lote 2:
-
-[COLE O LOTE DA CLASSE MODERADO AQUI]
-
-Lote 3:
-
-[COLE O LOTE DA CLASSE ALTO AQUI]"
-
-
-Prompt 05 — Inserção Controlada de Valores Faltantes, Ruído e Outliers
+## Prompt 06 - Inserção Controlada de Valores Faltantes, Ruído e Outliers
 
 Objetivo: aplicar a estratégia de anomalias e inconsistências ao dataset base já consolidado.
 
+```bash
 "Você receberá um dataset sintético em CSV sobre racks de datacenters voltados a cargas de IA.
 Sua tarefa é aplicar, de forma controlada, valores faltantes, ruído e outliers, preservando a estrutura do dataset.
 
@@ -631,13 +624,15 @@ Formato de saída:
 - Não use markdown.
 - Não resuma o dataset.
 
-Dataset base:
+Dataset base:"
 
-[COLE O DATASET BASE CONSOLIDADO AQUI]"
+```
 
-Prompt 06 — Validação Estrutural e Semântica do Dataset Final
+## Prompt 07 - Validação Estrutural e Semântica do Dataset Final
 
 Objetivo: auditar o dataset depois da inserção de valores faltantes, ruído e outliers.
+
+```bash
 
 "Analise o dataset CSV fornecido abaixo e verifique se ele atende aos requisitos definidos para o dataset sintético de classificação do nível de risco de desperdício ambiental em racks de datacenters voltados a cargas de IA.
 Verifique:
@@ -665,13 +660,15 @@ Responda com:
 - Correções recomendadas;
 - Veredito final: aprovado, aprovado com ressalvas ou reprovado.
 
-Dataset CSV:
+Dataset CSV:"
 
-[COLE O DATASET FINAL AQUI]"
+```
 
-Prompt 07 — Geração do Cabeçalho ARFF
+## Prompt 08 — Geração do Cabeçalho ARFF
 
 Objetivo: gerar a estrutura ARFF compatível com Weka.
+
+```bash
 
 "Gere apenas o cabeçalho ARFF para o dataset abaixo.
 
@@ -750,3 +747,4 @@ Regras:
 - Inclua a linha @data ao final.
 - Não inclua linhas de dados.
 - Não escreva explicações."
+```
